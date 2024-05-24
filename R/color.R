@@ -25,7 +25,7 @@ getAvgHex <- function(...) {
 #'
 #' @param hex Hex color values as characters.
 #' @param scaleFactor A numeric value to scale the brightness. A value of 1 returns the original color.
-#' 
+#'
 #' @return A hex color value with adjusted brightness.
 #' @export
 #' @keywords color

@@ -7,7 +7,7 @@
 initTestthat(
   rDir = "R",
   testDir = "tests/testthat",
-  ignore = c("-package.R$", "-class.R$", "data.R$", "zzz.R")
+  ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")
 )
 }
 \arguments{

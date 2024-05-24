@@ -9,12 +9,12 @@ createHash(keys, init_vals = NULL)
 \arguments{
 \item{keys}{A vector of keys for the hash table.}
 
-\item{init_vals}{Optional initial values for the hash table.}
+\item{init_vals}{Optional initial value for the hash table.}
 }
 \value{
 A hash table with the specified keys and initial values.
 }
 \description{
-This function creates a hash table from a set of keys and optional initial values.
+This function creates a hash table from a set of keys and optional initial value.
 }
 \keyword{dataInitialization}
