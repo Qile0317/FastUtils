@@ -1,7 +1,6 @@
 #include <Rcpp.h>
 #include <unordered_map>
 #include <string>
-#include "math.h"
 
 // assumes x > 1
 // [[Rcpp::export]]

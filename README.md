@@ -23,8 +23,6 @@ library(FastUtils)
 
 Github pull requests from forked branches are more than welcome as it is mostly a solo-project at the moment. For major changes, please open an issue first to discuss what you would like to change. Please also make sure to update tests as appropriate.
 
-An explanation of the algorithms will eventually be made publicly available in a either a pre-print or developer vignette.
-
 ## Contact
 
 Qile Yang - qile.yang \[at\] berkeley.edu
