@@ -1,5 +1,11 @@
-#' @title Get the xmin, xmax, ymin, ymax of a ggplot object
-#' @return list(xr = c(xmin, xmax), yr = c(ymin, ymax))
+#' Get the xmin, xmax, ymin, ymax of a ggplot Object
+#'
+#' This function retrieves the minimum and maximum x and y dimensions of a ggplot object.
+#'
+#' @param plt A ggplot object.
+#' 
+#' @return A list with elements `xr` (a vector of xmin and xmax) and `yr` (a vector of ymin and ymax).
+#' @keywords ggplot
 #' @noRd
 getPlotDims <- function(plt) {
     built_plt_layout <- ggplot2::ggplot_build(plt)$layout

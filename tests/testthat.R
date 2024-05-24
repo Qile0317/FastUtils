@@ -7,6 +7,5 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(ArrayStats)
 
-test_check("ArrayStats")
+test_check("FastUtils")

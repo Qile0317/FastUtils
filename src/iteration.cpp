@@ -2,7 +2,6 @@
 #include <unordered_map>
 #include <string>
 
-// assumes x > 1
 // [[Rcpp::export]]
 std::vector<std::vector<int>> rcppGetUniquePairsUpTo(int x, bool oneIndexed) {
 
