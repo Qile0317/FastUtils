@@ -1,4 +1,4 @@
-# ArrayStats
+# FastUtils
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Qile0317/FastUtils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Qile0317/FastUtils/actions/workflows/R-CMD-check.yaml)
