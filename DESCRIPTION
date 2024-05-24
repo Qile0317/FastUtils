@@ -5,7 +5,7 @@ Version: 0.1.0
 Date: 2024-05-23
 Authors@R: c(person("Qile", "Yang", email = "qile.yang@berkeley.edu", role = c("cre","aut","cph")))
 Maintainer: Qile Yang <qile.yang@berkeley.edu>
-Description:  for general use. All functions have vectorized implementations whenever possible.
+Description: for general use. All functions have vectorized implementations whenever possible.
 BugReports: https://github.com/Qile0317/FastUtils/issues/
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -18,6 +18,7 @@ Imports:
     usethis
 LinkingTo: Rcpp
 Suggests: 
+    spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)

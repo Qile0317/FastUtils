@@ -1,3 +1,6 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("Create a Mutator Function", {
+  mutator <- createMutator(function(x, y) x + y)
+  var <- 5
+  mutator(var, 3)
+  expect_equal(var, 8)
 })

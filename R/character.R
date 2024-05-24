@@ -5,7 +5,7 @@
 #' @param x A character string from which the substring is extracted.
 #' @param start The starting position for the substring extraction.
 #' @param endDiff The difference to subtract from the string length to determine the end position.
-#' 
+#'
 #' @return A substring of the input character string.
 #' @export
 #' @keywords character

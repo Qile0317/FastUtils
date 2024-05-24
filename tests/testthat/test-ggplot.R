@@ -1,3 +1,5 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("Get the xmin, xmax, ymin, ymax of a ggplot Object", {
+    result <- getPlotDims(ggplot(data.frame(x = c(1, 2, 3), y = c(1, 2, 3)), aes(x, y)) + geom_point())
+    expect_equal(result$xr, c(1, 3))
+    expect_equal(result$yr, c(1, 3))
 })

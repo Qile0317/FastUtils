@@ -1,0 +1,6 @@
+bibentry(
+  bibtype  = "manual",
+  title    = FastUtils,
+  author   = Qile Yang,
+  year     = 2024
+)

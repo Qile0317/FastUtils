@@ -10,19 +10,20 @@
 #' 
 #' @source \url{https://stackoverflow.com/questions/649454}
 getAvgHex <- function(...) {
-    Reduce(function(hex1, hex2) {
-        grDevices::rgb(
-            t((grDevices::col2rgb(hex1) + grDevices::col2rgb(hex2)) / 2),
-            maxColorValue = 255
-        )
-    }, unlist(list(...)))
+    grDevices::rgb(
+        round(t(Reduce(
+            function(x, y) (x+y)/2,
+            lapply(unlist(list(...)), grDevices::col2rgb)
+        ))),
+        maxColorValue = 256
+    )
 }
 
 #' Scale the Brightness of a Hex Color
 #'
 #' This function scales the brightness of a hex color by a given factor.
 #'
-#' @param hex A hex color value as a character string.
+#' @param hex Hex color values as characters.
 #' @param scaleFactor A numeric value to scale the brightness. A value of 1 returns the original color.
 #' 
 #' @return A hex color value with adjusted brightness.

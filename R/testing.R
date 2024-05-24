@@ -12,7 +12,7 @@
 initTestthat <- function(
     rDir = "R",
     testDir = "tests/testthat",
-    ignore = c("-package.R$", "-class.R$", "data.R$", "zzz.R")
+    ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")
 ) {
 
     if (!dir.exists(testDir)) usethis::use_testthat()
@@ -27,4 +27,8 @@ initTestthat <- function(
         }
 
     }
+}
+
+test_quietly_that <- function(desc, code) {
+	test_that(desc, {quietly(code)})
 }
