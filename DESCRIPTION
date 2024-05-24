@@ -1,6 +1,6 @@
 Package: FastUtils
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Title: Fast, readable utility functions.
 Version: 0.1.0
 Date: 2024-05-23
 Authors@R: c(person("Qile", "Yang", email = "qile.yang@berkeley.edu", role = c("cre","aut","cph")))
@@ -15,6 +15,7 @@ Imports:
     data.table,
     dplyr,
     ggplot2,
+    hash,
     Rcpp (>= 1.0.12)
 LinkingTo: Rcpp
 Suggests: 

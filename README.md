@@ -5,7 +5,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Qile0317/FastUtils/blob/main/LICENSE.md)
 <!-- badges: end -->
 
-R package for readable, and fast utility functions.
+R package for fast, readable utility functions.
 
 ## Installation
 

@@ -5,6 +5,13 @@ getUniquePairsUpTo <- function(x, oneIndexed = TRUE) {
 }
 
 #' @export
+getlast <- function(x, n = 1) {
+    index <- length(x) - n + 1
+    if (is.list(x)) return(x[[index]])
+    x[index]
+}
+
+#' @export
 zip <- function(...) mapply(list, ..., SIMPLIFY = FALSE)
 
 #' @export
