@@ -15,11 +15,11 @@ Imports:
     ggplot2,
     hash,
     Rcpp (>= 1.0.12),
+    testthat,
     usethis
 LinkingTo: Rcpp
 Suggests: 
-    spelling,
-    testthat (>= 3.0.0)
+    spelling
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1

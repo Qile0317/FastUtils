@@ -4,7 +4,12 @@ Mutator
 Testthat
 berkeley
 edu
+ggplot
 mutator
 qile
 testthat
 vectorized
+xmax
+xmin
+ymax
+ymin

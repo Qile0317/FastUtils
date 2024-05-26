@@ -19,6 +19,10 @@ devtools::install_github("Qile0317/FastUtils")
 library(FastUtils)
 ```
 
+### Package Conventions
+
+Almost all exported functions and parameters are named with `camelCase`, with the exception of those that try to modify or add on to existing functions from other packages with established ecosystems such as `testthat`.
+
 ## Contributing
 
 Github pull requests from forked branches are more than welcome as it is mostly a solo-project at the moment. For major changes, please open an issue first to discuss what you would like to change. Please also make sure to update tests as appropriate.

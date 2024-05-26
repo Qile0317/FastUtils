@@ -1,10 +1,16 @@
 #' Initialize Testthat Files
 #'
-#' This function scans all files in the specified R directory, excluding some based on the patterns provided in the `ignore` argument, and creates `testthat` files if they are missing.
+#' This function scans all files in the specified R directory based on its name,
+#' excluding some based on the patterns provided in the `ignore` argument,
+#' and creates `testthat` files if they are missing. Useful for when many source
+#' code files were created from rapid development and unit testing has yet to be
+#' setup.
 #'
 #' @param rDir The directory containing R source files. Default is "R".
 #' @param testDir The directory where `testthat` files should be created. Default is "tests/testthat".
-#' @param ignore A character vector specifying regex patterns of files to ignore.
+#' @param .ignore A character vector specifying regex patterns of files to ignore. Defaults
+#' to common patterns `c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")`
+#' @param ignore A character vector of extra regex patterns of R files to ignore
 #' 
 #' @return No return value, called for side effects.
 #' @export
@@ -19,7 +25,8 @@
 initTestthat <- function(
     rDir = "R",
     testDir = "tests/testthat",
-    ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")
+    .ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$"),
+    ignore = NULL
 ) {
 
     if (!dir.exists(testDir)) usethis::use_testthat()
@@ -53,5 +60,5 @@ initTestthat <- function(
 #'   expect_equal(1 + 1, 2)
 #' })
 test_quietly_that <- function(desc, code) {
-    test_that(desc, {quietly(code)})
+    testthat::test_that(desc, {quietly(code)})
 }
