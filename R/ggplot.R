@@ -11,8 +11,9 @@
 #' @export
 #' @keywords ggplot
 #' @examples
+#' library(ggplot2)
 #' getPlotDims(ggplot(mtcars) + geom_point(aes(mpg, cyl)))
-#' 
+#'
 getPlotDims <- function(plt) {
     built_plt_layout <- ggplot2::ggplot_build(plt)$layout
     list(

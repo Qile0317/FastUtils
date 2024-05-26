@@ -1,3 +1,47 @@
 url: https://qile0317.github.io/FastUtils/
 template:
   bootstrap: 5
+
+reference:
+- title: math
+- contents:
+  - has_keyword("math")
+- title: spelling
+- contents:
+  - has_keyword("spelling")
+- title: wrangling
+- contents:
+  - has_keyword("wrangling")
+- title: dataInitialization
+- contents:
+  - has_keyword("dataInitialization")
+- title: higherOrderFunctions
+- contents:
+  - has_keyword("higherOrderFunctions")
+- title: character
+- contents:
+  - has_keyword("character")
+- title: iteration
+- contents:
+  - has_keyword("iteration")
+- title: internal
+- contents:
+  - has_keyword("internal")
+- title: color
+- contents:
+  - has_keyword("color")
+- title: indexing
+- contents:
+  - has_keyword("indexing")
+- title: packageDevelopment
+- contents:
+  - has_keyword("packageDevelopment")
+- title: ggplot
+- contents:
+  - has_keyword("ggplot")
+- title: testing
+- contents:
+  - has_keyword("testing")
+- title: interactivity
+- contents:
+  - has_keyword("interactivity")

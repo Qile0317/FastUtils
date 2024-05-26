@@ -2,8 +2,8 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/Qile0317/FastUtils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Qile0317/FastUtils/actions/workflows/R-CMD-check.yaml)
-[![MIT license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Qile0317/FastUtils/blob/main/LICENSE.md)
 [![Codecov test coverage](https://codecov.io/gh/Qile0317/FastUtils/branch/main/graph/badge.svg)](https://app.codecov.io/gh/Qile0317/FastUtils?branch=main)
+[![MIT license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Qile0317/FastUtils/blob/main/LICENSE.md)
 <!-- badges: end -->
 
 R package for fast, readable utility functions for general use. All functions have vectorized implementations whenever possible.

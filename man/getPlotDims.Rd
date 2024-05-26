@@ -19,6 +19,7 @@ of the actual output image itself. This may be useful for numerical computations
 modifying plots, but can be slow since it builds the actual plot first.
 }
 \examples{
+library(ggplot2)
 getPlotDims(ggplot(mtcars) + geom_point(aes(mpg, cyl)))
 
 }
