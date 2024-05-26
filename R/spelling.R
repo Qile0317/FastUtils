@@ -8,6 +8,9 @@
 #' @return The character at the specified index.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Get the character at index 2
+#' getChar("hello", 2)
 getChar <- function(x, index) {
     substr(x, index, index)
 }
@@ -21,6 +24,11 @@ getChar <- function(x, index) {
 #' @return TRUE if the character is a vowel, FALSE otherwise.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Check if 'a' is a vowel
+#' isVowel("a")
+#' # Check if 'b' is a vowel
+#' isVowel("b")
 isVowel <- function(x) {
     tolower(x) %in% c("a", "e", "i", "o", "u")
 }
@@ -34,6 +42,11 @@ isVowel <- function(x) {
 #' @return TRUE if the string starts with a vowel, FALSE otherwise.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Check if "apple" starts with a vowel
+#' startsWithVowel("apple")
+#' # Check if "banana" starts with a vowel
+#' startsWithVowel("banana")
 startsWithVowel <- function(x) {
     isVowel(getChar(x, 1))
 }
@@ -47,6 +60,11 @@ startsWithVowel <- function(x) {
 #' @return The string with an indefinite article prepended.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Prepend an indefinite article to "apple"
+#' prependIndefArticle("apple")
+#' # Prepend an indefinite article to "banana"
+#' prependIndefArticle("banana")
 prependIndefArticle <- function(x) {
     paste("a", ifelse(startsWithVowel(x), "n", ""), " ", x, sep = "")
 }
@@ -60,6 +78,9 @@ prependIndefArticle <- function(x) {
 #' @return The string with spaces removed.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Remove spaces from "hello world"
+#' stripSpaces("hello world")
 stripSpaces <- function(x) {
     gsub(" ", "", x)
 }
@@ -75,6 +96,9 @@ stripSpaces <- function(x) {
 #' @return The closest word in the set to the given word.
 #' @export
 #' @keywords spelling
+#' @examples
+#' # Find the closest word to "hello" in the set c("hallo", "hullo", "hey")
+#' closestWord("hello", c("hallo", "hullo", "hey"))
 closestWord <- function(s, strset, distFunc = utils::adist) {
 
     strset <- unique(strset)

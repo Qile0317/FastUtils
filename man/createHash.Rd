@@ -16,5 +16,12 @@ A hash table with the specified keys and initial values.
 }
 \description{
 This function creates a hash table from a set of keys and optional initial value.
+Note that it is simply a convenience wrapper for the \code{hash} package.
+}
+\examples{
+# Create a hash table with keys and no initial values
+createHash(c("a", "b", "c"))
+# Create a hash table with keys and initial value of 0
+createHash(c("a", "b", "c"), 0)
 }
 \keyword{dataInitialization}

@@ -15,4 +15,9 @@ The first value in the enumerated element.
 \description{
 This function extracts the first value from an enumerated element.
 }
+\examples{
+# Extract the first value from an enumerated element
+elem <- list(1, "a", "b")
+val1(elem)
+}
 \keyword{iteration}

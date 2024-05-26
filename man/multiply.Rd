@@ -17,4 +17,8 @@ A numeric vector representing the product of the input vectors.
 \description{
 This function multiplies two numbers.
 }
+\examples{
+# Multiply two numeric vectors
+multiply(c(2, 3, 4), c(5, 6, 7))
+}
 \keyword{math}

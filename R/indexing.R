@@ -8,6 +8,15 @@
 #' @return The last `n` elements of the input.
 #' @export
 #' @keywords indexing
+#' @examples
+#' # Get the last element of a vector
+#' getlast(c(1, 2, 3, 4, 5))
+#' # Get the last 2 elements of a vector
+#' getlast(c(1, 2, 3, 4, 5), 2)
+#' # Get the last element of a list
+#' getlast(list("a", "b", "c"))
+#' # Get the last 2 elements of a list
+#' getlast(list("a", "b", "c"), 2)
 getlast <- function(x, n = 1) {
     UseMethod("getlast")
 }
@@ -31,6 +40,15 @@ getlast.default <- function(x, n = 1) {
 #' @return The first `n` elements of the input.
 #' @export
 #' @keywords indexing
+#' @examples
+#' # Get the first element of a vector
+#' getfirst(c(1, 2, 3, 4, 5))
+#' # Get the first 2 elements of a vector
+#' getfirst(c(1, 2, 3, 4, 5), 2)
+#' # Get the first element of a list
+#' getfirst(list("a", "b", "c"))
+#' # Get the first 2 elements of a list
+#' getfirst(list("a", "b", "c"), 2)
 getfirst <- function(x, n = 1) {
     UseMethod("getfirst")
 }

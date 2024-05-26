@@ -17,4 +17,8 @@ The character at the specified index.
 \description{
 This function retrieves a character at a specific index from a string.
 }
+\examples{
+# Get the character at index 2
+getChar("hello", 2)
+}
 \keyword{spelling}

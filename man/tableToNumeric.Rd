@@ -15,4 +15,9 @@ A numeric vector with names preserved from the table.
 \description{
 This function converts a table to a numeric vector.
 }
+\examples{
+# Convert a table to numeric
+tbl <- table(c("a", "b", "a"))
+tableToNumeric(tbl)
+}
 \keyword{dataInitialization}

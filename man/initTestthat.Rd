@@ -23,4 +23,12 @@ No return value, called for side effects.
 \description{
 This function scans all files in the specified R directory, excluding some based on the patterns provided in the \code{ignore} argument, and creates \code{testthat} files if they are missing.
 }
+\examples{
+# Initialize testthat files in the default directories
+initTestthat()
+# Initialize testthat files in a custom R directory and test directory
+initTestthat(rDir = "src", testDir = "tests")
+# Initialize testthat files, ignoring additional patterns
+initTestthat(ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$", "helper-.*\\\\.R$"))
+}
 \keyword{testing}

@@ -15,4 +15,8 @@ A logical vector indicating whether each element is odd.
 \description{
 This function checks if a number is odd.
 }
+\examples{
+# Check if numbers are odd
+isOdd(c(1, 2, 3, 4))
+}
 \keyword{math}

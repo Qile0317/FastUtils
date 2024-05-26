@@ -15,4 +15,8 @@ A logical vector indicating whether each element is even.
 \description{
 This function checks if a number is even.
 }
+\examples{
+# Check if numbers are even
+isEven(c(1, 2, 3, 4))
+}
 \keyword{math}

@@ -17,4 +17,8 @@ A numeric vector representing the difference between the input vectors.
 \description{
 This function subtracts one number from another.
 }
+\examples{
+# Subtract two numeric vectors
+subtract(c(10, 20, 30), c(1, 2, 3))
+}
 \keyword{math}

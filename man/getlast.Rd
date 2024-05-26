@@ -17,4 +17,14 @@ The last \code{n} elements of the input.
 \description{
 This function retrieves the last \code{n} elements of a vector or list.
 }
+\examples{
+# Get the last element of a vector
+getlast(c(1, 2, 3, 4, 5))
+# Get the last 2 elements of a vector
+getlast(c(1, 2, 3, 4, 5), 2)
+# Get the last element of a list
+getlast(list("a", "b", "c"))
+# Get the last 2 elements of a list
+getlast(list("a", "b", "c"), 2)
+}
 \keyword{indexing}

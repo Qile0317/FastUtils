@@ -17,4 +17,8 @@ A numeric vector representing the quotient of the input vectors.
 \description{
 This function divides one number by another.
 }
+\examples{
+# Divide two numeric vectors
+divide(c(10, 20, 30), c(2, 4, 5))
+}
 \keyword{math}

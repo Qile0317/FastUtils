@@ -15,4 +15,10 @@ TRUE if the character is a vowel, FALSE otherwise.
 \description{
 This function checks if a character is a vowel.
 }
+\examples{
+# Check if 'a' is a vowel
+isVowel("a")
+# Check if 'b' is a vowel
+isVowel("b")
+}
 \keyword{spelling}

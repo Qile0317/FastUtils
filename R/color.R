@@ -2,26 +2,35 @@
 #'
 #' This function computes the average color of the provided hex color values.
 #'
-#' @param ... Hex color values as character strings.
-#' 
-#' @return A single hex color value representing the average of the input colors.
+#' @param ... Hex color values as character strings. Could also be any number
+#' of character vectors (including lists) which will all be coerced into a single
+#' characters, assuming they are valid hex codes.
+#'
+#' @return A single hex color character representing the average of the input colors.
 #' @export
 #' @keywords color
-#' 
+#'
 #' @source \url{https://stackoverflow.com/questions/649454}
+#'
+#' @examples
+#' getAvgHex("#00000", "#FF00FF")
+#' getAvgHex(c("#008040", "#00000", "#FF00FF"))
+#' getAvgHex(list("#008040", "#00000"), "#FF00FF", c("#FF00FF"))
+#' 
 getAvgHex <- function(...) {
-    grDevices::rgb(
-        round(t(Reduce(
-            function(x, y) (x+y)/2,
-            lapply(unlist(list(...)), grDevices::col2rgb)
-        ))),
-        maxColorValue = 256
-    )
+
+    hex_vector <- unlist(list(...))
+
+    Reduce(add, lapply(hex_vector, grDevices::col2rgb)) %>%
+        divide(length(hex_vector)) %>%
+        round() %>%
+        t() %>%
+        grDevices::rgb(maxColorValue = 256)
 }
 
 #' Scale the Brightness of a Hex Color
 #'
-#' This function scales the brightness of a hex color by a given factor.
+#' This function scales the brightness of hex colors by a given factor.
 #'
 #' @param hex Hex color values as characters.
 #' @param scaleFactor A numeric value to scale the brightness. A value of 1 returns the original color.
@@ -29,6 +38,9 @@ getAvgHex <- function(...) {
 #' @return A hex color value with adjusted brightness.
 #' @export
 #' @keywords color
+#' @examples
+#' scaleHex("#404040", 2)
+#' 
 scaleHex <- function(hex, scaleFactor) {
 
     if (all(scaleFactor == 1)) return(hex)

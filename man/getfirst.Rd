@@ -17,4 +17,14 @@ The first \code{n} elements of the input.
 \description{
 This function retrieves the first \code{n} elements of a vector or list.
 }
+\examples{
+# Get the first element of a vector
+getfirst(c(1, 2, 3, 4, 5))
+# Get the first 2 elements of a vector
+getfirst(c(1, 2, 3, 4, 5), 2)
+# Get the first element of a list
+getfirst(list("a", "b", "c"))
+# Get the first 2 elements of a list
+getfirst(list("a", "b", "c"), 2)
+}
 \keyword{indexing}

@@ -15,4 +15,21 @@ The result of the expression with messages suppressed and output captured.
 \description{
 This function suppresses messages and captures output from an expression.
 }
+\examples{
+
+quietly(print(1))
+
+quietly({
+    print(1)
+    print(2)
+    print(3)
+})
+
+a <- 1
+quietly({
+    a <- a + 1
+    print(a)
+})
+
+}
 \keyword{interactivity}

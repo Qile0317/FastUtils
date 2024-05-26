@@ -15,4 +15,8 @@ The string with spaces removed.
 \description{
 This function removes spaces from a character string.
 }
+\examples{
+# Remove spaces from "hello world"
+stripSpaces("hello world")
+}
 \keyword{spelling}

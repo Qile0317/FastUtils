@@ -15,6 +15,18 @@ add(x, y)
 The result of adding the two objects.
 }
 \description{
-This function adds two objects. If both objects are numeric vectors, it performs element-wise addition. If one or both objects are strings, it concatenates them. For other objects, it attempts to use the \code{+} method defined for the class of the objects.
+This function adds two objects. If both objects are numeric vectors,
+it performs element-wise addition. If one or both objects are strings,
+it concatenates them. For other objects, it attempts to use the \code{+}
+method defined for the class of the objects.
+}
+\examples{
+# Add two numeric vectors
+add(c(1, 2, 3), c(4, 5, 6))
+# Concatenate two strings
+add("hello", "world")
+# Add a number and a string (concatenation)
+add(1, " world")
+
 }
 \keyword{math}

@@ -9,6 +9,11 @@
 #' @return A numeric vector with elements bounded within the specified range.
 #' @export
 #' @keywords math
+#' 
+#' @examples
+#' bound(1, 0, 2)
+#' bound(1:10, -1, 5)
+#' 
 bound <- function(num, lowerbound, upperbound) {
     sapply(num, function(x) min(max(x, lowerbound), upperbound))
 }
@@ -20,17 +25,25 @@ bound <- function(num, lowerbound, upperbound) {
 #' @param num A numeric vector to be checked.
 #' @param lowerbound The lower bound of the range.
 #' @param upperbound The upper bound of the range.
-#' 
+#'
 #' @return A logical vector indicating whether each element is within the specified range.
 #' @export
 #' @keywords math
+#' 
+#' @examples
+#' isBound(1, 0, 2)
+#' isBound(1:10, -1, 5)
+#' 
 isBound <- function(num, lowerbound, upperbound) {
     (num >= lowerbound) & (num <= upperbound)
 }
 
 #' Add Two Objects
 #'
-#' This function adds two objects. If both objects are numeric vectors, it performs element-wise addition. If one or both objects are strings, it concatenates them. For other objects, it attempts to use the `+` method defined for the class of the objects.
+#' This function adds two objects. If both objects are numeric vectors,
+#' it performs element-wise addition. If one or both objects are strings,
+#' it concatenates them. For other objects, it attempts to use the `+`
+#' method defined for the class of the objects.
 #'
 #' @param x An object.
 #' @param y An object.
@@ -38,6 +51,15 @@ isBound <- function(num, lowerbound, upperbound) {
 #' @return The result of adding the two objects.
 #' @export
 #' @keywords math
+#' 
+#' @examples
+#' # Add two numeric vectors
+#' add(c(1, 2, 3), c(4, 5, 6))
+#' # Concatenate two strings
+#' add("hello", "world")
+#' # Add a number and a string (concatenation)
+#' add(1, " world")
+#' 
 add <- function(x, y) {
   if (is.character(x) || is.character(y)) {
     paste(x, y, sep = "")
@@ -56,6 +78,9 @@ add <- function(x, y) {
 #' @return A numeric vector representing the difference between the input vectors.
 #' @export
 #' @keywords math
+#' @examples
+#' # Subtract two numeric vectors
+#' subtract(c(10, 20, 30), c(1, 2, 3))
 subtract <- function(x, y) x - y
 
 #' Multiply Two Numbers
@@ -68,6 +93,9 @@ subtract <- function(x, y) x - y
 #' @return A numeric vector representing the product of the input vectors.
 #' @export
 #' @keywords math
+#' @examples
+#' # Multiply two numeric vectors
+#' multiply(c(2, 3, 4), c(5, 6, 7))
 multiply <- function(x, y) x * y
 
 #' Divide Two Numbers
@@ -80,6 +108,9 @@ multiply <- function(x, y) x * y
 #' @return A numeric vector representing the quotient of the input vectors.
 #' @export
 #' @keywords math
+#' @examples
+#' # Divide two numeric vectors
+#' divide(c(10, 20, 30), c(2, 4, 5))
 divide <- function(x, y) x / y
 
 #' Check if a Number is Even
@@ -91,6 +122,9 @@ divide <- function(x, y) x / y
 #' @return A logical vector indicating whether each element is even.
 #' @export
 #' @keywords math
+#' @examples
+#' # Check if numbers are even
+#' isEven(c(1, 2, 3, 4))
 isEven <- function(x) x %% 2 == 0
 
 #' Check if a Number is Odd
@@ -102,4 +136,7 @@ isEven <- function(x) x %% 2 == 0
 #' @return A logical vector indicating whether each element is odd.
 #' @export
 #' @keywords math
+#' @examples
+#' # Check if numbers are odd
+#' isOdd(c(1, 2, 3, 4))
 isOdd <- function(x) x %% 2 == 1

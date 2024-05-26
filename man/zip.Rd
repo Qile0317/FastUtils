@@ -15,4 +15,10 @@ A list of lists, where each inner list contains the elements from the correspond
 \description{
 This function combines multiple vectors or lists element-wise into a list of lists.
 }
+\examples{
+# Zip two vectors
+zip(c(1, 2, 3), c("a", "b", "c"))
+# Zip three vectors
+zip(c(1, 2), c("x", "y"), c(TRUE, FALSE))
+}
 \keyword{iteration}

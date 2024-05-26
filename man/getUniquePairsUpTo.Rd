@@ -17,4 +17,10 @@ A list of unique pairs of integers up to the specified number.
 \description{
 This function generates all unique pairs of integers up to a given number.
 }
+\examples{
+# Generate unique pairs up to 3 (one-indexed)
+getUniquePairsUpTo(3)
+# Generate unique pairs up to 3 (zero-indexed)
+getUniquePairsUpTo(3, oneIndexed = FALSE)
+}
 \keyword{iteration}

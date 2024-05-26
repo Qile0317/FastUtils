@@ -15,6 +15,10 @@ scaleHex(hex, scaleFactor)
 A hex color value with adjusted brightness.
 }
 \description{
-This function scales the brightness of a hex color by a given factor.
+This function scales the brightness of hex colors by a given factor.
+}
+\examples{
+scaleHex("#404040", 2)
+
 }
 \keyword{color}

@@ -7,4 +7,20 @@
 #' @return The result of the expression with messages suppressed and output captured.
 #' @export
 #' @keywords interactivity
-quietly <- function(e) suppressMessages(capture.output(e))
+#' @examples
+#' 
+#' quietly(print(1))
+#' 
+#' quietly({
+#'     print(1)
+#'     print(2)
+#'     print(3)
+#' })
+#' 
+#' a <- 1
+#' quietly({
+#'     a <- a + 1
+#'     print(a)
+#' })
+#'
+quietly <- function(e) suppressMessages(invisible(capture.output(e)))

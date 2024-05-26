@@ -9,6 +9,13 @@
 #' @return No return value, called for side effects.
 #' @export
 #' @keywords testing
+#' @examples
+#' # Initialize testthat files in the default directories
+#' initTestthat()
+#' # Initialize testthat files in a custom R directory and test directory
+#' initTestthat(rDir = "src", testDir = "tests")
+#' # Initialize testthat files, ignoring additional patterns
+#' initTestthat(ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$", "helper-.*\\.R$"))
 initTestthat <- function(
     rDir = "R",
     testDir = "tests/testthat",
@@ -29,6 +36,22 @@ initTestthat <- function(
     }
 }
 
+#' Run a Testthat test Quietly
+#'
+#' This function runs a `test_that` block quietly, suppressing messages and output from
+#' any verbose functions.
+#'
+#' @param desc A description of the test.
+#' @param code The code to be tested.
+#' 
+#' @return No return value, called for side effects.
+#' @export
+#' @keywords testing
+#' @examples
+#' # Run a test quietly
+#' test_quietly_that("quiet test example", {
+#'   expect_equal(1 + 1, 2)
+#' })
 test_quietly_that <- function(desc, code) {
-	test_that(desc, {quietly(code)})
+    test_that(desc, {quietly(code)})
 }

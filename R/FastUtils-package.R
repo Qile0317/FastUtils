@@ -2,6 +2,7 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom magrittr %>%
 #' @importFrom Rcpp evalCpp
 #' @useDynLib FastUtils, .registration = TRUE
 #' @exportPattern "^[[:alpha:]]+"

@@ -15,4 +15,9 @@ The index of the enumerated element.
 \description{
 This function extracts the index from an enumerated element.
 }
+\examples{
+# Extract index from an enumerated element
+elem <- list(1, "a")
+ind(elem)
+}
 \keyword{iteration}

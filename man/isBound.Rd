@@ -19,4 +19,9 @@ A logical vector indicating whether each element is within the specified range.
 \description{
 This function checks if a number is within a specified range.
 }
+\examples{
+isBound(1, 0, 2)
+isBound(1:10, -1, 5)
+
+}
 \keyword{math}

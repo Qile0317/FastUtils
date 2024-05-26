@@ -9,6 +9,14 @@
 #' @return A substring of the input character string.
 #' @export
 #' @keywords character
+#' 
+#' @seealso [substr()]
+#'
+#' @examples
+#' substrEnd("12345", 1, 1)
+#' substrEnd("12345", 1, 2)
+#' substrEnd("12345", 2, 3)
+#' 
 substrEnd <- function(x, start, endDiff) {
     substr(x, start, nchar(x) - endDiff)
 }

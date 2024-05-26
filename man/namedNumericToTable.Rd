@@ -15,4 +15,9 @@ A table with the same names and values as the input vector.
 \description{
 This function converts a named numeric vector to a table.
 }
+\examples{
+# Convert a named numeric vector to a table
+vec <- c(a = 1, b = 2, c = 3)
+namedNumericToTable(vec)
+}
 \keyword{dataInitialization}

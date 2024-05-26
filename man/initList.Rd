@@ -17,4 +17,12 @@ A list of the specified size and names, optionally initialized with a value.
 \description{
 This function initializes a list based on size or names, with an optional initial value.
 }
+\examples{
+# Create a list with 3 elements
+initList(3)
+# Create a named list initialized with NULL
+initList(c("a", "b", "c"))
+# Create a list with 2 elements initialized with 0
+initList(2, 0)
+}
 \keyword{dataInitialization}

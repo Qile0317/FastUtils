@@ -19,4 +19,10 @@ A vector of the specified type and size, optionally initialized with a value.
 \description{
 This function initializes a vector based on a specified type and size, with an optional initial value.
 }
+\examples{
+# Create a numeric vector of length 5
+initV("numeric", 5)
+# Create a logical vector of length 3 initialized with TRUE
+initV("logical", 3, TRUE)
+}
 \keyword{dataInitialization}

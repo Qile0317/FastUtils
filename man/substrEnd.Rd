@@ -19,4 +19,13 @@ A substring of the input character string.
 \description{
 This function extracts a substring from a given start position to the position determined by subtracting \code{endDiff} from the string length.
 }
+\examples{
+substrEnd("12345", 1, 1)
+substrEnd("12345", 1, 2)
+substrEnd("12345", 2, 3)
+
+}
+\seealso{
+\code{\link[=substr]{substr()}}
+}
 \keyword{character}

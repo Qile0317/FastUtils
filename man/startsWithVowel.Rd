@@ -15,4 +15,10 @@ TRUE if the string starts with a vowel, FALSE otherwise.
 \description{
 This function checks if a string starts with a vowel.
 }
+\examples{
+# Check if "apple" starts with a vowel
+startsWithVowel("apple")
+# Check if "banana" starts with a vowel
+startsWithVowel("banana")
+}
 \keyword{spelling}

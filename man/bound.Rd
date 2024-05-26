@@ -19,4 +19,9 @@ A numeric vector with elements bounded within the specified range.
 \description{
 This function bounds a number within a specified range.
 }
+\examples{
+bound(1, 0, 2)
+bound(1:10, -1, 5)
+
+}
 \keyword{math}

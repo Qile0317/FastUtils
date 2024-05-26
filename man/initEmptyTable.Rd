@@ -12,4 +12,8 @@ An empty table structure.
 \description{
 This function initializes an empty table.
 }
+\examples{
+# Create an empty table
+initEmptyTable()
+}
 \keyword{dataInitialization}

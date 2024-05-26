@@ -15,4 +15,10 @@ The string with an indefinite article prepended.
 \description{
 This function prepends an indefinite article ("a" or "an") to a string based on whether it starts with a vowel or not.
 }
+\examples{
+# Prepend an indefinite article to "apple"
+prependIndefArticle("apple")
+# Prepend an indefinite article to "banana"
+prependIndefArticle("banana")
+}
 \keyword{spelling}

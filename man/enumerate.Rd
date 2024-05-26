@@ -15,6 +15,19 @@ enumerate(..., zero_indexed = FALSE)
 A list of lists, where each inner list contains an index and the corresponding elements from the input vectors or lists.
 }
 \description{
-This function pairs elements of vectors or lists with their indices.
+This function pairs elements of vectors or lists with their indices. The output
+is meant to be used in a for loop, and each element extracted with the
+\code{\link[=ind]{ind()}}, \code{\link[=val]{val()}}, or \code{\link[=val1]{val1()}} functions.
+}
+\examples{
+# Enumerate a vector
+enumerate(c("a", "b", "c"))
+# Enumerate a vector starting from zero
+enumerate(c("a", "b", "c"), zero_indexed = TRUE)
+# Enumerate two vectors
+enumerate(c(1, 2), c("x", "y"))
+}
+\seealso{
+\code{\link[=ind]{ind()}}, \code{\link[=val]{val()}}, \code{\link[=val1]{val1()}}
 }
 \keyword{iteration}
