@@ -23,4 +23,6 @@
 #'     print(a)
 #' })
 #'
-quietly <- function(e) suppressMessages(invisible(capture.output(e)))
+quietly <- function(e) {
+    suppressMessages(invisible(utils::capture.output(e)))
+}

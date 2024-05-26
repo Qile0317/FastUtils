@@ -23,7 +23,10 @@ This function computes the average color of the provided hex color values.
 \examples{
 getAvgHex("#00000", "#FF00FF")
 getAvgHex(c("#008040", "#00000", "#FF00FF"))
-getAvgHex(list("#008040", "#00000"), "#FF00FF", c("#FF00FF"))
+
+# very nonstandard but possible way to input hexes. Essentially,
+any combination of vectors will work.
+getAvgHex(list("#008040", "#000000"), "#FF00FF", c("#FF00FF"))
 
 }
 \keyword{color}

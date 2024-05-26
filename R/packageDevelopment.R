@@ -214,7 +214,7 @@ addYMLKeywordRefs <- function(
 getExistingFilePath <- function(filePath, dir = ".") {
     if (!dir.exists(dir)) stopp("Specified directory does not exist.")
     fullFilePath <- file.path(dir, filePath)
-    if (!file.exists(fullYmlPath)) stopp("The specified file was not found.")
+    if (!file.exists(fullFilePath)) stopp("The specified file was not found.")
     fullFilePath
 }
 

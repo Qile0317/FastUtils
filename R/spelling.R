@@ -5,24 +5,30 @@
 #' any of these conventions, it returns the original string.
 #'
 #' @param x A character string or vector to be analyzed and split.
+#' @param conseq A logical indicating whether the `conseq` argument in [splitCamel()]/
+#' [splitPascal()] should be `TRUE` or `FALSE`.
+#' @param strictSnake A logical indicating the `strict` argument in [isSnakeCase()].
+#' 
 #' @return A list of character vectors, each containing the parts of the string 
 #'         split according to its naming convention or the original string if no 
 #'         convention matches.
-#' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
-#'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
-#' @examples
-#' trySplitVar("camelCaseExample")
-#' trySplitVar("PascalCaseExample")
-#' trySplitVar("snake_case_example")
-#' trySplitVar("no_special_case")
 #' @export
 #' @keywords spelling
-trySplitVar <- function(x) {
+#' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
+#'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
+#' 
+#' @examples
+#' trySplitVarStr("camelCaseExample")
+#' trySplitVarStr("PascalCaseExample")
+#' trySplitVarStr("snake_case_example")
+#' trySplitVarStr("some|random|case")
+#'
+trySplitVarStr <- function(x, conseq = TRUE, strictSnake = FALSE) {
     lapply(x, function(y) {
         if (isCamelCase(y) || isPascalCase(y)) {
-            return(unlist(splitCamel(y)))
+            return(unlist(splitCamel(y, conseq = isTRUE(conseq))))
         }
-        if (isSnakeCase(y)) {
+        if (isSnakeCase(y, strict = isTRUE(strictSnake))) {
             return(unlist(splitSnake(y)))
         }
         y
@@ -60,7 +66,8 @@ splitCamel <- function(x, conseq = TRUE) {
             perl = TRUE
         ))
     }
-    strsplit(gsub("([A-Z]{1})", " \\1", x), " ")
+    strsplit(gsub("([A-Z]{1})", " \\1", x), " ") %>%
+        lapply(function(y) if (y[1] == "") y[-1] else y)
 }
 
 #' @rdname splitCamel

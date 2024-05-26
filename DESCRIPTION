@@ -1,6 +1,6 @@
 Package: FastUtils
 Type: Package
-Title: Fast, readable utility functions.
+Title: Fast, readable utility functions
 Version: 0.1.0
 Date: 2024-05-23
 Authors@R: c(person("Qile", "Yang", email = "qile.yang@berkeley.edu", role = c("cre","aut","cph")))
@@ -17,6 +17,7 @@ Imports:
     lifecycle,
     magrittr,
     Rcpp (>= 1.0.12),
+    rlang,
     testthat,
     usethis,
     yaml
