@@ -1,5 +1,5 @@
 # Test substrEnd function
-test_that("Extract substring from start to end difference", {
+test_that("Extract substring from start to end difference works", {
 
   # Single input case
   expect_equal(substrEnd("abcdefgh", 1, 2), "abcdef")
@@ -23,4 +23,9 @@ test_that("enclose works correctly", {
 test_that("encloseBr works correctly", {
   expect_equal(encloseBr("text"), "(text)")
   expect_equal(encloseBr(c("word", "text")), c("(word)", "(text)"))
+})
+
+test_that("Get a Character at a Specific Index", {
+  expect_equal(getChar("hello", 1), "h")
+  expect_equal(getChar("hello", 5), "o")
 })

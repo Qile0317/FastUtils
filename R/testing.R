@@ -15,13 +15,15 @@
 #' @return No return value, called for side effects.
 #' @export
 #' @keywords testing
+#' 
 #' @examples
 #' # Initialize testthat files in the default directories
 #' initTestthat()
 #' # Initialize testthat files in a custom R directory and test directory
 #' initTestthat(rDir = "src", testDir = "tests")
 #' # Initialize testthat files, ignoring additional patterns
-#' initTestthat(ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$", "helper-.*\\.R$"))
+#' initTestthat(ignore = c("^foo", "-bar.R$"))
+#' 
 initTestthat <- function(
     rDir = "R",
     testDir = "tests/testthat",

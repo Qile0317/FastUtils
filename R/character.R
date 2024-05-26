@@ -52,3 +52,20 @@ enclose <- function(x, left, right) {
 encloseBr <- function(x) {
     enclose(x, "(", ")")
 }
+
+#' Get a Character at a Specific Index
+#'
+#' This function retrieves a character at a specific index from a string.
+#'
+#' @param x A character string.
+#' @param index The index of the character to retrieve.
+#' 
+#' @return The character at the specified index.
+#' @export
+#' @keywords character
+#' @examples
+#' # Get the character at index 2
+#' getChar("hello", 2)
+getChar <- function(x, index) {
+    substr(x, index, index)
+}

@@ -14,10 +14,12 @@ Imports:
     dplyr,
     ggplot2,
     hash,
+    lifecycle,
     magrittr,
     Rcpp (>= 1.0.12),
     testthat,
-    usethis
+    usethis,
+    yaml
 LinkingTo: Rcpp
 Suggests: 
     knitr,

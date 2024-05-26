@@ -1,18 +1,151 @@
-#' Get a Character at a Specific Index
+#' Try to Split Variable Names Based on Naming Convention
 #'
-#' This function retrieves a character at a specific index from a string.
+#' This function attempts to split characters into its component words based on 
+#' camelCase, PascalCase, or snake_case conventions. If the string does not match 
+#' any of these conventions, it returns the original string.
 #'
-#' @param x A character string.
-#' @param index The index of the character to retrieve.
-#' 
-#' @return The character at the specified index.
+#' @param x A character string or vector to be analyzed and split.
+#' @return A list of character vectors, each containing the parts of the string 
+#'         split according to its naming convention or the original string if no 
+#'         convention matches.
+#' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
+#'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
+#' @examples
+#' trySplitVar("camelCaseExample")
+#' trySplitVar("PascalCaseExample")
+#' trySplitVar("snake_case_example")
+#' trySplitVar("no_special_case")
+#' @export
+#' @keywords spelling
+trySplitVar <- function(x) {
+    lapply(x, function(y) {
+        if (isCamelCase(y) || isPascalCase(y)) {
+            return(unlist(splitCamel(y)))
+        }
+        if (isSnakeCase(y)) {
+            return(unlist(splitSnake(y)))
+        }
+        y
+    })
+} # TODO test
+
+#' Split CamelCase or PascalCase Strings
+#'
+#' This function splits strings formatted in camelCase or PascalCase into their component
+#' words. It can handle words where uppercase letters transition to lowercase letters, and it 
+#' is capable of handling strings with sequences of uppercase letters followed by lowercase letters,
+#' effectively separating acronyms from camelCase beginnings.
+#'
+#' @param x A character vector containing CamelCase or PascalCase strings to be split.
+#' @param conseq Logical indicating whether consecutive uppercase letters should be
+#'        treated as part of the previous word (TRUE) or as separate words (FALSE).
+#'        Default is TRUE.
+#'
+#' @return A list of character vectors, each containing the parts of the corresponding
+#'         CamelCase or PascalCase string split at the appropriate transitions.
+#'         If `conseq` is FALSE, acronyms followed by words are separated.
+#'
+#' @examples
+#' splitCamel("splitCamelCaseIntoWords")
+#' splitCamel(c("fooBar", "FOOBar", "anotherFOOBarTest"), conseq = FALSE)
+#'
+#' @export
+#' @keywords spelling
+#' @source \url{https://stackoverflow.com/questions/8406974/splitting-camelcase-in-r}
+splitCamel <- function(x, conseq = TRUE) {
+    if (isTRUE(conseq)) {
+        return(strsplit(
+            x,
+            "(?<=([A-Z])(?=[A-Z][a-z]))|(?<=[a-z])(?=[A-Z])",
+            perl = TRUE
+        ))
+    }
+    strsplit(gsub("([A-Z]{1})", " \\1", x), " ")
+}
+
+#' @rdname splitCamel
+#' @export
+splitPascal <- splitCamel
+
+#' Split Snake Case String
+#'
+#' This function splits a string formatted in snake_case into its component words,
+#' using underscores as delimiters. It is useful for parsing identifiers or variable
+#' names that follow snake_case naming conventions.
+#'
+#' @param x A character string in snake_case to be split.
+#'
+#' @return A list of character vectors, each containing the parts of the string split at underscores.
 #' @export
 #' @keywords spelling
 #' @examples
-#' # Get the character at index 2
-#' getChar("hello", 2)
-getChar <- function(x, index) {
-    substr(x, index, index)
+#' splitSnake("this_is_snake_case")
+#' splitSnake("another_example_here")
+#'
+splitSnake <- function(x) strsplit(x, "_", fixed = TRUE)
+
+#' Check if String is camelCase
+#'
+#' This function checks if a given string adheres to camelCase naming conventions,
+#' starting with a lowercase letter followed by any combination of upper and lower case letters.
+#'
+#' @param x A character string to check.
+#'
+#' @return TRUE if the string is camelCase, FALSE otherwise.
+#' @keywords spelling
+#' @export
+#' @examples
+#' isCamelCase("camelCase")   # returns TRUE
+#' isCamelCase("CamelCase")   # returns FALSE
+#' isCamelCase("camelcase")   # returns TRUE
+#'
+isCamelCase <- function(x) grepl("^[a-z]+[A-Z]?([A-Za-z]*?)$", x)
+
+#' Check if String is PascalCase
+#'
+#' This function checks if a given string adheres to PascalCase naming conventions,
+#' starting with an uppercase letter followed by any combination of upper and lower case letters.
+#'
+#' @param x A character string to check.
+#'
+#' @return TRUE if the string is PascalCase, FALSE otherwise.
+#' @keywords spelling
+#' @export
+#' @examples
+#' isPascalCase("PascalCase") # returns TRUE
+#' isPascalCase("pascalCase") # returns FALSE
+#' isPascalCase("Pascalcase") # returns FALSE
+isPascalCase <- function(x) grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
+
+#' Check if String is snake_case
+#'
+#' This function checks if a given string adheres to snake_case naming conventions.
+#' By default (strict = TRUE), it only allows lowercase letters separated by underscores.
+#' If strict is FALSE, uppercase letters are also permitted.
+#'
+#' @param x A character string to check.
+#' @param strict Logical indicating whether the string should strictly contain
+#'        only lowercase letters (TRUE) or can include uppercase letters (FALSE).
+#'        Default is TRUE.
+#'
+#' @return TRUE if the string is snake_case according to the specified strictness, FALSE otherwise.
+#' @keywords spelling
+#' @export
+#' @examples
+#' isSnakeCase("snake_case")        # returns TRUE
+#' isSnakeCase("Snake_Case")        # returns FALSE
+#' isSnakeCase("snake_case", FALSE) # returns TRUE
+#' isSnakeCase("Snake_Case", FALSE) # returns TRUE
+#' 
+isSnakeCase <- function(x, strict = TRUE) {
+    grepl(
+        ifelse(
+            isTRUE(strict),
+            "^[a-z]+(_[a-z]+)*$",
+            "^[A-Za-z]+(_[A-Za-z]+)*$"
+        ),
+        x
+    )
 }
 
 #' Check if a Character is a Vowel
@@ -47,9 +180,7 @@ isVowel <- function(x) {
 #' startsWithVowel("apple")
 #' # Check if "banana" starts with a vowel
 #' startsWithVowel("banana")
-startsWithVowel <- function(x) {
-    isVowel(getChar(x, 1))
-}
+startsWithVowel <- function(x) isVowel(getChar(x, 1))
 
 #' Prepend an Indefinite Article to a String
 #'
@@ -81,9 +212,7 @@ prependIndefArticle <- function(x) {
 #' @examples
 #' # Remove spaces from "hello world"
 #' stripSpaces("hello world")
-stripSpaces <- function(x) {
-    gsub(" ", "", x)
-}
+stripSpaces <- function(x) gsub(" ", "", x)
 
 #' Find the Closest Word in a Set to a Given Word
 #'
