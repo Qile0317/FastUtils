@@ -16,3 +16,5 @@
 ^.idea$
 [.]md$
 [.]yml$
+^codecov\.yml$
+^_pkgdown\.yml$

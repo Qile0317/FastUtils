@@ -20,3 +20,35 @@
 substrEnd <- function(x, start, endDiff) {
     substr(x, start, nchar(x) - endDiff)
 }
+
+#' Enclose String with Specified Characters
+#'
+#' This function encloses a string with specified characters on the left and the right.
+#'
+#' @param x A character string to enclose.
+#' @param left A character string to prepend.
+#' @param right A character string to append.
+#'
+#' @return A new character string with `x` enclosed by `left` and `right`.
+#' @export
+#' @keywords character
+#' @examples
+#' enclose("text", "[", "]") # returns "[text]"
+enclose <- function(x, left, right) {
+    paste(left, x, right, sep = "")
+}
+
+#' Enclose String with Brackets
+#'
+#' This function encloses a string with parentheses.
+#'
+#' @param x A character string to enclose.
+#'
+#' @return A new character string with `x` enclosed by parentheses.
+#' @export
+#' @keywords character
+#' @examples
+#' encloseBr("text") # returns "(text)"
+encloseBr <- function(x) {
+    enclose(x, "(", ")")
+}

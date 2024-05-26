@@ -1,0 +1,27 @@
+---
+title: "Installing FastUtils"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Installing FastUtils}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(FastUtils)
+```
+
+To install FastUtils, R version 3.5.0 or above is required. The free IDE Rstudio is also highly recommended.
+
+## Installation of Development Editions
+
+```R
+devtools::install_github("Qile0317/FastUtils")
+```

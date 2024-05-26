@@ -30,14 +30,15 @@ initTestthat <- function(
 ) {
 
     if (!dir.exists(testDir)) usethis::use_testthat()
+    ignore_regex <- encloseBr(paste(append(.ignore, ignore), collapse = ")|("))
 
-    for (sourceFile in list.files(rDir, full.names = TRUE)) {
+    for (sourceFile in list.files(rDir)) {
 
-        if (grepl(paste(ignore, collapse = "|"), sourceFile)) next
+        if (grepl(ignore_regex, sourceFile)) next
         fileTitle <- substrEnd(basename(sourceFile), 1, 2)
         testFilePath <- file.path(testDir, paste0("test-", fileTitle, ".R"))
         if (!file.exists(testFilePath)) {
-            usethis::use_test(fileTitle)
+            usethis::use_test(fileTitle, open = FALSE)
         }
 
     }

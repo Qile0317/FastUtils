@@ -7,7 +7,8 @@
 initTestthat(
   rDir = "R",
   testDir = "tests/testthat",
-  ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")
+  .ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$"),
+  ignore = NULL
 )
 }
 \arguments{
@@ -15,13 +16,20 @@ initTestthat(
 
 \item{testDir}{The directory where \code{testthat} files should be created. Default is "tests/testthat".}
 
-\item{ignore}{A character vector specifying regex patterns of files to ignore.}
+\item{.ignore}{A character vector specifying regex patterns of files to ignore. Defaults
+to common patterns \code{c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")}}
+
+\item{ignore}{A character vector of extra regex patterns of R files to ignore}
 }
 \value{
 No return value, called for side effects.
 }
 \description{
-This function scans all files in the specified R directory, excluding some based on the patterns provided in the \code{ignore} argument, and creates \code{testthat} files if they are missing.
+This function scans all files in the specified R directory based on its name,
+excluding some based on the patterns provided in the \code{ignore} argument,
+and creates \code{testthat} files if they are missing. Useful for when many source
+code files were created from rapid development and unit testing has yet to be
+setup.
 }
 \examples{
 # Initialize testthat files in the default directories
