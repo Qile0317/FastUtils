@@ -25,7 +25,7 @@
 #' # Initialize testthat files, ignoring additional patterns
 #' initTestthat(ignore = c("^foo", "-bar.R$"))
 #' }
-#' 
+#'
 initTestthat <- function(
     rDir = "R",
     testDir = "tests/testthat",

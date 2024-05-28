@@ -10,7 +10,16 @@ R package for fast, readable utility functions for general use. All functions ha
 
 ## Installation
 
+FastUtils is registered on CRAN. To install, try the following
+
 ```R
+install.packages("FastUtils")
+```
+
+For the latest development edition, try the following
+
+```R
+library(devtools)
 devtools::install_github("Qile0317/FastUtils")
 ```
 
@@ -19,6 +28,8 @@ devtools::install_github("Qile0317/FastUtils")
 ```R
 library(FastUtils)
 ```
+
+There is a large collection of utility functions to use. Browse the reference manual with ```help(package = "FastUtils")``` to see all functions.
 
 ### Package Conventions
 
