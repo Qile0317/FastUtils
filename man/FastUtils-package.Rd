@@ -12,6 +12,7 @@ A wide variety of tools for general data analysis, wrangling, package developmen
 Useful links:
 \itemize{
   \item \url{https://github.com/Qile0317/FastUtils}
+  \item \url{https://qile0317.github.io/FastUtils/}
   \item Report bugs at \url{https://github.com/Qile0317/FastUtils/issues/}
 }
 
