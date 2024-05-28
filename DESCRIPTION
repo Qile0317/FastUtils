@@ -1,7 +1,7 @@
 Package: FastUtils
 Type: Package
 Title: Fast, Readable Uutility Functions
-Version: 0.0.0
+Version: 0.1.0
 Date: 2024-05-23
 Authors@R: c(person("Qile", "Yang", email = "qile.yang@berkeley.edu", role = c("cre","aut","cph")))
 Maintainer: Qile Yang <qile.yang@berkeley.edu>
