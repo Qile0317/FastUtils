@@ -26,3 +26,4 @@ streamlining the output for users.
 \seealso{
 \code{\link[base]{warning}}
 }
+\keyword{packageDevelopment}

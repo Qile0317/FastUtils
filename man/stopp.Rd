@@ -26,5 +26,6 @@ The \code{domain} argument can be used to specify a translation domain.
 }
 }
 \seealso{
-\code{\link[base]{stop}}
+\code{\link[=stop]{stop()}}
 }
+\keyword{packageDevelopment}

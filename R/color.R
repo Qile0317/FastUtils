@@ -10,7 +10,7 @@
 #' @export
 #' @keywords color
 #'
-#' @source \url{https://stackoverflow.com/questions/649454}
+#' @source <https://stackoverflow.com/questions/649454>
 #'
 #' @examples
 #' getAvgHex("#00000", "#FF00FF")

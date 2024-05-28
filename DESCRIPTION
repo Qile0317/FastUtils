@@ -11,6 +11,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-US
 Imports: 
+    cli,
+    devtools,
     dplyr,
     ggplot2,
     hash,

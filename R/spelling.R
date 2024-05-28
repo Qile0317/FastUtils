@@ -1,13 +1,15 @@
-#' Try to Split Variable Names Based on Naming Convention
+#' Try to Split Names Based on Naming Convention
 #'
-#' This function attempts to split characters into its component words based on 
-#' camelCase, PascalCase, or snake_case conventions. If the string does not match 
-#' any of these conventions, it returns the original string.
+#' This function attempts to split characters into its component words (and by default,
+#' all in lowercase) based on  camelCase, PascalCase, or snake_case conventions. If
+#' the string does not match any of these conventions, it returns the original string.
 #'
 #' @param x A character string or vector to be analyzed and split.
 #' @param conseq A logical indicating whether the `conseq` argument in [splitCamel()]/
 #' [splitPascal()] should be `TRUE` or `FALSE`.
 #' @param strictSnake A logical indicating the `strict` argument in [isSnakeCase()].
+#' @param uncase A logical indicating whether to remove all casing in the output to
+#' lowercase.
 #' 
 #' @return A list of character vectors, each containing the parts of the string 
 #'         split according to its naming convention or the original string if no 
@@ -18,22 +20,24 @@
 #'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
 #' 
 #' @examples
-#' trySplitVarStr("camelCaseExample")
-#' trySplitVarStr("PascalCaseExample")
-#' trySplitVarStr("snake_case_example")
-#' trySplitVarStr("some|random|case")
+#' trySplit("camelCaseExample")
+#' trySplit("PascalCaseExample")
+#' trySplit("snake_case_example")
+#' trySplit("some|random|case")
 #'
-trySplitVarStr <- function(x, conseq = TRUE, strictSnake = FALSE) {
+trySplit <- function(x, conseq = TRUE, strictSnake = FALSE, uncase = TRUE) {
     lapply(x, function(y) {
         if (isCamelCase(y) || isPascalCase(y)) {
-            return(unlist(splitCamel(y, conseq = isTRUE(conseq))))
+            out <- splitCamel(y, conseq = isTRUE(conseq))[[1]]
+        } else if (isSnakeCase(y, strict = isTRUE(strictSnake))) {
+            out <- splitSnake(y)[[1]]
+        } else {
+            out <- y
         }
-        if (isSnakeCase(y, strict = isTRUE(strictSnake))) {
-            return(unlist(splitSnake(y)))
-        }
-        y
+        if (isTRUE(uncase)) return(tolower(out))
+        out
     })
-} # TODO test
+}
 
 #' Split CamelCase or PascalCase Strings
 #'

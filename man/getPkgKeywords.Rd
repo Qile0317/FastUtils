@@ -24,7 +24,7 @@ in the \verb{/man} directory of the specified R package. It can return a unique 
 of keywords or a frequency distribution of these keywords as a \code{table} object,
 sorted by the keys.
 
-Note that it is far from perfect at the moment - it simply uses regex.
+Note that the "internal" keyword is ignored.
 }
 \examples{
 getPkgKeywords()

@@ -7,8 +7,11 @@
 #'
 #' @param ... Arguments passed on to \code{stop}.
 #' @param domain The translation domain, NULL by default.
+#' 
 #' @return No return value, this function stops execution of the program.
-#' @seealso \code{\link[base]{stop}}
+#' @export 
+#' @keywords packageDevelopment
+#' @seealso [stop()]
 #' @examples
 #' \dontrun{
 #'   stopp("This is a custom stop message without the call.")
@@ -27,12 +30,13 @@ stopp <- function(..., domain = NULL) {
 #'
 #' @param ... Arguments passed on to \code{warning}.
 #' @return No return value, this function issues a warning.
+#' @export 
+#' @keywords packageDevelopment
 #' @seealso \code{\link[base]{warning}}
 #' @examples
 #' \dontrun{
 #'   warningp("This is a custom warning message without the call.")
 #' }
-#' @export
 warningp <- function(...) {
     do.call(base::warning, args = append(list(call. = FALSE), list(...)))
 }
@@ -45,9 +49,9 @@ warningp <- function(...) {
 #' This function retrieves keywords from all package documentation files located
 #' in the `/man` directory of the specified R package. It can return a unique list
 #' of keywords or a frequency distribution of these keywords as a `table` object,
-#' sorted by the keys.
+#' sorted by the keys. 
 #'
-#' Note that it is far from perfect at the moment - it simply uses regex.
+#' Note that the "internal" keyword is ignored.
 #'
 #' @param pkg The path to the R package directory.
 #' @param asDistribution Logical; if FALSE, returns a character vector of unique keywords. If TRUE, returns a table with the frequency of each keyword.
@@ -78,12 +82,25 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
         return(character(0))
     }
 
-    getAllPkgKeywords(rdFiles) %>%
-        ifelse(asDistribution, base::table, base::unique)() %>%
-        sort()
+    getPkgKeywordsNoCheck(rdFiles, asDistribution)
 }
 
-getAllPkgKeywords <- function(rdFilePaths) {
+getPkgKeywordsNoCheck <- function(
+    rdFiles, asDistribution, doErrorIfNoKw = FALSE
+) {
+
+    keywords <- getAllPkgKeywords(rdFiles) %>%
+        ifelse(asDistribution, base::table, base::unique)() %>%
+        sort()
+    
+    if (doErrorIfNoKw && (length(keywords) == 0)) {
+        stopp("No keywords found in package documentation.")
+    }
+
+    keywords
+}
+
+getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
 
     keywords <- character()
 
@@ -99,98 +116,8 @@ getAllPkgKeywords <- function(rdFilePaths) {
         }
     }
 
+    keywords <- keywords[keywords != "internal"]
     keywords
-}
-
-# syncYMLKeywordRefs <- function(
-#     pkg = ".",
-#     ymlPath = "_pkgdown.yml",
-#     mode = c("a", "o"), # append or override
-#     sectionName = "reference",
-#     modifier = identity # TODO
-# ) {
-  
-#     fullYmlPath <- getExistingFilePath(dir = pkg, filePath = ymlPath)
-    
-#     keywords <- getPkgKeywords(pkg = pkg, asDistribution = FALSE)
-#     if (length(keywords) == 0) {
-#         stop("No keywords found in package documentation.")
-#     }
-
-#     yamlContent <- yaml::read_yaml(fullYmlPath)
-
-#     # try find the section yamlContent[[sectionName]], else return addYMLKeywordRefs with the appropriate arguments and return
-#     # without nesting an else statement:
-#     # use the yml list object from yamlContent, and if mode is o, create the content list and append to the yamlContent[[sectionName]]
-#     # finally, write to the yaml with yaml::write_yaml
-# }
-
-#' Add or Sync Keyword References in Pkgdown YAML File
-#'
-#' Updates or creates the `_pkgdown.yml` file in a specified R package directory.
-#' It appends or overwrites entries in a YAML section based on unique keywords extracted
-#' from the package documentation, transformed using `trySplitVar` for more readable titles.
-#' 
-#' @param pkg The path to the R package directory.
-#' @param ymlPath The path to the `_pkgdown.yml` file, relative or absolute.
-#'        Default is "_pkgdown.yml" within the package directory.
-#' @param mode Character string, "append" or "overwrite", determining how keywords are handled.
-#' @param sectionName The name of the YAML section to modify. Default is "reference".
-#' @param modifier A function to modify the keyword list; defaults to `trySplitVar`.
-#' @export
-#' @keywords packageDevelopment
-syncYMLKeywordRefs <- function(
-    pkg = ".",
-    ymlPath = "_pkgdown.yml",
-    mode = "append",
-    sectionName = "reference",
-    modifier = trySplitVar
-) {
-    stop("unfinished")
-    fullYmlPath <- getExistingFilePath(dir = pkg, filePath = ymlPath)
-    keywords <- getPkgKeywords(pkg = pkg)
-    if (length(keywords) == 0) {
-        stop("No keywords found in package documentation.")
-    }
-
-    modifiedKeywords <- lapply(keywords, modifier)
-    
-    if (!file.exists(fullYmlPath)) {
-        yamlContent <- list()
-    } else {
-        yamlContent <- yaml::read_yaml(fullYmlPath)
-    }
-
-    if (mode == "overwrite") {
-        yamlContent[[sectionName]] <- list(keywords = unlist(modifiedKeywords))
-    } else { # append
-        existingKeywords <- yamlContent[[sectionName]]$keywords
-        if (is.null(existingKeywords)) existingKeywords <- list()
-        newKeywords <- unique(c(existingKeywords, unlist(modifiedKeywords)))
-        yamlContent[[sectionName]] <- list(keywords = newKeywords)
-    }
-
-    yaml::write_yaml(yamlContent, fullYmlPath)
-}
-
-#' @rdname syncYMLKeywordRefs
-#' @export
-sykr <- syncYMLKeywordRefs
-
-# addYMLKeywordRefs
-addYMLKeywordRefs <- function(
-    pkg = ".",
-    ymlPath = "_pkgdown.yml",
-    sectionName = "reference"
-) {
-    fullYmlPath <- getExistingFilePath(dir = pkg, filePath = ymlPath)
-    keywords <- getPkgKeywords(pkg = pkg, asDistribution = FALSE)
-    if (length(keywords) == 0) {
-        stop("No keywords found in package documentation.")
-    }
-
-    # unfinished
-    stop("unfinished")
 }
 
 #' Get Existing File Path

@@ -1,47 +1,48 @@
 url: https://qile0317.github.io/FastUtils/
+
 template:
   bootstrap: 5
 
+development:
+  mode: auto
+
 reference:
-- title: math
-- contents:
-  - has_keyword("math")
-- title: spelling
-- contents:
-  - has_keyword("spelling")
-- title: wrangling
-- contents:
-  - has_keyword("wrangling")
-- title: dataInitialization
-- contents:
-  - has_keyword("dataInitialization")
-- title: higherOrderFunctions
-- contents:
-  - has_keyword("higherOrderFunctions")
-- title: character
+- title: Character
 - contents:
   - has_keyword("character")
-- title: iteration
-- contents:
-  - has_keyword("iteration")
-- title: internal
-- contents:
-  - has_keyword("internal")
-- title: color
+- title: Color
 - contents:
   - has_keyword("color")
-- title: indexing
+- title: Data Initialization
 - contents:
-  - has_keyword("indexing")
-- title: packageDevelopment
-- contents:
-  - has_keyword("packageDevelopment")
-- title: ggplot
+  - has_keyword("dataInitialization")
+- title: Ggplot
 - contents:
   - has_keyword("ggplot")
-- title: testing
+- title: Higher Order Functions
 - contents:
-  - has_keyword("testing")
-- title: interactivity
+  - has_keyword("higherOrderFunctions")
+- title: Indexing
+- contents:
+  - has_keyword("indexing")
+- title: Interactivity
 - contents:
   - has_keyword("interactivity")
+- title: Iteration
+- contents:
+  - has_keyword("iteration")
+- title: Math
+- contents:
+  - has_keyword("math")
+- title: Package Development
+- contents:
+  - has_keyword("packageDevelopment")
+- title: Spelling
+- contents:
+  - has_keyword("spelling")
+- title: Testing
+- contents:
+  - has_keyword("testing")
+- title: Wrangling
+- contents:
+  - has_keyword("wrangling")
