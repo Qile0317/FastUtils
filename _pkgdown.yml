@@ -1,51 +1,35 @@
 url: https://qile0317.github.io/FastUtils/
-
 template:
   bootstrap: 5
-
 development:
   mode: auto
-
 reference:
 - title: Character
-- contents:
-  - has_keyword("character")
+- contents: has_keyword("character")
 - title: Color
-- contents:
-  - has_keyword("color")
+- contents: has_keyword("color")
 - title: Data Initialization
-- contents:
-  - has_keyword("dataInitialization")
+- contents: has_keyword("dataInitialization")
 - title: Ggplot
-- contents:
-  - has_keyword("ggplot")
+- contents: has_keyword("ggplot")
 - title: Higher Order Functions
-- contents:
-  - has_keyword("higherOrderFunctions")
+- contents: has_keyword("higherOrderFunctions")
 - title: Indexing
-- contents:
-  - has_keyword("indexing")
+- contents: has_keyword("indexing")
 - title: Interactivity
-- contents:
-  - has_keyword("interactivity")
+- contents: has_keyword("interactivity")
 - title: Iteration
-- contents:
-  - has_keyword("iteration")
+- contents: has_keyword("iteration")
 - title: Math
-- contents:
-  - has_keyword("math")
+- contents: has_keyword("math")
 - title: Package Development
-- contents:
-  - has_keyword("packageDevelopment")
+- contents: has_keyword("packageDevelopment")
 - title: Regex
-- contents:
-  - has_keyword("regex")
+- contents: has_keyword("regex")
 - title: Spelling
-- contents:
-  - has_keyword("spelling")
+- contents: has_keyword("spelling")
 - title: Testing
-- contents:
-  - has_keyword("testing")
+- contents: has_keyword("testing")
 - title: Wrangling
-- contents:
-  - has_keyword("wrangling")
+- contents: has_keyword("wrangling")
+
