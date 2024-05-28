@@ -82,29 +82,10 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
         return(character(0))
     }
 
-    getPkgKeywordsNoCheck(rdFiles, asDistribution)
-}
-
-getPkgKeywordsNoCheck <- function(
-    rdFiles, asDistribution, doErrorIfNoKw = FALSE
-) {
-
-    keywords <- getAllPkgKeywords(rdFiles) %>%
-        ifelse(asDistribution, base::table, base::unique)() %>%
-        sort()
-    
-    if (doErrorIfNoKw && (length(keywords) == 0)) {
-        stopp("No keywords found in package documentation.")
-    }
-
-    keywords
-}
-
-getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
-
+    # get all keywords
     keywords <- character()
 
-    for (file in rdFilePaths) {
+    for (file in rdFiles) {
         lines <- readLines(file, warn = FALSE)
         keywordLines <- grep("\\\\keyword\\{", lines, value = TRUE)
         extractedKeywords <- regmatches(
@@ -116,8 +97,9 @@ getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
         }
     }
 
-    keywords <- keywords[keywords != "internal"]
-    keywords
+    keywords[keywords != "internal"] %>%
+        ifelse(asDistribution, base::table, base::unique)() %>%
+        sort()
 }
 
 #' Find Missing Sections in Rd Files
@@ -131,14 +113,14 @@ getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
 #' @param ignore Additional Regexes of *function names* to be ignored in the output.
 #' @param .ignore More regexes of functions to ignore set by default. Will be appended with
 #' the `ignore` regexes and unioned with [joinRegex()].
-#' 
+#'
 #' @return Character vector of function names that are missing any of the
 #' specified sections in their Rd files. May be length 0 if all fulfill criteria.
 #' @export
 #' @keywords packageDevelopment
 #' @examples
 #' findMissingRdSections(c("examples", "example"), pkg = ".")
-#' 
+#'
 findMissingRdSections <- function(
     sectionName, pkg = ".", ignore = NULL, .ignore = "-package$"
 ) {

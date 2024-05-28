@@ -10,21 +10,21 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// rcppGetUniquePairsUpTo
-std::vector<std::vector<int>> rcppGetUniquePairsUpTo(int x, bool oneIndexed);
-RcppExport SEXP _FastUtils_rcppGetUniquePairsUpTo(SEXP xSEXP, SEXP oneIndexedSEXP) {
+// getUniquePairsUpTo
+std::vector<std::vector<int>> getUniquePairsUpTo(int x, bool oneIndexed);
+RcppExport SEXP _FastUtils_getUniquePairsUpTo(SEXP xSEXP, SEXP oneIndexedSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type x(xSEXP);
     Rcpp::traits::input_parameter< bool >::type oneIndexed(oneIndexedSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcppGetUniquePairsUpTo(x, oneIndexed));
+    rcpp_result_gen = Rcpp::wrap(getUniquePairsUpTo(x, oneIndexed));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_FastUtils_rcppGetUniquePairsUpTo", (DL_FUNC) &_FastUtils_rcppGetUniquePairsUpTo, 2},
+    {"_FastUtils_getUniquePairsUpTo", (DL_FUNC) &_FastUtils_getUniquePairsUpTo, 2},
     {NULL, NULL, 0}
 };
 

@@ -11,18 +11,20 @@
 #' @param .ignore A character vector specifying regex patterns of files to ignore. Defaults
 #' to common patterns `c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")`
 #' @param ignore A character vector of extra regex patterns of R files to ignore
-#' 
+#'
 #' @return No return value, called for side effects.
 #' @export
 #' @keywords testing
-#' 
+#'
 #' @examples
+#' \dontrun{
 #' # Initialize testthat files in the default directories
 #' initTestthat()
 #' # Initialize testthat files in a custom R directory and test directory
 #' initTestthat(rDir = "src", testDir = "tests")
 #' # Initialize testthat files, ignoring additional patterns
 #' initTestthat(ignore = c("^foo", "-bar.R$"))
+#' }
 #' 
 initTestthat <- function(
     rDir = "R",

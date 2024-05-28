@@ -1,6 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^packages\.R$
 ^docs$
 ^pkgdown$
 ^\.github$
