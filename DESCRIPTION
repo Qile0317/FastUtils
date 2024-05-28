@@ -20,6 +20,7 @@ Imports:
     Rcpp (>= 1.0.12),
     rlang,
     testthat,
+    tools,
     usethis
 LinkingTo: Rcpp
 Suggests: 

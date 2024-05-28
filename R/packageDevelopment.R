@@ -120,6 +120,56 @@ getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
     keywords
 }
 
+#' Find Missing Sections in Rd Files
+#'
+#' This function scans Rd documentation files in the specified package's `\man` directory
+#' to identify which functions lack certain documentation sections like `\examples`. If
+#' there are no missing sections in all the Rd files, then the output is a `character(0)`
+#'
+#' @param sectionName A character vector of the Rd sections to look for.
+#' @param pkg The path to the package directory, defaulting to the current directory ".".
+#' @param ignore Additional Regexes of *function names* to be ignored in the output.
+#' @param .ignore More regexes of functions to ignore set by default. Will be appened with
+#' the `ignore` regexes and unioned with [joinRegex()].
+#' 
+#' @return Character vector of function names that are missing any of the
+#' specified sections in their Rd files. May be length 0 if all fulfill criteria.
+#' @export
+#' @keywords packageDevelopment
+#' @examples
+#' findMissingRdSections(c("examples", "example"), pkg = ".")
+#' 
+findMissingRdSections <- function(
+    sectionName, pkg = ".", ignore = NULL, .ignore = "-package$"
+) {
+  
+    rdPath <- file.path(pkg, "man")
+    rdFiles <- list.files(rdPath, pattern = "\\.Rd$", full.names = TRUE)
+
+    missingFunctionNames <- character(0)
+
+    for (file in rdFiles) {
+        rdContent <- readLines(file)
+
+        sectionMissing <- sapply(paste("\\", sectionName, "{", sep = ""), function(section) {
+            all(grepl(section, rdContent, fixed = TRUE) == FALSE)
+        })
+
+        if (!any(sectionMissing)) next
+
+        missingFunctionNames <- c(
+            missingFunctionNames,
+            tools::file_path_sans_ext(basename(file))
+        )
+    }
+
+    Filter(function(x) !grepl(joinRegex(.ignore, ignore), x), missingFunctionNames)
+}
+
+#' @rdname findMissingRdSections
+#' @export
+fmrs <- findMissingRdSections
+
 #' Get Existing File Path
 #'
 #' This function checks whether a specified file exists within a given directory.
@@ -135,8 +185,7 @@ getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
 #' @keywords packageDevelopment
 #'
 #' @examples
-#' # Assuming a file 'example.txt' exists in the current directory
-#' getExistingFilePath("example.txt")
+#' getExistingFilePath("DESCRIPTION")
 #'
 getExistingFilePath <- function(filePath, dir = ".") {
     if (!dir.exists(dir)) stopp("Specified directory does not exist.")

@@ -21,8 +21,7 @@ directory does not exist or if the file is not found within that directory.
 This ensures that only valid file paths are returned.
 }
 \examples{
-# Assuming a file 'example.txt' exists in the current directory
-getExistingFilePath("example.txt")
+getExistingFilePath("DESCRIPTION")
 
 }
 \keyword{packageDevelopment}
