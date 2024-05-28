@@ -21,7 +21,8 @@ directory does not exist or if the file is not found within that directory.
 This ensures that only valid file paths are returned.
 }
 \examples{
+\dontrun{
 getExistingFilePath("DESCRIPTION")
-
+}
 }
 \keyword{packageDevelopment}

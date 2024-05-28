@@ -2,9 +2,12 @@
 % Please edit documentation in R/indexing.R
 \name{getlast}
 \alias{getlast}
+\alias{getlast.default}
 \title{Get the Last Elements of a Vector or List}
 \usage{
 getlast(x, n = 1)
+
+\method{getlast}{default}(x, n = 1)
 }
 \arguments{
 \item{x}{A vector, list, or other supported data type.}

@@ -21,7 +21,7 @@ fmrs(sectionName, pkg = ".", ignore = NULL, .ignore = "-package$")
 
 \item{ignore}{Additional Regexes of \emph{function names} to be ignored in the output.}
 
-\item{.ignore}{More regexes of functions to ignore set by default. Will be appened with
+\item{.ignore}{More regexes of functions to ignore set by default. Will be appended with
 the \code{ignore} regexes and unioned with \code{\link[=joinRegex]{joinRegex()}}.}
 }
 \value{

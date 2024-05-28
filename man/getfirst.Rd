@@ -2,9 +2,12 @@
 % Please edit documentation in R/indexing.R
 \name{getfirst}
 \alias{getfirst}
+\alias{getfirst.default}
 \title{Get the First Elements of a Vector or List}
 \usage{
 getfirst(x, n = 1)
+
+\method{getfirst}{default}(x, n = 1)
 }
 \arguments{
 \item{x}{A vector, list, or other supported data type.}

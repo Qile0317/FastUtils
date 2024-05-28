@@ -4,6 +4,7 @@ Codecov
 Github
 Mutator
 PascalCase
+Regexes
 Rstudio
 Testthat
 berkeley
@@ -12,7 +13,9 @@ edu
 ggplot
 mutator
 qile
+regexes
 testthat
+unioned
 vectorized
 xmax
 xmin

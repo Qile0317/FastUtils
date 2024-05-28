@@ -129,7 +129,7 @@ getAllPkgKeywords <- function(rdFilePaths, doErrorIfNoKw = FALSE) {
 #' @param sectionName A character vector of the Rd sections to look for.
 #' @param pkg The path to the package directory, defaulting to the current directory ".".
 #' @param ignore Additional Regexes of *function names* to be ignored in the output.
-#' @param .ignore More regexes of functions to ignore set by default. Will be appened with
+#' @param .ignore More regexes of functions to ignore set by default. Will be appended with
 #' the `ignore` regexes and unioned with [joinRegex()].
 #' 
 #' @return Character vector of function names that are missing any of the
@@ -185,8 +185,9 @@ fmrs <- findMissingRdSections
 #' @keywords packageDevelopment
 #'
 #' @examples
+#' \dontrun{
 #' getExistingFilePath("DESCRIPTION")
-#'
+#' }
 getExistingFilePath <- function(filePath, dir = ".") {
     if (!dir.exists(dir)) stopp("Specified directory does not exist.")
     fullFilePath <- file.path(dir, filePath)

@@ -21,6 +21,7 @@ getlast <- function(x, n = 1) {
     UseMethod("getlast")
 }
 
+#' @rdname getlast
 #' @export
 getlast.default <- function(x, n = 1) {
     index <- length(x) - n + 1
@@ -53,6 +54,7 @@ getfirst <- function(x, n = 1) {
     UseMethod("getfirst")
 }
 
+#' @rdname getfirst
 #' @export
 getfirst.default <- function(x, n = 1) {
     index <- n
