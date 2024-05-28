@@ -4,13 +4,14 @@
 \name{FastUtils-package}
 \alias{FastUtils}
 \alias{FastUtils-package}
-\title{FastUtils: Fast, readable utility functions}
+\title{FastUtils: Fast, Readable Uutility Functions}
 \description{
-for general use. All functions have vectorized implementations whenever possible.
+A wide variety of tools for general data analysis, wrangling, package development. All functions have vectorized implementations whenever possible.
 }
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://github.com/Qile0317/FastUtils}
   \item Report bugs at \url{https://github.com/Qile0317/FastUtils/issues/}
 }
 
