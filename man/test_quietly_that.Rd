@@ -21,7 +21,7 @@ any verbose functions.
 \examples{
 # Run a test quietly
 test_quietly_that("quiet test example", {
-  expect_equal(1 + 1, 2)
+    testthat::expect_equal(1 + 1, 2)
 })
 }
 \keyword{testing}

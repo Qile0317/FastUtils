@@ -28,7 +28,8 @@ colToRownames <- function(df, colname, matrix = FALSE) {
 #' This function converts the row names of a data frame to a specified column.
 #'
 #' @param df A data frame.
-#' @param colname A character string specifying the name of the new column to contain the row names.
+#' @param colname A character string specifying the name of the new column to
+#' contain the row names. Defaults to "rownames".
 #' 
 #' @return A data frame with the row names converted to a column.
 #' @export
@@ -38,7 +39,7 @@ colToRownames <- function(df, colname, matrix = FALSE) {
 #' df <- data.frame(Value = c(10, 20, 30))
 #' rownames(df) <- c("A", "B", "C")
 #' rownamesToCol(df, "ID")
-rownamesToCol <- function(df, colname) {
+rownamesToCol <- function(df, colname = "rownames") {
     df <- dplyr::mutate(df, !!dplyr::sym(colname) := rownames(df)) %>%
         `rownames<-`(NULL)
     df

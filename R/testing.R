@@ -60,7 +60,7 @@ initTestthat <- function(
 #' @examples
 #' # Run a test quietly
 #' test_quietly_that("quiet test example", {
-#'   expect_equal(1 + 1, 2)
+#'     testthat::expect_equal(1 + 1, 2)
 #' })
 test_quietly_that <- function(desc, code) {
     testthat::test_that(desc, {quietly(code)})

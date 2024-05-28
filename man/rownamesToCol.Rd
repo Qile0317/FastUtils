@@ -4,12 +4,13 @@
 \alias{rownamesToCol}
 \title{Convert Row Names to a Column}
 \usage{
-rownamesToCol(df, colname)
+rownamesToCol(df, colname = "rownames")
 }
 \arguments{
 \item{df}{A data frame.}
 
-\item{colname}{A character string specifying the name of the new column to contain the row names.}
+\item{colname}{A character string specifying the name of the new column to
+contain the row names. Defaults to "rownames".}
 }
 \value{
 A data frame with the row names converted to a column.
