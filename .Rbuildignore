@@ -3,8 +3,6 @@
 ^packages\.R$
 ^docs$
 ^pkgdown$
-^loc_tesdat$
-^/loc_tesdat$
 ^\.github$
 ^\.vscode$
 ^\.RDataTmp$
@@ -18,3 +16,4 @@
 [.]yml$
 ^codecov\.yml$
 ^_pkgdown\.yml$
+^dev$
