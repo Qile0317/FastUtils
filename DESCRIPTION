@@ -11,18 +11,17 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-US
 Imports: 
-    cli,
     devtools,
     dplyr,
     ggplot2,
     hash,
     lifecycle,
     magrittr,
+    methods,
     Rcpp (>= 1.0.12),
     rlang,
     testthat,
-    usethis,
-    yaml
+    usethis
 LinkingTo: Rcpp
 Suggests: 
     knitr,
