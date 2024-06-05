@@ -14,6 +14,7 @@ ggplot
 mutator
 qile
 regexes
+repo
 testthat
 unioned
 vectorized

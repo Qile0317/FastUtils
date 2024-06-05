@@ -26,12 +26,12 @@ of packages at once and install all possible dependencies
 The function first checks if necessary namespaces (\code{BiocManager} for Bioconductor packages and
 \code{devtools} for GitHub packages) are installed, and installs them if they are not present.
 It then proceeds to install and load packages from the specified sources. For GitHub packages,
-installation is done using \code{devtools::install_github()}.
+installation is done using \code{\link[devtools:remote-reexports]{devtools::install_github()}}.
 }
 \examples{
 \dontrun{
-# Install and load a CRAN package
-installAndLoad(cran = c("ggplot2"))
+# Install and load CRAN packages
+installAndLoad(cran = c("ggplot2", "data.table"))
 
 # Install and load a Bioconductor package
 installAndLoad(bioc = c("GenomicFeatures"))
