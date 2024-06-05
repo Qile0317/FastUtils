@@ -4,7 +4,7 @@
 \name{FastUtils-package}
 \alias{FastUtils}
 \alias{FastUtils-package}
-\title{FastUtils: Fast, Readable Uutility Functions}
+\title{FastUtils: Fast, Readable Utility Functions}
 \description{
 A wide variety of tools for general data analysis, wrangling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
 }

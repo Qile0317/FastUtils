@@ -44,11 +44,11 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
     # Load required libraries for installation
     if (!is.null(bioc))
         if (!requireNamespace("BiocManager", quietly = TRUE))
-            install.packages("BiocManager")
+            utils::install.packages("BiocManager")
     
     if (!is.null(gh))
         if (!requireNamespace("devtools", quietly = TRUE))
-            install.packages("devtools")
+            utils::install.packages("devtools")
 
     # Helper function to install and load a package
     install_and_load <- function(packagepath) {
@@ -70,7 +70,7 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
         if (!require(package, character.only = TRUE, quietly = TRUE)) {
             
             if (source == "CRAN") {
-                install.packages(package, dependencies = TRUE)
+                utils::install.packages(package, dependencies = TRUE)
             } else if (source == "Bioconductor") {
                 BiocManager::install(package)
             }
@@ -81,7 +81,7 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
 
     for (el in zip(c("CRAN", "Bioconductor", "Github"), c(cran, bioc, gh))) {
         for (pkg in el[[2]]) {
-            suppressPackageStartupMessages(install_and_load(pkg, repo, el[[1]]))
+            suppressPackageStartupMessages(install_and_load(pkg, el[[1]]))
         }
     }
 }

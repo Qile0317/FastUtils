@@ -1,8 +1,11 @@
 url: https://qile0317.github.io/FastUtils/
+
 template:
   bootstrap: 5
+
 development:
   mode: auto
+
 reference:
 - title: Character
 - contents: has_keyword("character")
@@ -24,6 +27,8 @@ reference:
 - contents: has_keyword("math")
 - title: Package Development
 - contents: has_keyword("packageDevelopment")
+- title: Package Loading
+- contents: has_keyword("packageLoading")
 - title: Regex
 - contents: has_keyword("regex")
 - title: Spelling
