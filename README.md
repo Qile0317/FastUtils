@@ -6,7 +6,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Qile0317/FastUtils/blob/main/LICENSE.md)
 <!-- badges: end -->
 
-R package for fast, readable utility functions for general use. All functions have vectorized implementations whenever possible.
+R package with a wide variety of fast, readable functions for general data analysis, wrangling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
 
 ## Installation
 
@@ -23,13 +23,13 @@ library(devtools)
 devtools::install_github("Qile0317/FastUtils")
 ```
 
-## Usage
+## Usage and Documentation
 
 ```R
 library(FastUtils)
 ```
 
-There is a large collection of utility functions to use. Browse the reference manual with ```help(package = "FastUtils")``` to see all functions.
+There is a large collection of utility functions to use. Browse the reference manual with ```help(package = "FastUtils")``` to see all functions. Alternatively, check the reference manual online here: <https://qile0317.github.io/FastUtils/reference/index.html>.
 
 ### Package Conventions
 
@@ -37,7 +37,7 @@ Almost all exported functions and parameters are named with `camelCase`, with th
 
 ## Contributing
 
-Github pull requests from forked branches are more than welcome as it is mostly a solo-project at the moment. For major changes, please open an issue first to discuss what you would like to change. Please also make sure to update tests as appropriate.
+Github pull requests from forked branches are more than welcome as it is mostly a solo-project at the moment. For major changes, please open an issue first to discuss what you would like to change. Please also make sure to update tests as appropriate. See `CONTRIBUTING.md` for more information.
 
 ## Contact
 
