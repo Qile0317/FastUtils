@@ -94,14 +94,14 @@ of packages at once and install all possible dependencies</p>
     <p>The function first checks if necessary namespaces (<code>BiocManager</code> for Bioconductor packages and
 <code>devtools</code> for GitHub packages) are installed, and installs them if they are not present.
 It then proceeds to install and load packages from the specified sources. For GitHub packages,
-installation is done using <code>devtools::install_github()</code>.</p>
+installation is done using <code><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">devtools::install_github()</a></code>.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># Install and load a CRAN package</span></span></span>
-<span class="r-in"><span><span class="fu">installAndLoad</span><span class="op">(</span>cran <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Install and load CRAN packages</span></span></span>
+<span class="r-in"><span><span class="fu">installAndLoad</span><span class="op">(</span>cran <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ggplot2"</span>, <span class="st">"data.table"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Install and load a Bioconductor package</span></span></span>
 <span class="r-in"><span><span class="fu">installAndLoad</span><span class="op">(</span>bioc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GenomicFeatures"</span><span class="op">)</span><span class="op">)</span></span></span>
