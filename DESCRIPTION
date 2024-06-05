@@ -12,6 +12,7 @@ Encoding: UTF-8
 Language: en-US
 Imports: 
     BiocManager,
+    devtools,
     dplyr,
     ggplot2,
     hash,

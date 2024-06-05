@@ -3,7 +3,6 @@
 
 ## usethis namespace: start
 #' @exportPattern "^[[:alpha:]]+"
-#' @import devtools
 #' @importFrom lifecycle deprecated
 #' @importFrom magrittr %>%
 #' @importFrom rlang :=
