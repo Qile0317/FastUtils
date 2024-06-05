@@ -43,11 +43,11 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
 
     # Load required libraries for installation
     if (!is.null(bioc))
-        if (!requireNamespace("BiocManager", quietly = TRUE))
+        if (!devtools::requireNamespace("BiocManager", quietly = TRUE))
             utils::install.packages("BiocManager")
     
     if (!is.null(gh))
-        if (!requireNamespace("devtools", quietly = TRUE))
+        if (!devtools::requireNamespace("devtools", quietly = TRUE))
             utils::install.packages("devtools")
 
     # Helper function to install and load a package
