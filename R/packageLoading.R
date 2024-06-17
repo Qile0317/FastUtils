@@ -79,7 +79,7 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
         library(package, character.only = TRUE)
     }
 
-    for (el in zip(c("CRAN", "Bioconductor", "Github"), c(cran, bioc, gh))) {
+    for (el in zip(c("CRAN", "Bioconductor", "GitHub"), c(cran, bioc, gh))) {
         for (pkg in el[[2]]) {
             suppressPackageStartupMessages(install_and_load(pkg, el[[1]]))
         }

@@ -52,6 +52,23 @@ initList <- function(x, initVal = NULL) {
     lapply(lst, function(x) initVal)
 }
 
+#' Initialize a DataFrame with Column Names
+#'
+#' This function creates an empty data frame and assigns the specified column names, initializing the columns with NA.
+#'
+#' @param colnames A character vector specifying the names of the columns for the data frame.
+#'
+#' @return A data frame with the specified column names initialized with NA.
+#' @export
+#' @keywords dataInitialization
+#' @examples
+#' # Create a data frame with specified column names initialized with NA
+#' initDataFrameWithColnames(c("Name", "Age", "Gender"))
+#'
+initDataFrameWithColnames <- function(colnames) {
+    data.frame(initList(colnames, NA))[-1, ]
+}
+
 #' Initialize an Empty Table
 #'
 #' This function initializes an empty table.
