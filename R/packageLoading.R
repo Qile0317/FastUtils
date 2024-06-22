@@ -97,8 +97,10 @@ installAndLoad <- function(
         library(package, character.only = TRUE)
     }
 
-    for (el in zipi(list("CRAN", "Bioconductor", "GitHub"), list(cran, bioc, gh))) {
-        sapply(el[[2]], function(pkg) capture.output(suppressMessages((install_and_load(pkg, el[[1]])))))
+    for (el in zipit(list("CRAN", "Bioconductor", "GitHub"), list(cran, bioc, gh))) {
+        sapply(el[[2]], function(pkg)
+            utils::capture.output(suppressMessages((install_and_load(pkg, el[[1]]))))
+        )
     }
 
     invisible()
