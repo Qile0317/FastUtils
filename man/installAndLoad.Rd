@@ -4,7 +4,13 @@
 \alias{installAndLoad}
 \title{Install and Load Packages from Various Sources}
 \usage{
-installAndLoad(cran = NULL, bioc = NULL, gh = NULL)
+installAndLoad(
+  cran = NULL,
+  bioc = NULL,
+  gh = NULL,
+  lib = .libPaths()[1],
+  verbose = FALSE
+)
 }
 \arguments{
 \item{cran}{A character vector of CRAN package names to install and load.}

@@ -20,4 +20,7 @@ This function extracts the first value from an enumerated element.
 elem <- list(1, "a", "b")
 val1(elem)
 }
+\seealso{
+\code{\link[=enumerateit]{enumerateit()}}
+}
 \keyword{iteration}

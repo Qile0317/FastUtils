@@ -22,4 +22,7 @@ This function extracts the value from an enumerated element by the given index.
 elem <- list(1, "a", "b")
 val(elem, 2)
 }
+\seealso{
+\code{\link[=enumerateit]{enumerateit()}}
+}
 \keyword{iteration}

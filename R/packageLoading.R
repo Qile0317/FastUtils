@@ -34,7 +34,7 @@
 #' @export
 #' @keywords packageLoading
 #' 
-installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
+installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL, lib = .libPaths()[1], verbose = FALSE) {
 
     if (is.null(cran) && is.null(bioc) && is.null(gh)) {
         message("no packages inputted")
@@ -44,44 +44,56 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL) {
     # Load required libraries for installation
     if (!is.null(bioc))
         if (!requireNamespace("BiocManager", quietly = TRUE))
-            utils::install.packages("BiocManager")
+            utils::install.packages("BiocManager", lib = lib)
     
     if (!is.null(gh))
         if (!requireNamespace("devtools", quietly = TRUE))
-            utils::install.packages("devtools")
+            utils::install.packages("devtools", lib = lib)
 
     # Helper function to install and load a package
-    install_and_load <- function(packagepath) {
+    install_and_load <- function(packagepath, source) {
 
         if (is.null(packagepath)) return()
 
-        # github packages must be prioritized
+        # github packages must be prioritized to account for naming conventions
         if (source == "GitHub") {
             package <- strsplit(packagepath, "/")[[1]][2]
-            devtools::install_github(
-                packagepath, force = FALSE, quiet = TRUE, dependencies = TRUE
-            )
-            library(package, character.only = TRUE)
-            return()
-        }
-        
-        package <- packagepath
 
-        if (!require(package, character.only = TRUE, quietly = TRUE)) {
+        } else {
+            package <- packagepath
+        }
+
+        if (require(package, character.only = TRUE, quietly = TRUE)) return()
             
-            if (source == "CRAN") {
-                utils::install.packages(package, dependencies = TRUE)
-            } else if (source == "Bioconductor") {
-                BiocManager::install(package)
-            }
+        if (source == "CRAN") {
+            utils::install.packages(
+                package,
+                dependencies = TRUE,
+                lib = lib
+            )
+        } else if (source == "Bioconductor") {
+            BiocManager::install(
+                package,
+                lib = lib,
+                dependencies = TRUE
+            )
+        } else {
+            warning("* installing `", package, "` from a raw GitHub repository")
+            devtools::install_github(
+                packagepath,
+                force = FALSE,
+                quiet = TRUE,
+                dependencies = TRUE,
+                lib = lib
+            )
         }
 
         library(package, character.only = TRUE)
     }
 
-    for (el in zip(c("CRAN", "Bioconductor", "GitHub"), c(cran, bioc, gh))) {
-        for (pkg in el[[2]]) {
-            suppressPackageStartupMessages(install_and_load(pkg, el[[1]]))
-        }
+    for (el in zipi(list("CRAN", "Bioconductor", "GitHub"), list(cran, bioc, gh))) {
+        sapply(el[[2]], function(pkg) capture.output(suppressMessages((install_and_load(pkg, el[[1]])))))
     }
+
+    return()
 }

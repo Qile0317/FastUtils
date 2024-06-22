@@ -5,15 +5,15 @@
 #' @param num A numeric vector to be bounded.
 #' @param lowerbound The lower bound of the range.
 #' @param upperbound The upper bound of the range.
-#' 
+#'
 #' @return A numeric vector with elements bounded within the specified range.
 #' @export
 #' @keywords math
-#' 
+#'
 #' @examples
 #' bound(1, 0, 2)
 #' bound(1:10, -1, 5)
-#' 
+#'
 bound <- function(num, lowerbound, upperbound) {
     sapply(num, function(x) min(max(x, lowerbound), upperbound))
 }

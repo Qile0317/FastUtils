@@ -4,12 +4,12 @@ test_that("Generate Unique Pairs Up To a Number", {
 })
 
 test_that("Zip Multiple Vectors or Lists", {
-  expect_equal(zip(1:3, letters[1:3]), list(list(1, "a"), list(2, "b"), list(3, "c")))
+  expect_equal(zipit(1:3, letters[1:3]), list(list(1, "a"), list(2, "b"), list(3, "c")))
 })
 
 test_that("Enumerate Elements with Indices", {
-  expect_equal(enumerate(letters[1:3]), list(list(1, "a"), list(2, "b"), list(3, "c")))
-  expect_equal(enumerate(letters[1:3], zero_indexed = TRUE), list(list(0, "a"), list(1, "b"), list(2, "c")))
+  expect_equal(enumerateit(letters[1:3]), list(list(1, "a"), list(2, "b"), list(3, "c")))
+  expect_equal(enumerateit(letters[1:3], zero_indexed = TRUE), list(list(0, "a"), list(1, "b"), list(2, "c")))
 })
 
 test_that("Get Index from Enumerated Element", {

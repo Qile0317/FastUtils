@@ -20,4 +20,7 @@ This function extracts the index from an enumerated element.
 elem <- list(1, "a")
 ind(elem)
 }
+\seealso{
+\code{\link[=enumerateit]{enumerateit()}}
+}
 \keyword{iteration}
