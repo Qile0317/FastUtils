@@ -18,15 +18,21 @@ installAndLoad(
 \item{bioc}{A character vector of Bioconductor package names to install and load.}
 
 \item{gh}{A character vector of GitHub repositories in the format "username/repo" to install and load.}
+
+\item{lib}{a character vector of the directory of the library to install the packages in.}
+
+\item{verbose}{a logical indicating whether to display additional verbal cues}
 }
 \value{
 None, function is used for side effects (installation and loading of packages).
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 This function is designed to facilitate the installation and loading of R packages
 from CRAN, Bioconductor, or GitHub. It checks if packages are installed; if not, it installs them,
 and then loads them into the R session. Most importantly, it can handle an arbitrary number
-of packages at once and install all possible dependencies
+of packages at once and install all possible dependencies.
 }
 \details{
 The function first checks if necessary namespaces (\code{BiocManager} for Bioconductor packages and

@@ -1,20 +1,28 @@
 #' Install and Load Packages from Various Sources
 #'
+#' @description 
+#' `r lifecycle::badge("experimental")`
+#' 
 #' This function is designed to facilitate the installation and loading of R packages 
 #' from CRAN, Bioconductor, or GitHub. It checks if packages are installed; if not, it installs them,
 #' and then loads them into the R session. Most importantly, it can handle an arbitrary number
-#' of packages at once and install all possible dependencies 
+#' of packages at once and install all possible dependencies.
 #'
 #' @param cran A character vector of CRAN package names to install and load.
 #' @param bioc A character vector of Bioconductor package names to install and load.
 #' @param gh A character vector of GitHub repositories in the format "username/repo" to install and load.
+#' @param lib a character vector of the directory of the library to install the packages in.
+#' @param verbose a logical indicating whether to display additional verbal cues
 #' 
 #' @details
 #' The function first checks if necessary namespaces (`BiocManager` for Bioconductor packages and 
 #' `devtools` for GitHub packages) are installed, and installs them if they are not present.
 #' It then proceeds to install and load packages from the specified sources. For GitHub packages, 
 #' installation is done using [devtools::install_github()].
-#'
+#' 
+#' @return None, function is used for side effects (installation and loading of packages).
+#' @export
+#' @keywords packageLoading
 #' @examples
 #' \dontrun{
 #' # Install and load CRAN packages
@@ -29,16 +37,14 @@
 #' # Install and load packages from mixed sources
 #' installAndLoad(cran = c("dplyr"), bioc = c("BiocGenerics"), gh = c("r-lib/testthat"))
 #' }
-#' 
-#' @return None, function is used for side effects (installation and loading of packages).
-#' @export
-#' @keywords packageLoading
-#' 
-installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL, lib = .libPaths()[1], verbose = FALSE) {
+#'
+installAndLoad <- function(
+    cran = NULL, bioc = NULL, gh = NULL, lib = .libPaths()[1], verbose = FALSE
+) {
 
     if (is.null(cran) && is.null(bioc) && is.null(gh)) {
         message("no packages inputted")
-        return()
+        return(invisible())
     }
 
     # Load required libraries for installation
@@ -63,7 +69,7 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL, lib = .libPaths(
             package <- packagepath
         }
 
-        if (require(package, character.only = TRUE, quietly = TRUE)) return()
+        if (require(package, character.only = TRUE, quietly = TRUE)) return(invisible())
             
         if (source == "CRAN") {
             utils::install.packages(
@@ -95,5 +101,5 @@ installAndLoad <- function(cran = NULL, bioc = NULL, gh = NULL, lib = .libPaths(
         sapply(el[[2]], function(pkg) capture.output(suppressMessages((install_and_load(pkg, el[[1]])))))
     }
 
-    return()
+    invisible()
 }
