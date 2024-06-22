@@ -54,11 +54,12 @@ initList <- function(x, initVal = NULL) {
 
 #' Initialize a DataFrame with Column Names
 #'
-#' This function creates an empty data frame and assigns the specified column names, initializing the columns with NA.
+#' This function creates an empty data frame and assigns the specified column names with
+#' zero rows.
 #'
 #' @param colnames A character vector specifying the names of the columns for the data frame.
 #'
-#' @return A data frame with the specified column names initialized with NA.
+#' @return A data frame with the specified column names.
 #' @export
 #' @keywords dataInitialization
 #' @examples

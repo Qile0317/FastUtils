@@ -10,10 +10,11 @@ initDataFrameWithColnames(colnames)
 \item{colnames}{A character vector specifying the names of the columns for the data frame.}
 }
 \value{
-A data frame with the specified column names initialized with NA.
+A data frame with the specified column names.
 }
 \description{
-This function creates an empty data frame and assigns the specified column names, initializing the columns with NA.
+This function creates an empty data frame and assigns the specified column names with
+zero rows.
 }
 \examples{
 # Create a data frame with specified column names initialized with NA

@@ -4,17 +4,17 @@
 \alias{colToRownames}
 \title{Convert a Column to Row Names}
 \usage{
-colToRownames(df, colname, matrix = FALSE)
+colToRownames(df, col, .remove = TRUE)
 }
 \arguments{
 \item{df}{A data frame.}
 
-\item{colname}{A character string specifying the name of the column to convert to row names.}
+\item{col}{A character string specifying the name of the column to convert to row names.}
 
-\item{matrix}{A logical indicating whether to return the result as a matrix. Default is FALSE.}
+\item{.remove}{A logical indicating whether to remove the selected column. Default is TRUE.}
 }
 \value{
-A data frame with the specified column as row names. If \code{matrix} is TRUE, a matrix is returned.
+A data frame with the specified column as row names.
 }
 \description{
 This function converts a specified column of a data frame to row names.
@@ -23,7 +23,11 @@ This function converts a specified column of a data frame to row names.
 # Convert the 'ID' column to row names
 df <- data.frame(ID = c("A", "B", "C"), Value = c(10, 20, 30))
 colToRownames(df, "ID")
-# Convert the 'ID' column to row names and return as matrix
-colToRownames(df, "ID", matrix = TRUE)
+# Convert the 'ID' column to row names and keep the column
+df <- data.frame(ID = c("A", "B", "C"), Value = c(10, 20, 30))
+colToRownames(df, "ID", .remove = FALSE)
+}
+\seealso{
+\code{\link[=mutateToRownames]{mutateToRownames()}}
 }
 \keyword{wrangling}

@@ -8,7 +8,8 @@
 #'
 #' @param binaryOperator A binary operator function to apply for the mutation.
 #'
-#' @return A function that takes a variable and a value, applying the binary operator to update the variable in the parent frame.
+#' @return A function that takes a variable and a value, applying the binary operator
+#' to update the variable in the parent frame.
 #' @export
 #' @keywords higherOrderFunctions
 #'
