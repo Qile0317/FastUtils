@@ -57,7 +57,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">colToRownames</span><span class="op">(</span><span class="va">df</span>, <span class="va">colname</span>, matrix <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">colToRownames</span><span class="op">(</span><span class="va">df</span>, <span class="va">col</span>, .remove <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -66,19 +66,23 @@
 <dd><p>A data frame.</p></dd>
 
 
-<dt>colname</dt>
+<dt>col</dt>
 <dd><p>A character string specifying the name of the column to convert to row names.</p></dd>
 
 
-<dt>matrix</dt>
-<dd><p>A logical indicating whether to return the result as a matrix. Default is FALSE.</p></dd>
+<dt>.remove</dt>
+<dd><p>A logical indicating whether to remove the selected column. Default is TRUE.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A data frame with the specified column as row names. If <code>matrix</code> is TRUE, a matrix is returned.</p>
+<p>A data frame with the specified column as row names.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><code><a href="mutateToRownames.html">mutateToRownames()</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -90,12 +94,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> A    10</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> B    20</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> C    30</span>
-<span class="r-in"><span><span class="co"># Convert the 'ID' column to row names and return as matrix</span></span></span>
-<span class="r-in"><span><span class="fu">colToRownames</span><span class="op">(</span><span class="va">df</span>, <span class="st">"ID"</span>, matrix <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> A    10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> B    20</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> C    30</span>
+<span class="r-in"><span><span class="co"># Convert the 'ID' column to row names and keep the column</span></span></span>
+<span class="r-in"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>ID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span><span class="op">)</span>, Value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">colToRownames</span><span class="op">(</span><span class="va">df</span>, <span class="st">"ID"</span>, .remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID Value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> A  A    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> B  B    20</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> C  C    30</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

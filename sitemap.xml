@@ -139,6 +139,9 @@
     <loc>https://qile0317.github.io/FastUtils/reference/multiply.html</loc>
   </url>
   <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/mutateToRownames.html</loc>
+  </url>
+  <url>
     <loc>https://qile0317.github.io/FastUtils/reference/namedNumericToTable.html</loc>
   </url>
   <url>
@@ -152,6 +155,12 @@
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/scaleHex.html</loc>
+  </url>
+  <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/setColnames.html</loc>
+  </url>
+  <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/setRownames.html</loc>
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/splitCamel.html</loc>
