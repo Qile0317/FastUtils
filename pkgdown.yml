@@ -3,7 +3,7 @@ pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
   install: install.html
-last_built: 2024-06-22T03:23Z
+last_built: 2024-06-22T03:35Z
 urls:
   reference: https://qile0317.github.io/FastUtils/reference
   article: https://qile0317.github.io/FastUtils/articles
