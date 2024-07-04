@@ -64,6 +64,9 @@
     <loc>https://qile0317.github.io/FastUtils/reference/findMissingRdSections.html</loc>
   </url>
   <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/fixColnames.html</loc>
+  </url>
+  <url>
     <loc>https://qile0317.github.io/FastUtils/reference/getAvgHex.html</loc>
   </url>
   <url>
@@ -190,7 +193,7 @@
     <loc>https://qile0317.github.io/FastUtils/reference/test_quietly_that.html</loc>
   </url>
   <url>
-    <loc>https://qile0317.github.io/FastUtils/reference/trySplit.html</loc>
+    <loc>https://qile0317.github.io/FastUtils/reference/trySplitWords.html</loc>
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/val.html</loc>
