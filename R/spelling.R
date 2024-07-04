@@ -1,38 +1,44 @@
-#' Try to Split Names Based on Naming Convention
+#' Try to Split Words Based on Naming Convention
 #'
 #' This function attempts to split characters into its component words (and by default,
 #' all in lowercase) based on  camelCase, PascalCase, or snake_case conventions. If
-#' the string does not match any of these conventions, it returns the original string.
+#' the string does not match any of these conventions, it returns all groups of letters.
 #'
-#' @param x A character string or vector to be analyzed and split.
+#' @param ... character(s) to be split, treated as a single vector after unlisting
 #' @param conseq A logical indicating whether the `conseq` argument in [splitCamel()]/
 #' [splitPascal()] should be `TRUE` or `FALSE`.
 #' @param strictSnake A logical indicating the `strict` argument in [isSnakeCase()].
 #' @param uncase A logical indicating whether to remove all casing in the output to
 #' lowercase.
 #' 
-#' @return A list of character vectors, each containing the parts of the string 
-#'         split according to its naming convention or the original string if no 
-#'         convention matches.
+#' @return A list of character vectors, each containing the parts of the string
+#'         split into individual words.
 #' @export
 #' @keywords spelling
 #' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
 #'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
-#' 
-#' @examples
-#' trySplit("camelCaseExample")
-#' trySplit("PascalCaseExample")
-#' trySplit("snake_case_example")
-#' trySplit("some|random|case")
 #'
-trySplit <- function(x, conseq = TRUE, strictSnake = FALSE, uncase = TRUE) {
+#' @examples
+#' trySplitWords("camelCaseExample")
+#' trySplitWords("PascalCaseExample")
+#' trySplitWords("snake_case_example", c("more_snake_cases"), "third_snake_case")
+#' trySplitWords("some|random|case")
+#' trySplitWords("Space Words", "UPPER_CASE", uncase = TRUE)
+#'
+trySplitWords <- function(
+    ..., conseq = TRUE, strictSnake = FALSE, uncase = TRUE
+) {
+
+    x <- unlist(list(...), use.names = FALSE)
+    assertthat::assert_that(is.character(x))
+
     lapply(x, function(y) {
         if (isCamelCase(y) || isPascalCase(y)) {
             out <- splitCamel(y, conseq = isTRUE(conseq))[[1]]
         } else if (isSnakeCase(y, strict = isTRUE(strictSnake))) {
             out <- splitSnake(y)[[1]]
         } else {
-            out <- y
+            out <- regmatches(y, gregexpr("[a-zA-Z]+", y))[[1]]
         }
         if (isTRUE(uncase)) return(tolower(out))
         out
@@ -63,6 +69,9 @@ trySplit <- function(x, conseq = TRUE, strictSnake = FALSE, uncase = TRUE) {
 #' @keywords spelling
 #' @source \url{https://stackoverflow.com/questions/8406974/splitting-camelcase-in-r}
 splitCamel <- function(x, conseq = TRUE) {
+
+    assertthat::assert_that(is.character(x))
+    
     if (isTRUE(conseq)) {
         return(strsplit(
             x,
@@ -93,7 +102,10 @@ splitPascal <- splitCamel
 #' splitSnake("this_is_snake_case")
 #' splitSnake("another_example_here")
 #'
-splitSnake <- function(x) strsplit(x, "_", fixed = TRUE)
+splitSnake <- function(x) {
+    assertthat::assert_that(is.character(x))
+    strsplit(x, "_", fixed = TRUE)
+}
 
 #' Check if String is camelCase
 #'
@@ -110,7 +122,10 @@ splitSnake <- function(x) strsplit(x, "_", fixed = TRUE)
 #' isCamelCase("CamelCase")   # returns FALSE
 #' isCamelCase("camelcase")   # returns TRUE
 #'
-isCamelCase <- function(x) grepl("^[a-z]+[A-Z]?([A-Za-z]*?)$", x)
+isCamelCase <- function(x) {
+    assertthat::assert_that(is.character(x))
+    grepl("^[a-z]+[A-Z]?([A-Za-z]*?)$", x)
+}
 
 #' Check if String is PascalCase
 #'
@@ -126,7 +141,10 @@ isCamelCase <- function(x) grepl("^[a-z]+[A-Z]?([A-Za-z]*?)$", x)
 #' isPascalCase("PascalCase") # returns TRUE
 #' isPascalCase("pascalCase") # returns FALSE
 #' isPascalCase("Pascalcase") # returns FALSE
-isPascalCase <- function(x) grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
+isPascalCase <- function(x) {
+    assertthat::assert_that(is.character(x))
+    grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
+}
 
 #' Check if String is snake_case
 #'
@@ -149,6 +167,9 @@ isPascalCase <- function(x) grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
 #' isSnakeCase("Snake_Case", FALSE) # returns TRUE
 #' 
 isSnakeCase <- function(x, strict = TRUE) {
+
+    assertthat::assert_that(is.character(x))
+
     grepl(
         ifelse(
             isTRUE(strict),
@@ -174,6 +195,7 @@ isSnakeCase <- function(x, strict = TRUE) {
 #' # Check if 'b' is a vowel
 #' isVowel("b")
 isVowel <- function(x) {
+    assertthat::assert_that(is.character(x))
     tolower(x) %in% c("a", "e", "i", "o", "u")
 }
 
@@ -191,7 +213,10 @@ isVowel <- function(x) {
 #' startsWithVowel("apple")
 #' # Check if "banana" starts with a vowel
 #' startsWithVowel("banana")
-startsWithVowel <- function(x) isVowel(getChar(x, 1))
+startsWithVowel <- function(x) {
+    assertthat::assert_that(is.character(x))
+    isVowel(getChar(x, 1))
+}
 
 #' Prepend an Indefinite Article to a String
 #'
@@ -208,6 +233,7 @@ startsWithVowel <- function(x) isVowel(getChar(x, 1))
 #' # Prepend an indefinite article to "banana"
 #' prependIndefArticle("banana")
 prependIndefArticle <- function(x) {
+    assertthat::assert_that(is.character(x))
     paste("a", ifelse(startsWithVowel(x), "n", ""), " ", x, sep = "")
 }
 
@@ -223,7 +249,10 @@ prependIndefArticle <- function(x) {
 #' @examples
 #' # Remove spaces from "hello world"
 #' stripSpaces("hello world")
-stripSpaces <- function(x) gsub(" ", "", x)
+stripSpaces <- function(x) {
+    assertthat::assert_that(is.character(x))
+    gsub(" ", "", x)
+}
 
 #' Find the Closest Word in a Set to a Given Word
 #'
@@ -240,6 +269,10 @@ stripSpaces <- function(x) gsub(" ", "", x)
 #' # Find the closest word to "hello" in the set c("hallo", "hullo", "hey")
 #' closestWord("hello", c("hallo", "hullo", "hey"))
 closestWord <- function(s, strset, distFunc = utils::adist) {
+
+    assertthat::assert_that(is.character(s))
+    assertthat::assert_that(is.character(strset))
+    assertthat::assert_that(is.function(distFunc) && (length(formals(distFunc)) >= 2))
 
     strset <- unique(strset)
     if (length(strset) == 1) return(strset)
