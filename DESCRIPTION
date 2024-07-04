@@ -1,11 +1,11 @@
 Package: FastUtils
 Type: Package
 Title: Fast, Readable Utility Functions
-Version: 0.1.0
+Version: 0.1.1
 Date: 2024-06-21
 Authors@R: c(person("Qile", "Yang", email = "qile.yang@berkeley.edu", role = c("cre","aut","cph")))
 Maintainer: Qile Yang <qile.yang@berkeley.edu>
-Description: A wide variety of tools for general data analysis, wrangling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
+Description: A wide variety of tools for general data analysis, wrangling, spelling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
 BugReports: https://github.com/Qile0317/FastUtils/issues/
 License: MIT + file LICENSE
 Encoding: UTF-8

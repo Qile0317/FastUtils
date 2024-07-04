@@ -6,7 +6,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Qile0317/FastUtils/blob/main/LICENSE.md)
 <!-- badges: end -->
 
-R package with a wide variety of fast, readable functions for general data analysis, wrangling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
+R package with a wide variety of fast, readable functions for general data analysis, wrangling, spelling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
 
 ## Installation
 
