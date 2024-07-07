@@ -102,12 +102,25 @@ greplDir <- function(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...) {
 
 .greplFiles <- function(files, pattern, ignore.case = FALSE) {
 
+    pattern <- joinRegex(pattern)
+
     greplResults <- sapply(files, function(file) {
-        grepl(
-            joinRegex(pattern),
-            paste(readLines(file), collapse = "\n"),
-            ignore.case
+        tryCatch(
+            {grepl(
+                pattern = pattern,
+                x = paste(readLines(file), collapse = "\n"),
+                ignore.case = ignore.case
+            )},
+            warning = function(w) {
+                warning("pattern matching warning for file `", file, "`: ", w)
+                FALSE
+            },
+            error = function(e) {
+                warning("pattern matching error for file `", file, "`: ", e)
+                FALSE
+            }
         )
+        
     })
 
     structure(greplResults, names = files)
