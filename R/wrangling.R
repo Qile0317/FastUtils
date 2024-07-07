@@ -1,12 +1,14 @@
 #' Convert a Column to Row Names
 #'
-#' This function converts a specified column of a data frame to row names.
+#' This function converts a specified column of a data frame to row names, ensuring uniqueness if necessary.
 #'
 #' @param df A data frame.
 #' @param col A character string specifying the name of the column to convert to row names.
-#' @param .remove A logical indicating whether to remove the selected column. Default is TRUE.
+#' @param .remove A logical indicating whether to remove the selected column after converting to row names. Default is TRUE.
+#' @param .uniqueSep A character string to separate duplicate row names when ensuring uniqueness
+#' with [make.unique()]. Default is ".".
 #'
-#' @return A data frame with the specified column as row names.
+#' @return A data frame with the specified column as row names. If `.remove` is TRUE, the original column is removed.
 #' @export
 #' @keywords wrangling
 #' @seealso [mutateToRownames()]
@@ -17,9 +19,9 @@
 #' # Convert the 'ID' column to row names and keep the column
 #' df <- data.frame(ID = c("A", "B", "C"), Value = c(10, 20, 30))
 #' colToRownames(df, "ID", .remove = FALSE)
-colToRownames <- function(df, col, .remove = TRUE) {
+colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
     df <- as.data.frame(df)
-    rownames(df) <- df[[col]]
+    rownames(df) <- make.unique(as.character(df[[col]]), .uniqueSep)
     if (isTRUE(.remove)) df[[col]] <- NULL
     df
 }
@@ -33,27 +35,33 @@ colToRownames <- function(df, col, .remove = TRUE) {
 #'
 #' @param .data A data frame.
 #' @param expr A tidy evaluation expression specifying the columns to use for the new row names.
-#' @param .remove A logical indicating whether to remove the selected columns. Default is TRUE.
+#' @param .remove A logical indicating whether to remove the selected columns. Default is FALSE.
+#' @param .uniqueSep A character string to separate duplicate row names when ensuring uniqueness
+#' with [make.unique()]. Default is ".".
 #'
 #' @return A data frame with updated row names.
 #' @export
 #' @keywords wrangling
 #' @examples
-#' library(magrittr)
+#' library(dplyr)
+#'
 #' mtcars %>%
 #'     head() %>%
 #'     mutateToRownames(wt + 3*vs)
 #'
-mutateToRownames <- function(.data, expr, .remove = TRUE) {
+mutateToRownames <- function(.data, expr, .remove = FALSE, .uniqueSep = ".") {
     colExpr <- rlang::enquo(expr)
-    rownames(.data) <- dplyr::mutate(.data, .rowname = !!colExpr)$.rowname
-    if (isTRUE(.remove)) return(.data)
+    rownames(.data) <- dplyr::mutate(.data, .rowname = !!colExpr)$.rowname %>%
+        as.character() %>%
+        make.unique(.uniqueSep)
+    if (isFALSE(.remove)) return(.data)
     .data %>% dplyr::select(-dplyr::one_of(all.vars(colExpr)))
 }
 
 #' Convert Row Names to a Column
 #'
 #' This function converts the row names of a data frame to a specified column.
+#' Note that if the specified column already exists, it is overwritten.
 #'
 #' @param df A data frame.
 #' @param colname A character string specifying the name of the new column to

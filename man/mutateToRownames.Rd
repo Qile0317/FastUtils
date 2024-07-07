@@ -4,14 +4,17 @@
 \alias{mutateToRownames}
 \title{Mutate columns to Row Names}
 \usage{
-mutateToRownames(.data, expr, .remove = TRUE)
+mutateToRownames(.data, expr, .remove = FALSE, .uniqueSep = ".")
 }
 \arguments{
 \item{.data}{A data frame.}
 
 \item{expr}{A tidy evaluation expression specifying the columns to use for the new row names.}
 
-\item{.remove}{A logical indicating whether to remove the selected columns. Default is TRUE.}
+\item{.remove}{A logical indicating whether to remove the selected columns. Default is FALSE.}
+
+\item{.uniqueSep}{A character string to separate duplicate row names when ensuring uniqueness
+with \code{\link[=make.unique]{make.unique()}}. Default is ".".}
 }
 \value{
 A data frame with updated row names.
@@ -22,7 +25,8 @@ A data frame with updated row names.
 This function sets new row names for a data frame based on a tidy evaluation expression.
 }
 \examples{
-library(magrittr)
+library(dplyr)
+
 mtcars \%>\%
     head() \%>\%
     mutateToRownames(wt + 3*vs)

@@ -18,7 +18,7 @@
 #'         If no keywords were detected, returns a character of length 0.
 #' @export
 #' @keywords packageDevelopment
-#' 
+#'
 #' @examples
 #' getPkgKeywords()
 #' getPkgKeywords(asDistribution = TRUE)
@@ -61,6 +61,9 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 
 #' Find Missing Sections in Rd Files
 #'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' This function scans Rd documentation files in the specified package's `\man` directory
 #' to identify which functions lack certain documentation sections like `\examples`. If
 #' there are no missing sections in all the Rd files, then the output is a `character(0)`
@@ -81,13 +84,14 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 findMissingRdSections <- function(
     sectionName, pkg = ".", ignore = NULL, .ignore = "-package$"
 ) {
-  
+
     rdPath <- file.path(pkg, "man")
     rdFiles <- list.files(rdPath, pattern = "\\.Rd$", full.names = TRUE)
 
     missingFunctionNames <- character(0)
 
     for (file in rdFiles) {
+
         rdContent <- readLines(file)
 
         sectionMissing <- sapply(paste("\\", sectionName, "{", sep = ""), function(section) {
@@ -124,7 +128,7 @@ fmrs <- findMissingRdSections
 #' @keywords packageDevelopment
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' getExistingFilePath("DESCRIPTION")
 #' }
 getExistingFilePath <- function(filePath, dir = ".") {

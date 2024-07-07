@@ -21,8 +21,8 @@ is not included in the resulting error message. This makes error messages cleane
 The \code{domain} argument can be used to specify a translation domain.
 }
 \examples{
-\dontrun{
-  stopp("This is a custom stop message without the call.")
+\donttest{
+stopp("This is a custom stop message without the call.")
 }
 }
 \seealso{

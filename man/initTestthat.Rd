@@ -32,7 +32,7 @@ code files were created from rapid development and unit testing has yet to be
 setup.
 }
 \examples{
-\dontrun{
+\donttest{
 # Initialize testthat files in the default directories
 initTestthat()
 # Initialize testthat files in a custom R directory and test directory

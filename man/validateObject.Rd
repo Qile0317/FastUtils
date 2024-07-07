@@ -4,7 +4,7 @@
 \alias{validateObject}
 \title{Validate Object}
 \usage{
-validateObject(obj, checks, errorHandler = warning, defaultReturn = NULL)
+validateObject(obj, checks, errorHandler = warningp, defaultReturn = NULL)
 }
 \arguments{
 \item{obj}{The object to validate.}

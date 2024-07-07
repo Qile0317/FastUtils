@@ -4,13 +4,16 @@
 \alias{initDataFrameWithColnames}
 \title{Initialize a DataFrame with Column Names}
 \usage{
-initDataFrameWithColnames(colnames)
+initDataFrameWithColnames(colnames = NULL)
 }
 \arguments{
-\item{colnames}{A character vector specifying the names of the columns for the data frame.}
+\item{colnames}{A character vector specifying the names of the columns for the data frame.
+This vector will be attempted to be coerced to a character.}
 }
 \value{
-A data frame with the specified column names.
+A data frame with the specified column names. Non unique names will be
+handled by the conventions of \code{\link[=data.frame]{data.frame()}}.
+prefixes.
 }
 \description{
 This function creates an empty data frame and assigns the specified column names with

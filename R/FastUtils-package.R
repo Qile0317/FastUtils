@@ -3,7 +3,7 @@
 
 ## usethis namespace: start
 #' @exportPattern "^[[:alpha:]]+"
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @importFrom rlang :=
 #' @importFrom rlang !!
 #' @importFrom methods is

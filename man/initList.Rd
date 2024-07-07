@@ -4,7 +4,7 @@
 \alias{initList}
 \title{Initialize a List}
 \usage{
-initList(x, initVal = NULL)
+initList(x = NULL, initVal = NULL)
 }
 \arguments{
 \item{x}{A character vector as names, or an numeric indicating the size of the list.}

@@ -19,8 +19,8 @@ modification means that the function call is not included in the warning message
 streamlining the output for users.
 }
 \examples{
-\dontrun{
-  warningp("This is a custom warning message without the call.")
+\donttest{
+warningp("This is a custom warning message without the call.")
 }
 }
 \seealso{

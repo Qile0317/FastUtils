@@ -40,6 +40,55 @@ test_that("isSnakeCase allows uppercase letters when strict is FALSE", {
   expect_false(isSnakeCase("snake_Case"))
 })
 
+test_that("trySplitWords function works as expected", {
+  
+  # Test camelCase splitting
+  result <- trySplitWords("camelCaseExample")
+  expect_equal(result[[1]], c("camel", "case", "example"))
+  
+  # Test PascalCase splitting
+  result <- trySplitWords("PascalCaseExample")
+  expect_equal(result[[1]], c("pascal", "case", "example"))
+  
+  # Test snake_case splitting
+  result <- trySplitWords("snake_case_example")
+  expect_equal(result[[1]], c("snake", "case", "example"))
+  
+  # Test multiple snake_case splitting
+  result <- trySplitWords("snake_case_example", "more_snake_cases", "third_snake_case")
+  expect_equal(result[[1]], c("snake", "case", "example"))
+  expect_equal(result[[2]], c("more", "snake", "cases"))
+  expect_equal(result[[3]], c("third", "snake", "case"))
+  
+  # Test strings with other delimiters
+  result <- trySplitWords("some|random|case")
+  expect_equal(result[[1]], c("some", "random", "case"))
+  
+  # Test space-separated words
+  result <- trySplitWords("Space Words")
+  expect_equal(result[[1]], c("space", "words"))
+  
+  # Test upper case conversion to lower case
+  result <- trySplitWords("UPPER_CASE", uncase = TRUE)
+  expect_equal(result[[1]], c("upper", "case"))
+  
+  # Test retaining case when uncase is FALSE
+  result <- trySplitWords("camelCaseExample", uncase = FALSE)
+  expect_equal(result[[1]], c("camel", "Case", "Example"))
+  
+  # Test camelCase splitting with uncase = FALSE
+  result <- trySplitWords("camelCaseExample", uncase = FALSE)
+  expect_equal(result[[1]], c("camel", "Case", "Example"))
+  
+  # Test strict snake_case splitting
+  result <- trySplitWords("strict_snake_case", strictSnake = TRUE)
+  expect_equal(result[[1]], c("strict", "snake", "case"))
+  
+  # Test non-matching patterns
+  result <- trySplitWords("Non-Matching-Pattern")
+  expect_equal(result[[1]], c("non", "matching", "pattern"))
+})
+
 test_that("Check if a Character is a Vowel", {
   expect_true(isVowel("a"))
   expect_false(isVowel("b"))
@@ -61,5 +110,7 @@ test_that("Remove Spaces from a String", {
 
 test_that("Find the Closest Word in a Set to a Given Word", {
   expect_equal(closestWord("cat", c("rat", "kak", "dog")), "rat")
+  expect_equal(closestWord("cat", c("kak", "dog", "rat")), "rat")
   expect_equal(closestWord("rabbit", c("rat", "dog")), "rat")
+  expect_identical(closestWord("foo", "bar"), "bar")
 })

@@ -41,7 +41,9 @@ initV <- function(typeFunc, x, initVal = NULL) {
 #' initList(c("a", "b", "c"))
 #' # Create a list with 2 elements initialized with 0
 #' initList(2, 0)
-initList <- function(x, initVal = NULL) {
+initList <- function(x = NULL, initVal = NULL) {
+
+    if (length(x) == 0) return(list())
 
     if (is.character(x)) {
         lst <- structure(vector("list", length(x)), names = x)
@@ -58,16 +60,20 @@ initList <- function(x, initVal = NULL) {
 #' zero rows.
 #'
 #' @param colnames A character vector specifying the names of the columns for the data frame.
+#' This vector will be attempted to be coerced to a character.
 #'
-#' @return A data frame with the specified column names.
+#' @return A data frame with the specified column names. Non unique names will be
+#' handled by the conventions of [data.frame()].
+#' prefixes.
 #' @export
 #' @keywords dataInitialization
 #' @examples
 #' # Create a data frame with specified column names initialized with NA
 #' initDataFrameWithColnames(c("Name", "Age", "Gender"))
 #'
-initDataFrameWithColnames <- function(colnames) {
-    data.frame(initList(colnames, NA))[-1, ]
+initDataFrameWithColnames <- function(colnames = NULL) {
+    if (length(colnames) == 0) return(data.frame())
+    dplyr::slice(data.frame(initList(as.character(colnames), NA)), 0)
 }
 
 #' Initialize an Empty Table

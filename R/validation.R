@@ -22,7 +22,7 @@
 #' # Validate an object that fails a check
 #' obj <- NULL
 #' try(validateObject(obj, list(checkNotNull, checkIsNumeric), errorHandler = stop), silent = TRUE)
-validateObject <- function(obj, checks, errorHandler = warning, defaultReturn = NULL) {
+validateObject <- function(obj, checks, errorHandler = warningp, defaultReturn = NULL) {
     for (check in checks) {
         message <- check(obj)
         if (!is.null(message)) {
@@ -48,8 +48,8 @@ validateObject <- function(obj, checks, errorHandler = warning, defaultReturn = 
 #' @keywords validation
 #' @seealso [stop()]
 #' @examples
-#' \dontrun{
-#'   stopp("This is a custom stop message without the call.")
+#' \donttest{
+#' stopp("This is a custom stop message without the call.")
 #' }
 #' @export
 stopp <- function(..., domain = NULL) {
@@ -69,8 +69,8 @@ stopp <- function(..., domain = NULL) {
 #' @keywords validation
 #' @seealso \code{\link[base]{warning}}
 #' @examples
-#' \dontrun{
-#'   warningp("This is a custom warning message without the call.")
+#' \donttest{
+#' warningp("This is a custom warning message without the call.")
 #' }
 warningp <- function(...) {
     do.call(base::warning, args = append(list(call. = FALSE), list(...)))

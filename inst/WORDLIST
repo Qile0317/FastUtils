@@ -5,6 +5,7 @@ DataFrame
 Github
 Mutator
 PascalCase
+REPL
 Regexes
 Rstudio
 Testthat
@@ -12,10 +13,10 @@ berkeley
 camelCase
 edu
 ggplot
+indexable
 mutator
 qile
 regexes
-repo
 testthat
 unioned
 vectorized

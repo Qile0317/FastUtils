@@ -10,8 +10,8 @@ createMutator(binaryOperator)
 \item{binaryOperator}{A binary operator function to apply for the mutation.}
 }
 \value{
-A function that takes a variable and a value, applying the binary operator
-to update the variable in the parent frame.
+A function that takes a variable and a value, applying the binary
+operator to update the variable in the parent frame.
 }
 \description{
 This function creates a mutator function based on a specified binary operator.
@@ -24,6 +24,7 @@ symbol of choice. See examples.
 "\%+=\%" <- createMutator(add)
 x <- 1
 x \%+=\% 1
+x # becomes 2
 
 }
 \keyword{higherOrderFunctions}

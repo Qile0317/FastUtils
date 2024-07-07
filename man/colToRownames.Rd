@@ -4,20 +4,23 @@
 \alias{colToRownames}
 \title{Convert a Column to Row Names}
 \usage{
-colToRownames(df, col, .remove = TRUE)
+colToRownames(df, col, .remove = TRUE, .uniqueSep = ".")
 }
 \arguments{
 \item{df}{A data frame.}
 
 \item{col}{A character string specifying the name of the column to convert to row names.}
 
-\item{.remove}{A logical indicating whether to remove the selected column. Default is TRUE.}
+\item{.remove}{A logical indicating whether to remove the selected column after converting to row names. Default is TRUE.}
+
+\item{.uniqueSep}{A character string to separate duplicate row names when ensuring uniqueness
+with \code{\link[=make.unique]{make.unique()}}. Default is ".".}
 }
 \value{
-A data frame with the specified column as row names.
+A data frame with the specified column as row names. If \code{.remove} is TRUE, the original column is removed.
 }
 \description{
-This function converts a specified column of a data frame to row names.
+This function converts a specified column of a data frame to row names, ensuring uniqueness if necessary.
 }
 \examples{
 # Convert the 'ID' column to row names

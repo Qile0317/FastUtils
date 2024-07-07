@@ -17,7 +17,7 @@
 #' @keywords testing
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Initialize testthat files in the default directories
 #' initTestthat()
 #' # Initialize testthat files in a custom R directory and test directory

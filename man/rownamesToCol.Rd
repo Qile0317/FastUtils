@@ -17,6 +17,7 @@ A data frame with the row names converted to a column.
 }
 \description{
 This function converts the row names of a data frame to a specified column.
+Note that if the specified column already exists, it is overwritten.
 }
 \examples{
 # Convert row names to a column named 'ID'
