@@ -36,7 +36,10 @@ to identify which functions lack certain documentation sections like \verb{\\exa
 there are no missing sections in all the Rd files, then the output is a \code{character(0)}
 }
 \examples{
-findMissingRdSections(c("examples", "example"), pkg = ".")
+try(
+  findMissingRdSections(c("examples", "example"), pkg = "."),
+  silent = TRUE
+)
 
 }
 \keyword{packageDevelopment}

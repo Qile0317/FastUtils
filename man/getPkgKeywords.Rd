@@ -12,7 +12,7 @@ getPkgKeywords(pkg = ".", asDistribution = FALSE)
 \item{asDistribution}{Logical; if FALSE, returns a character vector of unique keywords. If TRUE, returns a table with the frequency of each keyword.}
 }
 \value{
-If \code{asDistribution} is FALSE, a character vector of unique keywords is returned.
+If \code{asDistribution} is FALSE, a sorted character vector of unique keywords is returned.
 If \code{asDistribution} is TRUE, a table of keywords and their frequencies is returned.
 If no keywords were detected, returns a character of length 0.
 }

@@ -33,12 +33,13 @@ setup.
 }
 \examples{
 \donttest{
-# Initialize testthat files in the default directories
+try({
+
 initTestthat()
-# Initialize testthat files in a custom R directory and test directory
 initTestthat(rDir = "src", testDir = "tests")
-# Initialize testthat files, ignoring additional patterns
 initTestthat(ignore = c("^foo", "-bar.R$"))
+
+}, silent = TRUE)
 }
 
 }

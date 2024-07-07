@@ -4,12 +4,12 @@
 \alias{greplDir}
 \title{Search for a Pattern in Files within a Directory}
 \usage{
-greplDir(dirPath, fpattern, fIgnoreRegex = NULL, ...)
+greplDir(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...)
 }
 \arguments{
-\item{dirPath}{Character. The path to the directory containing files to be searched.}
-
 \item{fpattern}{Character. The pattern to search for within the files.}
+
+\item{dirPath}{Character. The path to the directory containing files to be searched.}
 
 \item{fIgnoreRegex}{Character. A regular expression to match file names that should be ignored (default is NULL).}
 
@@ -20,6 +20,8 @@ A named logical vector indicating which files contain the pattern.
 The names attribute contains the file names.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 The \code{greplDir} function searches for a specified pattern in all files within a given directory.
 It allows for optional exclusion of files matching a specified regular expression.
 Note that all files are assumed to be a single string, with each line joined by the
@@ -27,7 +29,11 @@ newline character \code{"\\n"}.
 }
 \examples{
 \donttest{
-result <- greplDir(getwd(), "error", "\\\\.log$")
+result <- tryCatch(
+  greplDir("error", fIgnoreRegex = "\\\\.log$"),
+  warning = function(w) c(exFname = TRUE),
+  error = function(e) c(exFname = TRUE)
+)
 # its even more useful to use `base::which` on the result to
 # get matches and mismatches - this returns it with names
 # by default

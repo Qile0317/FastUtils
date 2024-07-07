@@ -29,14 +29,15 @@ joinRegex <- function(...) {
 #' names of elements to be removed.
 #' @param silent A logical indicating whether to silence a warning if no names are
 #' detected.
-#' 
+#'
 #' @return The input object with elements removed based on the name regex.
 #' @export
 #' @keywords regex
-#' 
+#'
 #' @examples
 #' myList <- list(a = 1, b_test = 2, c = 3, d_test = 4)
 #' rmByName(myList, "_test")
+#'
 rmByName <- function(x, pattern, silent = FALSE) {
 
     assertthat::assert_that(is.character(pattern))
@@ -54,13 +55,16 @@ rmByName <- function(x, pattern, silent = FALSE) {
 
 #' Search for a Pattern in Files within a Directory
 #'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#' 
 #' The `greplDir` function searches for a specified pattern in all files within a given directory.
 #' It allows for optional exclusion of files matching a specified regular expression.
 #' Note that all files are assumed to be a single string, with each line joined by the
 #' newline character `"\n"`.
 #'
-#' @param dirPath Character. The path to the directory containing files to be searched.
 #' @param fpattern Character. The pattern to search for within the files.
+#' @param dirPath Character. The path to the directory containing files to be searched.
 #' @param fIgnoreRegex Character. A regular expression to match file names that should be ignored (default is NULL).
 #' @param ... Additional arguments passed to [listFiles()], which are passed to [list.files()]
 #' 
@@ -68,17 +72,21 @@ rmByName <- function(x, pattern, silent = FALSE) {
 #' The names attribute contains the file names.
 #' @export
 #' @keywords regex
-#' 
+#'
 #' @examples
 #' \donttest{
-#' result <- greplDir(getwd(), "error", "\\.log$")
+#' result <- tryCatch(
+#'   greplDir("error", fIgnoreRegex = "\\.log$"),
+#'   warning = function(w) c(exFname = TRUE),
+#'   error = function(e) c(exFname = TRUE)
+#' )
 #' # its even more useful to use `base::which` on the result to
 #' # get matches and mismatches - this returns it with names
 #' # by default
 #' which(result)
 #' which(!result)
 #' }
-greplDir <- function(dirPath, fpattern, fIgnoreRegex = NULL, ...) {
+greplDir <- function(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...) {
 
     allFiles <- listFiles(dirPath, ...)
 

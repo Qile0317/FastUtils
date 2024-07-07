@@ -25,5 +25,6 @@ where the names match a specified regular expression.
 \examples{
 myList <- list(a = 1, b_test = 2, c = 3, d_test = 4)
 rmByName(myList, "_test")
+
 }
 \keyword{regex}
