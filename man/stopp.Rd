@@ -22,7 +22,7 @@ The \code{domain} argument can be used to specify a translation domain.
 }
 \examples{
 \donttest{
-stopp("This is a custom stop message without the call.")
+try(stopp("This is a custom stop message without the call."), silent = TRUE)
 }
 }
 \seealso{

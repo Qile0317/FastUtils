@@ -13,7 +13,7 @@ greplDir(dirPath, fpattern, fIgnoreRegex = NULL, ...)
 
 \item{fIgnoreRegex}{Character. A regular expression to match file names that should be ignored (default is NULL).}
 
-\item{...}{Additional arguments passed to \code{onlyListFiles}, such as \code{recursive}.}
+\item{...}{Additional arguments passed to \code{\link[=listFiles]{listFiles()}}, which are passed to \code{\link[=list.files]{list.files()}}}
 }
 \value{
 A named logical vector indicating which files contain the pattern.
@@ -23,11 +23,16 @@ The names attribute contains the file names.
 The \code{greplDir} function searches for a specified pattern in all files within a given directory.
 It allows for optional exclusion of files matching a specified regular expression.
 Note that all files are assumed to be a single string, with each line joined by the
-newline character \code{"\\n"}
+newline character \code{"\\n"}.
 }
 \examples{
 \donttest{
 result <- greplDir(getwd(), "error", "\\\\.log$")
+# its even more useful to use `base::which` on the result to
+# get matches and mismatches - this returns it with names
+# by default
+which(result)
+which(!result)
 }
 }
 \keyword{regex}

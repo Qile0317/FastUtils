@@ -57,12 +57,12 @@ rmByName <- function(x, pattern, silent = FALSE) {
 #' The `greplDir` function searches for a specified pattern in all files within a given directory.
 #' It allows for optional exclusion of files matching a specified regular expression.
 #' Note that all files are assumed to be a single string, with each line joined by the
-#' newline character `"\n"`
+#' newline character `"\n"`.
 #'
 #' @param dirPath Character. The path to the directory containing files to be searched.
 #' @param fpattern Character. The pattern to search for within the files.
 #' @param fIgnoreRegex Character. A regular expression to match file names that should be ignored (default is NULL).
-#' @param ... Additional arguments passed to `onlyListFiles`, such as `recursive`.
+#' @param ... Additional arguments passed to [listFiles()], which are passed to [list.files()]
 #' 
 #' @return A named logical vector indicating which files contain the pattern.
 #' The names attribute contains the file names.
@@ -72,10 +72,15 @@ rmByName <- function(x, pattern, silent = FALSE) {
 #' @examples
 #' \donttest{
 #' result <- greplDir(getwd(), "error", "\\.log$")
+#' # its even more useful to use `base::which` on the result to
+#' # get matches and mismatches - this returns it with names
+#' # by default
+#' which(result)
+#' which(!result)
 #' }
 greplDir <- function(dirPath, fpattern, fIgnoreRegex = NULL, ...) {
 
-    allFiles <- onlyListFiles(dirPath, ...)
+    allFiles <- listFiles(dirPath, ...)
 
     if (!is.null(fIgnoreRegex)) {
         allFiles <- Filter(

@@ -16,11 +16,11 @@
 #'
 #' @examples
 #' \donttest{
-#' onlyListFiles(getwd())
-#' onlyListFiles(getwd(), pattern = "\\.R$", recursive = TRUE)
+#' listFiles(getwd())
+#' listFiles(getwd(), pattern = "\\.R$", recursive = TRUE)
 #' }
 #'
-onlyListFiles <- function(dirPath, ...) {
+listFiles <- function(dirPath, ...) {
 
     assertthat::assert_that(is.character(dirPath) && length(dirPath) == 1)
 

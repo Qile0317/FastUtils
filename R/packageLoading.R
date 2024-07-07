@@ -33,7 +33,7 @@
 #' @examples
 #' # Create the package loader function
 #' loader <- createPkgLoader()
-#' 
+#'
 #' # # commented usage example
 #' # loader(
 #' #   cran = c("dplyr", "ggplot2"),

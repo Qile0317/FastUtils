@@ -10,11 +10,16 @@ Regexes
 Rstudio
 Testthat
 berkeley
+bioc
 camelCase
+cran
 edu
 ggplot
+gh
+githubUsername
 indexable
 mutator
+packageName
 qile
 regexes
 testthat

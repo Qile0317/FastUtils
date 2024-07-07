@@ -113,30 +113,5 @@ findMissingRdSections <- function(
 #' @export
 fmrs <- findMissingRdSections
 
-#' Get Existing File Path
-#'
-#' This function checks whether a specified file exists within a given directory.
-#' It is a simple wrapper that helps in error handling by throwing an error if the
-#' directory does not exist or if the file is not found within that directory. 
-#' This ensures that only valid file paths are returned.
-#'
-#' @param filePath The relative or absolute path to the file.
-#' @param dir The directory in which to check for the file, default is the current directory ('.').
-#'
-#' @return The full path to the file if it exists.
-#' @export
-#' @keywords packageDevelopment
-#'
-#' @examples
-#' \donttest{
-#' getExistingFilePath("DESCRIPTION")
-#' }
-getExistingFilePath <- function(filePath, dir = ".") {
-    if (!dir.exists(dir)) stopp("Specified directory does not exist.")
-    fullFilePath <- file.path(dir, filePath)
-    if (!file.exists(fullFilePath)) stopp("The specified file was not found.")
-    fullFilePath
-}
-
 # TODO function to modify roxygen files and add keyword section to everything
 # based on filename

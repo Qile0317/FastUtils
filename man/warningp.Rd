@@ -20,7 +20,7 @@ streamlining the output for users.
 }
 \examples{
 \donttest{
-warningp("This is a custom warning message without the call.")
+try(warningp("This is a custom warning message without the call."), silent = TRUE)
 }
 }
 \seealso{

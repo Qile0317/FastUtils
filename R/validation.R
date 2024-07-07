@@ -49,7 +49,7 @@ validateObject <- function(obj, checks, errorHandler = warningp, defaultReturn =
 #' @seealso [stop()]
 #' @examples
 #' \donttest{
-#' stopp("This is a custom stop message without the call.")
+#' try(stopp("This is a custom stop message without the call."), silent = TRUE)
 #' }
 #' @export
 stopp <- function(..., domain = NULL) {
@@ -70,7 +70,7 @@ stopp <- function(..., domain = NULL) {
 #' @seealso \code{\link[base]{warning}}
 #' @examples
 #' \donttest{
-#' warningp("This is a custom warning message without the call.")
+#' try(warningp("This is a custom warning message without the call."), silent = TRUE)
 #' }
 warningp <- function(...) {
     do.call(base::warning, args = append(list(call. = FALSE), list(...)))
