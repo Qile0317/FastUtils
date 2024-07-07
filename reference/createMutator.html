@@ -82,8 +82,8 @@ symbol of choice. See examples.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A function that takes a variable and a value, applying the binary operator
-to update the variable in the parent frame.</p>
+<p>A function that takes a variable and a value, applying the binary
+operator to update the variable in the parent frame.</p>
     </div>
 
     <div class="section level2">
@@ -91,6 +91,8 @@ to update the variable in the parent frame.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="st">"%+=%"</span> <span class="op">&lt;-</span> <span class="fu">createMutator</span><span class="op">(</span><span class="va">add</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">%+=%</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="co"># becomes 2</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

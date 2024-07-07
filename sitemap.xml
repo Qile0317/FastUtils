@@ -49,6 +49,9 @@
     <loc>https://qile0317.github.io/FastUtils/reference/createMutator.html</loc>
   </url>
   <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/createPkgLoader.html</loc>
+  </url>
+  <url>
     <loc>https://qile0317.github.io/FastUtils/reference/divide.html</loc>
   </url>
   <url>
@@ -73,9 +76,6 @@
     <loc>https://qile0317.github.io/FastUtils/reference/getChar.html</loc>
   </url>
   <url>
-    <loc>https://qile0317.github.io/FastUtils/reference/getExistingFilePath.html</loc>
-  </url>
-  <url>
     <loc>https://qile0317.github.io/FastUtils/reference/getPkgKeywords.html</loc>
   </url>
   <url>
@@ -89,6 +89,9 @@
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/getlast.html</loc>
+  </url>
+  <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/greplDir.html</loc>
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/ind.html</loc>
@@ -110,9 +113,6 @@
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/initV.html</loc>
-  </url>
-  <url>
-    <loc>https://qile0317.github.io/FastUtils/reference/installAndLoad.html</loc>
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/isBound.html</loc>
@@ -139,6 +139,9 @@
     <loc>https://qile0317.github.io/FastUtils/reference/joinRegex.html</loc>
   </url>
   <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/listFiles.html</loc>
+  </url>
+  <url>
     <loc>https://qile0317.github.io/FastUtils/reference/multiply.html</loc>
   </url>
   <url>
@@ -152,6 +155,9 @@
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/quietly.html</loc>
+  </url>
+  <url>
+    <loc>https://qile0317.github.io/FastUtils/reference/rmByName.html</loc>
   </url>
   <url>
     <loc>https://qile0317.github.io/FastUtils/reference/rownamesToCol.html</loc>
