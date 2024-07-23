@@ -11,11 +11,12 @@ getAvgHex(...)
 }
 \arguments{
 \item{...}{Hex color values as character strings. Could also be any number
-of character vectors (including lists) which will all be coerced into a single
-characters, assuming they are valid hex codes.}
+of character vectors (including lists) which will all be coerced into one
+character, assuming they are valid hex codes.}
 }
 \value{
-A single hex color character representing the average of the input colors.
+A single hex color character representing the average of the input
+colors.
 }
 \description{
 This function computes the average color of the provided hex color values.

@@ -1,11 +1,11 @@
 #' Join regex expressions by union
-#' 
+#'
 #' This function simply joins a vector of regex characters by union,
 #' and produces a single character regex in the form of `(foo)|(bar)`.
-#' 
+#'
 #' @param ... character vectors of the regex expressions to join. Both
 #' vectors and individual characters of any length will work
-#' 
+#'
 #' @return a character of the unioned regex
 #' @export
 #' @keywords regex
@@ -21,14 +21,15 @@ joinRegex <- function(...) {
 
 #' Remove Elements with Specified Name Regex
 #'
-#' This function removes elements from an indexable object (e.g., a named vector or list)
+#' This function removes elements from an indexable object (e.g., a named vector
+#' or list)
 #' where the names match a specified regular expression.
 #'
 #' @param x An indexable object (e.g., a named vector, list, or data frame).
 #' @param pattern A character containing a regular expression(s) to match the
 #' names of elements to be removed.
-#' @param silent A logical indicating whether to silence a warning if no names are
-#' detected.
+#' @param silent A logical indicating whether to silence a warning if no names
+#' are detected.
 #'
 #' @return The input object with elements removed based on the name regex.
 #' @export
@@ -58,16 +59,19 @@ rmByName <- function(x, pattern, silent = FALSE) {
 #' @description
 #' `r lifecycle::badge("experimental")`
 #' 
-#' The `greplDir` function searches for a specified pattern in all files within a given directory.
-#' It allows for optional exclusion of files matching a specified regular expression.
-#' Note that all files are assumed to be a single string, with each line joined by the
-#' newline character `"\n"`.
+#' The `greplDir` function searches for a specified pattern in all files within
+#' a given directory. It allows for optional exclusion of files matching a
+#' specified regular expression. Note that all files are assumed to be a single
+#' string, with each line joined by the newline character `"\n"`.
 #'
 #' @param fpattern Character. The pattern to search for within the files.
-#' @param dirPath Character. The path to the directory containing files to be searched.
-#' @param fIgnoreRegex Character. A regular expression to match file names that should be ignored (default is NULL).
-#' @param ... Additional arguments passed to [listFiles()], which are passed to [list.files()]
-#' 
+#' @param dirPath Character. The path to the directory containing files to be
+#' searched.
+#' @param fIgnoreRegex Character. A regular expression to match file names that
+#' should be ignored (default is NULL).
+#' @param ... Additional arguments passed to [listFiles()], which are passed to
+#' [list.files()]
+#'
 #' @return A named logical vector indicating which files contain the pattern.
 #' The names attribute contains the file names.
 #' @export
@@ -100,7 +104,7 @@ greplDir <- function(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...) {
     .greplFiles(allFiles, fpattern)
 }
 
-.greplFiles <- function(files, pattern, ignore.case = FALSE) {
+.greplFiles <- function(files, pattern, ignoreCase = FALSE) {
 
     pattern <- joinRegex(pattern)
 
@@ -109,7 +113,7 @@ greplDir <- function(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...) {
             {grepl(
                 pattern = pattern,
                 x = paste(readLines(file), collapse = "\n"),
-                ignore.case = ignore.case
+                ignore.case = ignoreCase
             )},
             warning = function(w) {
                 warning("pattern matching warning for file `", file, "`: ", w)
@@ -120,7 +124,7 @@ greplDir <- function(fpattern, dirPath = getwd(), fIgnoreRegex = NULL, ...) {
                 FALSE
             }
         )
-        
+
     })
 
     structure(greplResults, names = files)

@@ -3,10 +3,11 @@
 #' This function computes the average color of the provided hex color values.
 #'
 #' @param ... Hex color values as character strings. Could also be any number
-#' of character vectors (including lists) which will all be coerced into a single
-#' characters, assuming they are valid hex codes.
+#' of character vectors (including lists) which will all be coerced into one
+#' character, assuming they are valid hex codes.
 #'
-#' @return A single hex color character representing the average of the input colors.
+#' @return A single hex color character representing the average of the input
+#' colors.
 #' @export
 #' @keywords color
 #'
@@ -36,14 +37,15 @@ getAvgHex <- function(...) {
 #' This function scales the brightness of hex colors by a given factor.
 #'
 #' @param hex Hex color values as characters.
-#' @param scaleFactor A numeric value to scale the brightness. A value of 1 returns the original color.
+#' @param scaleFactor A numeric value to scale the brightness.
+#' A value of 1 returns the original color.
 #'
 #' @return A hex color value with adjusted brightness.
 #' @export
 #' @keywords color
 #' @examples
 #' scaleHex("#404040", 2)
-#' 
+#'
 scaleHex <- function(hex, scaleFactor) {
 
     if (all(scaleFactor == 1)) return(hex)

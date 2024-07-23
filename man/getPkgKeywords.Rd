@@ -9,20 +9,22 @@ getPkgKeywords(pkg = ".", asDistribution = FALSE)
 \arguments{
 \item{pkg}{The path to the R package directory.}
 
-\item{asDistribution}{Logical; if FALSE, returns a character vector of unique keywords. If TRUE, returns a table with the frequency of each keyword.}
+\item{asDistribution}{Logical; if FALSE, returns a character vector of unique
+keywords. If TRUE, returns a table with the frequency of each keyword.}
 }
 \value{
-If \code{asDistribution} is FALSE, a sorted character vector of unique keywords is returned.
-If \code{asDistribution} is TRUE, a table of keywords and their frequencies is returned.
-If no keywords were detected, returns a character of length 0.
+If \code{asDistribution} is FALSE, a sorted character vector of
+unique keywords is returned. If \code{asDistribution} is TRUE, a table of
+keywords and their frequencies is returned. If no keywords were detected,
+returns a character of length 0.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 This function retrieves keywords from all package documentation files located
-in the \verb{/man} directory of the specified R package. It can return a unique list
-of keywords or a frequency distribution of these keywords as a \code{table} object,
-sorted by the keys.
+in the \verb{/man} directory of the specified R package. It can return a unique
+list of keywords or a frequency distribution of these keywords as a \code{table}
+object, sorted by the keys.
 
 Note that the "internal" keyword is ignored.
 }

@@ -10,11 +10,13 @@ zipit(...)
 \item{...}{Vectors or lists to be combined.}
 }
 \value{
-A list of lists, where each inner list contains the elements from the corresponding positions in the input vectors or lists.
+A list of lists, where each inner list contains the elements from
+the corresponding positions in the input vectors or lists.
 }
 \description{
-This function combines multiple vectors or lists element-wise into a list of lists.
-A slightly lighter weight alternative to \code{itertools::izip()}
+This function combines multiple vectors or lists element-wise into
+a list of lists. It's a slightly lighter weight alternative to
+\code{itertools::izip()}
 }
 \examples{
 # Zip two vectors

@@ -26,14 +26,15 @@ bound <- function(num, lowerbound, upperbound) {
 #' @param lowerbound The lower bound of the range.
 #' @param upperbound The upper bound of the range.
 #'
-#' @return A logical vector indicating whether each element is within the specified range.
+#' @return A logical vector indicating whether each element is within the
+#' specified range.
 #' @export
 #' @keywords math
-#' 
+#'
 #' @examples
 #' isBound(1, 0, 2)
 #' isBound(1:10, -1, 5)
-#' 
+#'
 isBound <- function(num, lowerbound, upperbound) {
     (num >= lowerbound) & (num <= upperbound)
 }
@@ -59,13 +60,13 @@ isBound <- function(num, lowerbound, upperbound) {
 #' add("hello", "world")
 #' # Add a number and a string (concatenation)
 #' add(1, " world")
-#' 
+#'
 add <- function(x, y) {
-  if (is.character(x) || is.character(y)) {
-    paste(x, y, sep = "")
-  } else {
-    x + y
-  }
+    if (is.character(x) || is.character(y)) {
+        paste(x, y, sep = "")
+    } else {
+        x + y
+    }
 }
 
 #' Subtract Two Numbers
@@ -74,8 +75,9 @@ add <- function(x, y) {
 #'
 #' @param x A numeric vector.
 #' @param y A numeric vector.
-#' 
-#' @return A numeric vector representing the difference between the input vectors.
+#'
+#' @return A numeric vector representing the difference between the input
+#' vectors.
 #' @export
 #' @keywords math
 #' @examples
@@ -89,7 +91,7 @@ subtract <- function(x, y) x - y
 #'
 #' @param x A numeric vector.
 #' @param y A numeric vector.
-#' 
+#'
 #' @return A numeric vector representing the product of the input vectors.
 #' @export
 #' @keywords math

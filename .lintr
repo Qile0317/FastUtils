@@ -1,0 +1,5 @@
+linters: linters_with_defaults(
+    indentation_linter(indent = 4L),
+    object_name_linter(styles = c("camelCase", "CamelCase")),
+    cyclocomp_linter(25L))
+encoding: "UTF-8"

@@ -15,7 +15,8 @@ val(elem, index)
 The value at the specified index in the enumerated element.
 }
 \description{
-This function extracts the value from an enumerated element by the given index.
+This function extracts the value from an enumerated element by the given
+index.
 }
 \examples{
 # Extract value from an enumerated element by index

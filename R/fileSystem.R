@@ -9,7 +9,7 @@
 #' @param dirPath Character. The path to the directory from which to list files.
 #' @param ... Additional arguments passed to [base::list.files()] (e.g.,
 #' `pattern`, `recursive`). Note that `full.names` will be ignored.
-#' 
+#'
 #' @return A character vector of file paths.
 #' @export
 #' @keywords fileSystem

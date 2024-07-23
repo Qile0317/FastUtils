@@ -12,7 +12,8 @@ getlast(x, n = 1)
 \arguments{
 \item{x}{A vector, list, or other supported data type.}
 
-\item{n}{An integer specifying the number of elements to retrieve from the end. Default is 1.}
+\item{n}{An integer specifying the number of elements to retrieve from the
+end. Default is 1.}
 }
 \value{
 The last \code{n} elements of the input.

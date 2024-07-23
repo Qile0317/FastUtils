@@ -3,7 +3,8 @@
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' This function creates a package loader function that can install and load packages
+#' This function creates a package loader function that can install and load
+#' packages
 #' from CRAN, Bioconductor, or GitHub, optionally displaying verbose output.
 #' This function can be useful in new R instances with little dependencies
 #' available.
@@ -21,11 +22,11 @@
 #'
 #' The function will not install packages that can already be loaded by
 #' default.
-#' 
+#'
 #' @param lib A character vector specifying the library directory for package
 #' installation of the output function. Defaults to the current default
 #' package installation directory in `.libPaths()[1]`
-#' 
+#'
 #' @return A function that installs and loads packages.
 #' @export
 #' @keywords packageLoading
@@ -43,9 +44,9 @@
 #' # )
 #'
 createPkgLoader <- function(lib = .libPaths()[1]) {
-  
+
     function(cran = NULL, bioc = NULL, gh = NULL, verbose = FALSE) {
-        
+
         if (is.null(cran) && is.null(bioc) && is.null(gh)) {
             message("no packages inputted")
             return(invisible())
@@ -55,17 +56,16 @@ createPkgLoader <- function(lib = .libPaths()[1]) {
         if (!is.null(bioc))
             if (!requireNamespace("BiocManager", quietly = TRUE))
                 utils::install.packages("BiocManager", lib = lib)
-        
+
         if (!is.null(gh))
             if (!requireNamespace("devtools", quietly = TRUE))
                 utils::install.packages("devtools", lib = lib)
 
         # Helper function to install and load a package
-        install_and_load <- function(packagepath, source) {
+        installAndLoad <- function(packagepath, source) {
 
             if (is.null(packagepath)) return()
 
-            # github packages must be prioritized to account for naming conventions
             if (source == "GitHub") {
                 package <- strsplit(packagepath, "/")[[1]][2]
 
@@ -73,8 +73,10 @@ createPkgLoader <- function(lib = .libPaths()[1]) {
                 package <- packagepath
             }
 
-            if (require(package, character.only = TRUE, quietly = TRUE)) return(invisible())
-                
+            if (require(package, character.only = TRUE, quietly = TRUE)) {
+                return(invisible())
+            }
+
             if (source == "CRAN") {
                 utils::install.packages(
                     package,
@@ -102,10 +104,11 @@ createPkgLoader <- function(lib = .libPaths()[1]) {
             library(package, character.only = TRUE, quietly = !verbose)
         }
 
-        for (el in zipit(list("CRAN", "Bioconductor", "GitHub"), list(cran, bioc, gh))) {
-            sapply(el[[2]], function(pkg)
-                utils::capture.output(suppressMessages((install_and_load(pkg, el[[1]]))))
-            )
+        zipped <- zipit(
+            c("CRAN", "Bioconductor", "GitHub"), list(cran, bioc, gh)
+        )
+        for (el in zipped) {
+            sapply(el[[2]], function(p) quietly(installAndLoad(p, el[[1]])))
         }
 
         invisible()

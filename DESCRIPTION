@@ -29,7 +29,8 @@ Suggests:
     covr,
     knitr,
     rmarkdown,
-    spelling
+    spelling,
+    lintr
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

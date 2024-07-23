@@ -2,9 +2,14 @@
 
 ## Additions
 
+- the pkgdown site is now tracked with google analytics
+- the package is now internally linted with `lintr`
+
 ## Changes
 
-- the pkgdown site is now tracked with google analytics
+- the following arguments were renamed from using `snake_case` to `camelCase`:
+    - `init_vals` in `createHash()` is now `initVals`
+    - `zero_indexed` in `enumerateit()` is now `zeroIndexed`
 
 # FastUtils 0.1.1
 

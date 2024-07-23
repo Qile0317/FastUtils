@@ -10,7 +10,8 @@ quietly(e)
 \item{e}{An expression to evaluate.}
 }
 \value{
-The result of the expression with messages suppressed and output captured.
+The result of the expression with messages suppressed and output
+captured.
 }
 \description{
 This function suppresses messages and captures output from an expression.

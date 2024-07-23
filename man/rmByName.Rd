@@ -12,14 +12,15 @@ rmByName(x, pattern, silent = FALSE)
 \item{pattern}{A character containing a regular expression(s) to match the
 names of elements to be removed.}
 
-\item{silent}{A logical indicating whether to silence a warning if no names are
-detected.}
+\item{silent}{A logical indicating whether to silence a warning if no names
+are detected.}
 }
 \value{
 The input object with elements removed based on the name regex.
 }
 \description{
-This function removes elements from an indexable object (e.g., a named vector or list)
+This function removes elements from an indexable object (e.g., a named vector
+or list)
 where the names match a specified regular expression.
 }
 \examples{

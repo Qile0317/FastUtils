@@ -7,15 +7,18 @@
 initList(x = NULL, initVal = NULL)
 }
 \arguments{
-\item{x}{A character vector as names, or an numeric indicating the size of the list.}
+\item{x}{A character vector as names, or an numeric indicating the size of
+the list.}
 
 \item{initVal}{an optional initial value for all elements of the list.}
 }
 \value{
-A list of the specified size and names, optionally initialized with a value.
+A list of the specified size and names, optionally initialized with
+a value.
 }
 \description{
-This function initializes a list based on size or names, with an optional initial value.
+This function initializes a list based on size or names, with an optional
+initial value.
 }
 \examples{
 # Create a list with 3 elements

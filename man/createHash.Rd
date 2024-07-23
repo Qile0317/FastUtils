@@ -4,19 +4,19 @@
 \alias{createHash}
 \title{Create a Hash Table}
 \usage{
-createHash(keys, init_vals = NULL)
+createHash(keys, initVals = NULL)
 }
 \arguments{
 \item{keys}{A vector of keys for the hash table.}
 
-\item{init_vals}{Optional initial value for the hash table.}
+\item{initVals}{Optional initial value for the hash table.}
 }
 \value{
 A hash table with the specified keys and initial values.
 }
 \description{
-This function creates a hash table from a set of keys and optional initial value.
-Note that it is simply a convenience wrapper for the \code{hash} package.
+This function creates a hash table from a set of keys and optional initial
+value. Note that it is simply a convenience wrapper for the \code{hash} package.
 }
 \examples{
 # Create a hash table with keys and no initial values

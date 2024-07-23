@@ -12,7 +12,8 @@ subtract(x, y)
 \item{y}{A numeric vector.}
 }
 \value{
-A numeric vector representing the difference between the input vectors.
+A numeric vector representing the difference between the input
+vectors.
 }
 \description{
 This function subtracts one number from another.

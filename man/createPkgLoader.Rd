@@ -17,7 +17,8 @@ A function that installs and loads packages.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-This function creates a package loader function that can install and load packages
+This function creates a package loader function that can install and load
+packages
 from CRAN, Bioconductor, or GitHub, optionally displaying verbose output.
 This function can be useful in new R instances with little dependencies
 available.

@@ -3,8 +3,9 @@
 #' This function retrieves the last `n` elements of a vector or list.
 #'
 #' @param x A vector, list, or other supported data type.
-#' @param n An integer specifying the number of elements to retrieve from the end. Default is 1.
-#' 
+#' @param n An integer specifying the number of elements to retrieve from the
+#' end. Default is 1.
+#'
 #' @return The last `n` elements of the input.
 #' @export
 #' @keywords indexing
@@ -36,8 +37,9 @@ getlast.default <- function(x, n = 1) {
 #' This function retrieves the first `n` elements of a vector or list.
 #'
 #' @param x A vector, list, or other supported data type.
-#' @param n An integer specifying the number of elements to retrieve from the start. Default is 1.
-#' 
+#' @param n An integer specifying the number of elements to retrieve from the
+#' start. Default is 1.
+#'
 #' @return The first `n` elements of the input.
 #' @export
 #' @keywords indexing

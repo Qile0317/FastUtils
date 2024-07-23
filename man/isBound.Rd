@@ -14,7 +14,8 @@ isBound(num, lowerbound, upperbound)
 \item{upperbound}{The upper bound of the range.}
 }
 \value{
-A logical vector indicating whether each element is within the specified range.
+A logical vector indicating whether each element is within the
+specified range.
 }
 \description{
 This function checks if a number is within a specified range.

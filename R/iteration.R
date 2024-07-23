@@ -1,11 +1,13 @@
 #' Zip Multiple Vectors or Lists
 #'
-#' This function combines multiple vectors or lists element-wise into a list of lists.
-#' A slightly lighter weight alternative to `itertools::izip()`
+#' This function combines multiple vectors or lists element-wise into
+#' a list of lists. It's a slightly lighter weight alternative to
+#' `itertools::izip()`
 #'
 #' @param ... Vectors or lists to be combined.
-#' 
-#' @return A list of lists, where each inner list contains the elements from the corresponding positions in the input vectors or lists.
+#'
+#' @return A list of lists, where each inner list contains the elements from
+#' the corresponding positions in the input vectors or lists.
 #' @export
 #' @keywords iteration
 #' @seealso [enumerateit()]
@@ -18,20 +20,23 @@ zipit <- function(...) mapply(list, ..., SIMPLIFY = FALSE)
 
 #' Enumerate Elements with Indices
 #'
-#' This function pairs elements of vectors or lists with their indices. The output
-#' is meant to be used in a for loop, and each element extracted with the 
-#' [ind()], [val()], or [val1()] functions. A slightly lighter weight alternative
-#' to `itertools::enumerate()`
+#' This function pairs elements of vectors or lists with their indices. The
+#' output
+#' is meant to be used in a for loop, and each element extracted with the
+#' [ind()], [val()], or [val1()] functions. A slightly lighter weight
+#' alternative to `itertools::enumerate()`
 #'
 #' @param ... Vectors or lists to be enumerated.
-#' @param zero_indexed A logical indicating whether indexing should start from zero. Default is FALSE.
-#' 
-#' @return A list of lists, where each inner list contains an index and the corresponding elements from the input vectors or lists.
+#' @param zeroIndexed A logical indicating whether indexing should start from
+#' zero. Default is FALSE.
+#'
+#' @return A list of lists, where each inner list contains an index and the
+#' corresponding elements from the input vectors or lists.
 #' @export
 #' @keywords iteration
-#' 
+#'
 #' @seealso [ind()], [val()], [val1()]
-#' 
+#'
 #' @examples
 #' # Enumerate a vector
 #' enumerateit(c("a", "b", "c"))
@@ -39,8 +44,8 @@ zipit <- function(...) mapply(list, ..., SIMPLIFY = FALSE)
 #' enumerateit(c("a", "b", "c"), zero_indexed = TRUE)
 #' # Enumerate two vectors
 #' enumerateit(c(1, 2), c("x", "y"))
-enumerateit <- function(..., zero_indexed = FALSE) {
-    zipit(seq_along(..1) - zero_indexed, ...)
+enumerateit <- function(..., zeroIndexed = FALSE) {
+    zipit(seq_along(..1) - zeroIndexed, ...)
 }
 
 #' Get Index from Enumerated Element
@@ -48,7 +53,7 @@ enumerateit <- function(..., zero_indexed = FALSE) {
 #' This function extracts the index from an enumerated element.
 #'
 #' @param elem An enumerated element.
-#' 
+#'
 #' @return The index of the enumerated element.
 #' @export
 #' @keywords iteration
@@ -61,11 +66,12 @@ ind <- function(elem) elem[[1]]
 
 #' Get Value from Enumerated Element by Index
 #'
-#' This function extracts the value from an enumerated element by the given index.
+#' This function extracts the value from an enumerated element by the given
+#' index.
 #'
 #' @param elem An enumerated element.
 #' @param index The index of the value to extract.
-#' 
+#'
 #' @return The value at the specified index in the enumerated element.
 #' @export
 #' @keywords iteration
@@ -81,7 +87,7 @@ val <- function(elem, index) elem[[index + 1]]
 #' This function extracts the first value from an enumerated element.
 #'
 #' @param elem An enumerated element.
-#' 
+#'
 #' @return The first value in the enumerated element.
 #' @export
 #' @keywords iteration

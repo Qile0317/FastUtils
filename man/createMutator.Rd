@@ -14,11 +14,11 @@ A function that takes a variable and a value, applying the binary
 operator to update the variable in the parent frame.
 }
 \description{
-This function creates a mutator function based on a specified binary operator.
-The output mutator function updates a variable in the parent frame by applying
-the binary operator with a given value. It's recommended to use this function
-to easily construct special functions in the form of \verb{\%f\%} where \code{f} can be any
-symbol of choice. See examples.
+Creates a mutator function based on a specified binary operator.
+The output mutator function updates a variable in the parent frame by
+applying the binary operator with a given value. It's recommended to use
+this function to easily construct special functions in the form of \verb{\%f\%}
+where \code{f} can be any symbol of choice. See examples.
 }
 \examples{
 "\%+=\%" <- createMutator(add)

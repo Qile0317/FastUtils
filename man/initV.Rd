@@ -7,17 +7,20 @@
 initV(typeFunc, x, initVal = NULL)
 }
 \arguments{
-\item{typeFunc}{A character string indicating the type of the vector or a function to create the vector.}
+\item{typeFunc}{A character string indicating the type of the vector or a
+function to create the vector.}
 
 \item{x}{The length of the vector.}
 
 \item{initVal}{An optional initial value to fill the vector.}
 }
 \value{
-A vector of the specified type and size, optionally initialized with a value.
+A vector of the specified type and size, optionally initialized
+with a value.
 }
 \description{
-This function initializes a vector based on a specified type and size, with an optional initial value.
+This function initializes a vector based on a specified type and size, with
+an optional initial value.
 }
 \examples{
 # Create a numeric vector of length 5

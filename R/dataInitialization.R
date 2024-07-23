@@ -1,12 +1,15 @@
 #' Initialize a Vector
 #'
-#' This function initializes a vector based on a specified type and size, with an optional initial value.
+#' This function initializes a vector based on a specified type and size, with
+#' an optional initial value.
 #'
-#' @param typeFunc A character string indicating the type of the vector or a function to create the vector.
+#' @param typeFunc A character string indicating the type of the vector or a
+#' function to create the vector.
 #' @param x The length of the vector.
 #' @param initVal An optional initial value to fill the vector.
-#' 
-#' @return A vector of the specified type and size, optionally initialized with a value.
+#'
+#' @return A vector of the specified type and size, optionally initialized
+#' with a value.
 #' @export
 #' @keywords dataInitialization
 #' @examples
@@ -26,12 +29,15 @@ initV <- function(typeFunc, x, initVal = NULL) {
 
 #' Initialize a List
 #'
-#' This function initializes a list based on size or names, with an optional initial value.
+#' This function initializes a list based on size or names, with an optional
+#' initial value.
 #'
-#' @param x A character vector as names, or an numeric indicating the size of the list.
+#' @param x A character vector as names, or an numeric indicating the size of
+#' the list.
 #' @param initVal an optional initial value for all elements of the list.
 #'
-#' @return A list of the specified size and names, optionally initialized with a value.
+#' @return A list of the specified size and names, optionally initialized with
+#' a value.
 #' @export
 #' @keywords dataInitialization
 #' @examples
@@ -56,14 +62,14 @@ initList <- function(x = NULL, initVal = NULL) {
 
 #' Initialize a DataFrame with Column Names
 #'
-#' This function creates an empty data frame and assigns the specified column names with
-#' zero rows.
+#' This function creates an empty data frame and assigns the specified column
+#' names with zero rows.
 #'
-#' @param colnames A character vector specifying the names of the columns for the data frame.
-#' This vector will be attempted to be coerced to a character.
+#' @param colnames A character vector specifying the names of the columns for
+#' the data frame. This vector will be attempted to be coerced to a character.
 #'
-#' @return A data frame with the specified column names. Non unique names will be
-#' handled by the conventions of [data.frame()].
+#' @return A data frame with the specified column names. Non unique names will
+#' be handled by the conventions of [data.frame()].
 #' prefixes.
 #' @export
 #' @keywords dataInitialization
@@ -100,7 +106,7 @@ initEmptyTable <- function() {
 #' This function converts a table to a numeric vector.
 #'
 #' @param x A table to be converted.
-#' 
+#'
 #' @return A numeric vector with names preserved from the table.
 #' @export
 #' @keywords dataInitialization
@@ -117,7 +123,7 @@ tableToNumeric <- function(x) {
 #' This function converts a named numeric vector to a table.
 #'
 #' @param x A named numeric vector.
-#' 
+#'
 #' @return A table with the same names and values as the input vector.
 #' @export
 #' @keywords dataInitialization
@@ -135,11 +141,11 @@ namedNumericToTable <- function(x) {
 
 #' Create a Hash Table
 #'
-#' This function creates a hash table from a set of keys and optional initial value.
-#' Note that it is simply a convenience wrapper for the `hash` package.
+#' This function creates a hash table from a set of keys and optional initial
+#' value. Note that it is simply a convenience wrapper for the `hash` package.
 #'
 #' @param keys A vector of keys for the hash table.
-#' @param init_vals Optional initial value for the hash table.
+#' @param initVals Optional initial value for the hash table.
 #'
 #' @return A hash table with the specified keys and initial values.
 #' @export
@@ -149,13 +155,13 @@ namedNumericToTable <- function(x) {
 #' createHash(c("a", "b", "c"))
 #' # Create a hash table with keys and initial value of 0
 #' createHash(c("a", "b", "c"), 0)
-createHash <- function(keys, init_vals = NULL) {
+createHash <- function(keys, initVals = NULL) {
     if (missing(keys)) return(hash::hash())
     keys <- unique(keys)
     numkeys <- length(keys)
     switch(as.character(numkeys),
         "0" = hash::hash(),
-        "1" = hash::hash(keys, init_vals),
-        hash::hash(keys, initList(numkeys, init_vals))
+        "1" = hash::hash(keys, initVals),
+        hash::hash(keys, initList(numkeys, initVals))
     )
 }

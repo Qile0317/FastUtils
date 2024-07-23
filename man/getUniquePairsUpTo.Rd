@@ -9,7 +9,8 @@ getUniquePairsUpTo(x, oneIndexed = TRUE)
 \arguments{
 \item{x}{An integer specifying the upper limit for pairs.}
 
-\item{oneIndexed}{A logical indicating whether the pairs should be one-indexed. Default is TRUE.}
+\item{oneIndexed}{A logical indicating whether the pairs should be one
+indexed. Default is TRUE.}
 }
 \value{
 A list of unique pairs of integers up to the specified number.

@@ -4,21 +4,24 @@
 \alias{enumerateit}
 \title{Enumerate Elements with Indices}
 \usage{
-enumerateit(..., zero_indexed = FALSE)
+enumerateit(..., zeroIndexed = FALSE)
 }
 \arguments{
 \item{...}{Vectors or lists to be enumerated.}
 
-\item{zero_indexed}{A logical indicating whether indexing should start from zero. Default is FALSE.}
+\item{zeroIndexed}{A logical indicating whether indexing should start from
+zero. Default is FALSE.}
 }
 \value{
-A list of lists, where each inner list contains an index and the corresponding elements from the input vectors or lists.
+A list of lists, where each inner list contains an index and the
+corresponding elements from the input vectors or lists.
 }
 \description{
-This function pairs elements of vectors or lists with their indices. The output
+This function pairs elements of vectors or lists with their indices. The
+output
 is meant to be used in a for loop, and each element extracted with the
-\code{\link[=ind]{ind()}}, \code{\link[=val]{val()}}, or \code{\link[=val1]{val1()}} functions. A slightly lighter weight alternative
-to \code{itertools::enumerate()}
+\code{\link[=ind]{ind()}}, \code{\link[=val]{val()}}, or \code{\link[=val1]{val1()}} functions. A slightly lighter weight
+alternative to \code{itertools::enumerate()}
 }
 \examples{
 # Enumerate a vector

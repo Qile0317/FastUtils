@@ -9,7 +9,8 @@ scaleHex(hex, scaleFactor)
 \arguments{
 \item{hex}{Hex color values as characters.}
 
-\item{scaleFactor}{A numeric value to scale the brightness. A value of 1 returns the original color.}
+\item{scaleFactor}{A numeric value to scale the brightness.
+A value of 1 returns the original color.}
 }
 \value{
 A hex color value with adjusted brightness.

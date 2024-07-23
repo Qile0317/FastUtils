@@ -2,7 +2,7 @@
 % Please edit documentation in R/ggplot.R
 \name{getPlotDims}
 \alias{getPlotDims}
-\title{Get the xmin, xmax, ymin, ymax of a ggplot Object}
+\title{Get the dimensions of a ggplot Object}
 \usage{
 getPlotDims(plt)
 }
@@ -10,13 +10,15 @@ getPlotDims(plt)
 \item{plt}{A ggplot object.}
 }
 \value{
-A list with elements \code{xr} (a vector of xmin and xmax) and \code{yr} (a vector of ymin and ymax).
+A list with elements \code{xr} (a vector of xmin and xmax) and \code{yr} (a
+vector of ymin and ymax).
 }
 \description{
-This function retrieves the minimum and maximum x and y dimensions of a ggplot object.
-Note that it is the dimension of the plot within the x and y axis and not the dimensions
-of the actual output image itself. This may be useful for numerical computations when
-modifying plots, but can be slow since it builds the actual plot first.
+This function retrieves the minimum and maximum x and y dimensions of a
+ggplot object. Note that it is the dimension of the plot within the x and y
+axis and not the dimensions of the actual output image itself. This may be
+useful for numerical computations when modifying plots, but can be slow since
+it builds the actual plot first.
 }
 \examples{
 library(ggplot2)

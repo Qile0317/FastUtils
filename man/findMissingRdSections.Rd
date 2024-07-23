@@ -17,23 +17,28 @@ fmrs(sectionName, pkg = ".", ignore = NULL, .ignore = "-package$")
 \arguments{
 \item{sectionName}{A character vector of the Rd sections to look for.}
 
-\item{pkg}{The path to the package directory, defaulting to the current directory ".".}
+\item{pkg}{The path to the package directory, defaulting to the current
+directory ".".}
 
-\item{ignore}{Additional Regexes of \emph{function names} to be ignored in the output.}
+\item{ignore}{Additional Regexes of \emph{function names} to be ignored in the
+output.}
 
-\item{.ignore}{More regexes of functions to ignore set by default. Will be appended with
+\item{.ignore}{More regexes of functions to ignore set by default. Will be
+appended with
 the \code{ignore} regexes and unioned with \code{\link[=joinRegex]{joinRegex()}}.}
 }
 \value{
 Character vector of function names that are missing any of the
-specified sections in their Rd files. May be length 0 if all fulfill criteria.
+specified sections in their Rd files. May be length 0 if all fulfill
+criteria.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-This function scans Rd documentation files in the specified package's \verb{\\man} directory
-to identify which functions lack certain documentation sections like \verb{\\examples}. If
-there are no missing sections in all the Rd files, then the output is a \code{character(0)}
+This function scans Rd documentation files in the specified package's \verb{\\man}
+directory to identify which functions lack certain documentation sections
+like \verb{\\examples}. If there are no missing sections in all the Rd files, then
+the output is a \code{character(0)}
 }
 \examples{
 try(
