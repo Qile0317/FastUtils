@@ -17,7 +17,8 @@ enclose(x, left, right)
 A new character string with \code{x} enclosed by \code{left} and \code{right}.
 }
 \description{
-This function encloses a string with specified characters on the left and the right.
+This function encloses a string with specified characters on the left
+and the right.
 }
 \examples{
 enclose("text", "[", "]") # returns "[text]"

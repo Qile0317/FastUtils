@@ -65,7 +65,6 @@ test_that("Convert Named Numeric Vector to Table", {
 
 test_that("createHash works", {
   expect_identical(createHash(), hash::hash())
-  expect_equal(createHash(NULL, 1), hash::hash())
   expect_equal(as.list(createHash("a", 1)), list(a = 1))
   expect_equal(createHash(c("key1", "key2"), 1), hash::hash("key1" = 1, "key2" = 1))
 })

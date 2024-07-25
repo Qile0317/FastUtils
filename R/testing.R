@@ -29,10 +29,13 @@
 #'
 initTestthat <- function(
     rDir = "R",
-    testDir = "tests/testthat",
+    testDir = file.path("tests", "testthat"),
     .ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$"),
     ignore = NULL
 ) {
+
+    assertthat::assert_that(is.character(rDir) && is.character(testDir))
+    assertthat::assert_that(is.null(ignore) || is.character(ignore))
 
     if (!dir.exists(testDir)) usethis::use_testthat()
     ignore_regex <- encloseBr(paste(append(.ignore, ignore), collapse = ")|("))

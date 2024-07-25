@@ -119,6 +119,36 @@ setRownames <- function(object, newRownames) {
     object
 }
 
+#' Set Names of an Object
+#'
+#' Improvement to [stats::setNames()] sets new names for an object,
+#' ensuring that the length of the new names matches the length of the object.
+#' Additionally, if the length of newNames is one, it is repeated to match
+#' the length of the object.
+#'
+#' @param object An object.
+#' @param newNames A character vector specifying the new names.
+#'
+#' @return The object with updated names.
+#' @export
+#' @keywords wrangling
+#' @examples
+#' # Set new names for a vector
+#' x <- c(1, 2, 3)
+#' setNames(x, c("A", "B", "C"))
+#'
+setNames <- function(object, newNames) {
+    assert_that::assert_that(
+        length(newNames) == 1 || length(newNames) == length(object)
+    )
+    names(object) <- if (length(newNames) == length(object)) {
+        newNames
+    } else {
+        rep(newNames, length(object))
+    }
+    object
+}
+
 #' Fix Column Names
 #'
 #' @description 

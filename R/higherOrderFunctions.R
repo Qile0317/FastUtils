@@ -20,6 +20,11 @@
 #' x # becomes 2
 #'
 createMutator <- function(binaryOperator) {
+
+    assertthat::assert_that(
+        is.function(binaryOperator) && length(formals(binaryOperator)) >= 2
+    )
+
     function(var, val) {
         eval(
             call("<-", substitute(var), binaryOperator(var, val)),

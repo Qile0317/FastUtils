@@ -6,7 +6,7 @@
 \usage{
 initTestthat(
   rDir = "R",
-  testDir = "tests/testthat",
+  testDir = file.path("tests", "testthat"),
   .ignore = c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$"),
   ignore = NULL
 )

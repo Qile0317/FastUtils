@@ -122,6 +122,7 @@ fmrs <- findMissingRdSections
 #' @param pkg The path to the package directory.
 #' @param snapDir The path to the directory containing the snapshots. Default
 #' is `tests/testthat/_snaps`. If this directory isn't valid, nothing happens.
+#' @param verbose Logical; if TRUE, prints the paths of the new snapshots that
 #'
 #' @return NULL (invisible) - used for side effects
 #' @export
@@ -133,11 +134,14 @@ fmrs <- findMissingRdSections
 #' }
 #'
 removeVdiffrNewSnapShots <- function(
-    pkg = ".", snapDir = file.path("tests", "testthat", "_snaps")
+    pkg = ".",
+    snapDir = file.path("tests", "testthat", "_snaps"),
+    verbose = TRUE
 ) {
 
     assertthat::assert_that(assertthat::is.string(pkg))
     assertthat::assert_that(assertthat::is.string(snapDir))
+    assertthat::assert_that(is.logical(verbose))
 
     if (!dir.exists(snapDir)) return(invisible())
 
@@ -146,6 +150,9 @@ removeVdiffrNewSnapShots <- function(
     )
 
     if (length(newSnapshotPaths) == 0) return(invisible())
+
+    if (verbose)
+        cli::cli_inform(setNames(paste("deleting", newSnapshotPaths), "i"))
 
     sapply(newSnapshotPaths, base::file.remove)
     invisible()

@@ -9,7 +9,10 @@ getChar(x, index)
 \arguments{
 \item{x}{A character string.}
 
-\item{index}{The index of the character to retrieve.}
+\item{index}{The index of the character to retrieve. If it is length 1,
+then the same character is retrieved for all elements of \code{x}. Otherwise,
+if it is the same length as \code{x}, then the character at each index is
+retrieved.}
 }
 \value{
 The character at the specified index.

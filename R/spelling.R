@@ -32,6 +32,10 @@ trySplitWords <- function(
     x <- unlist(list(...), use.names = FALSE)
     assertthat::assert_that(is.character(x))
 
+    assertthat::assert_that(assertthat::is.flag(conseq))
+    assertthat::assert_that(assertthat::is.flag(strictSnake))
+    assertthat::assert_that(assertthat::is.flag(uncase))
+
     lapply(x, function(y) {
         if (isCamelCase(y) || isPascalCase(y)) {
             out <- splitCamel(y, conseq = isTRUE(conseq))[[1]]

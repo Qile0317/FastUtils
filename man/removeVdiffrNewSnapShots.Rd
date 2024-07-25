@@ -7,16 +7,23 @@
 \usage{
 removeVdiffrNewSnapShots(
   pkg = ".",
-  snapDir = file.path("tests", "testthat", "_snaps")
+  snapDir = file.path("tests", "testthat", "_snaps"),
+  verbose = TRUE
 )
 
-rmns(pkg = ".", snapDir = file.path("tests", "testthat", "_snaps"))
+rmns(
+  pkg = ".",
+  snapDir = file.path("tests", "testthat", "_snaps"),
+  verbose = TRUE
+)
 }
 \arguments{
 \item{pkg}{The path to the package directory.}
 
 \item{snapDir}{The path to the directory containing the snapshots. Default
 is \verb{tests/testthat/_snaps}. If this directory isn't valid, nothing happens.}
+
+\item{verbose}{Logical; if TRUE, prints the paths of the new snapshots that}
 }
 \value{
 NULL (invisible) - used for side effects
