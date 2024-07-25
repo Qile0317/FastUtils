@@ -6,7 +6,7 @@
 \alias{FastUtils-package}
 \title{FastUtils: Fast, Readable Utility Functions}
 \description{
-A wide variety of tools for general data analysis, wrangling, spelling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible.
+A wide variety of tools for general data analysis, wrangling, spelling, statistics, visualizations, package development, and more. All functions have vectorized implementations whenever possible. Exported names are designed to be readable, with longer names possessing short aliases.
 }
 \seealso{
 Useful links:

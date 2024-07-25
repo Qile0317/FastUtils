@@ -11,13 +11,15 @@ closestWord(s, strset, distFunc = utils::adist)
 
 \item{strset}{A set of character strings.}
 
-\item{distFunc}{A function to compute distance between strings. Default is \code{utils::adist}.}
+\item{distFunc}{A function to compute distance between strings.
+Default is \code{utils::adist}.}
 }
 \value{
 The closest word in the set to the given word.
 }
 \description{
-This function finds the closest word in a set of words to a given word based on a specified distance function.
+This function finds the closest word in a set of words to a given
+word based on a specified distance function.
 }
 \examples{
 # Find the closest word to "hello" in the set c("hallo", "hullo", "hey")

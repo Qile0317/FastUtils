@@ -19,7 +19,7 @@
 getPlotDims <- function(plt) {
     builtPlotLayout <- ggplot2::ggplot_build(plt)$layout
     list(
-        xr = builtPlotLayoutt$panel_scales_x[[1]]$range$range,
+        xr = builtPlotLayout$panel_scales_x[[1]]$range$range,
         yr = builtPlotLayout$panel_scales_y[[1]]$range$range
     )
 }

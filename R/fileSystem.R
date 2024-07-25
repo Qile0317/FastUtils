@@ -26,7 +26,7 @@ listFiles <- function(dirPath, ...) {
 
     filesAndDirs <- base::do.call(
         list.files,
-        append(
+        base::append(
             list(path = dirPath, full.names = TRUE),
             rmByName(list(...), "full.names", silent = TRUE)
         )

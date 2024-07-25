@@ -256,12 +256,14 @@ stripSpaces <- function(x) {
 
 #' Find the Closest Word in a Set to a Given Word
 #'
-#' This function finds the closest word in a set of words to a given word based on a specified distance function.
+#' This function finds the closest word in a set of words to a given
+#' word based on a specified distance function.
 #'
 #' @param s A character string.
 #' @param strset A set of character strings.
-#' @param distFunc A function to compute distance between strings. Default is `utils::adist`.
-#' 
+#' @param distFunc A function to compute distance between strings.
+#' Default is `utils::adist`.
+#'
 #' @return The closest word in the set to the given word.
 #' @export
 #' @keywords spelling

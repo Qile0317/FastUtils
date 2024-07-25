@@ -93,8 +93,13 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 #' )
 #'
 findMissingRdSections <- function(
-    sectionName, pkg = ".", ignore = NULL, .ignore = "-package$"
+    sectionName, pkg = ".", ignore = NULL, .ignore = "-package$" # are these used?
 ) {
+
+    assertthat::assert_that(is.character(sectionName))
+    assertthat::assert_that(assertthat::is.string(pkg))
+    assertthat::assert_that(is.null(ignore) || is.character(ignore))
+
     paste("\\", sectionName, "{", sep = "") %>%
         greplDir(file.path(pkg, "man")) %>%
         (function(x) names(which(!x))) %>%
@@ -104,6 +109,51 @@ findMissingRdSections <- function(
 #' @rdname findMissingRdSections
 #' @export
 fmrs <- findMissingRdSections
+
+#' Remove New Snapshots from vdiffr Tests
+#'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
+#' This function removes new snapshots created by `vdiffr` tests. It is useful
+#' when you want to remove new snapshots that were created during testing and
+#' are no longer needed.
+#'
+#' @param pkg The path to the package directory.
+#' @param snapDir The path to the directory containing the snapshots. Default
+#' is `tests/testthat/_snaps`. If this directory isn't valid, nothing happens.
+#'
+#' @return NULL (invisible) - used for side effects
+#' @export
+#' @keywords testing
+#'
+#' @examples
+#' /donttest{
+#' removeVdiffrNewSnapShots()
+#' }
+#'
+removeVdiffrNewSnapShots <- function(
+    pkg = ".", snapDir = file.path("tests", "testthat", "_snaps")
+) {
+
+    assertthat::assert_that(assertthat::is.string(pkg))
+    assertthat::assert_that(assertthat::is.string(snapDir))
+
+    if (!dir.exists(snapDir)) return(invisible())
+
+    newSnapshotPaths <- listFiles(
+        snapDir, pattern = "\\.new\\.svg$", recursive = TRUE
+    )
+
+    if (length(newSnapshotPaths) == 0) return(invisible())
+
+    sapply(newSnapshotPaths, base::file.remove)
+    invisible()
+}
+
+#' @rdname removeVdiffrNewSnapShots
+#' @export
+rmns <- removeVdiffrNewSnapShots
 
 # TODO function to modify roxygen files and add keyword section to everything
 # based on filename
