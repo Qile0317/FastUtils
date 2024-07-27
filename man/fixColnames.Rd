@@ -6,7 +6,7 @@
 \usage{
 fixColnames(
   object,
-  invalidRegex = "( )|(\\\\()|(\\\\))|(\\\\.)|(/)",
+  invalidRegex = joinRegex(" ", "\\\\)", "\\\\(", "\\\\.", "/"),
   spacing = "_",
   subMap = NULL,
   .subMap = list(`\%+` = "pct", `\\\\$+` = "dollars", `\\\\++` = "plus", `-+` = "minus",
@@ -17,15 +17,22 @@ fixColnames(
 \arguments{
 \item{object}{A data frame or matrix.}
 
-\item{invalidRegex}{A character string containing a regular expression pattern for invalid characters to replace. Default is "( )|(\\()|(\\))|(\\.)|(/)".}
+\item{invalidRegex}{A character string containing a regex pattern
+for invalid characters to replace. Default is "( )|(\\()|(\\))|(\\.)|(/)".}
 
-\item{spacing}{A character string to replace invalid characters with. Default is "_".}
+\item{spacing}{A character string to replace invalid characters with. Default
+is "_".}
 
-\item{subMap}{A named list where the names are regular expressions and the values are the replacement strings. These substitutions are applied before \code{.subMap}.}
+\item{subMap}{A named list where the names are regular expressions and the
+values are the replacement strings. These substitutions are applied before
+\code{.subMap}.}
 
-\item{.subMap}{A named list where the names are regular expressions and the values are the replacement strings. These substitutions are applied after \code{subMap}. Default is list("\\+" = "plus").}
+\item{.subMap}{A named list where the names are regular expressions and the
+values are the replacement strings. These substitutions are applied after
+\code{subMap}. Default is list("\\+" = "plus").}
 
-\item{unique}{A logical indicating whether to ensure unique column names by appending a suffix if necessary. Default is FALSE.}
+\item{unique}{A logical indicating whether to ensure unique column names by
+appending a suffix if necessary. Default is FALSE.}
 }
 \value{
 The data frame or matrix with fixed column names.
@@ -33,12 +40,15 @@ The data frame or matrix with fixed column names.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-This function fixes the column names of a given object so that all words are spaced by a specified delimiter,
-and any special characters are replaced according to a substitution map.
+This function fixes the column names of a given object so that all words
+are spaced by a specified delimiter, and any special characters are replaced
+according to a substitution map.
 }
 \examples{
 # Fix column names of a data frame
-df <- data.frame(`A (1)` = c(1, 2, 3), `B/C` = c(4, 5, 6), `D+E` = c(7, 8, 9))
+df <- data.frame(
+    `A (1)` = c(1, 2, 3), `B/C` = c(4, 5, 6), `D+E` = c(7, 8, 9)
+)
 fixColnames(df)
 }
 \keyword{wrangling}

@@ -9,6 +9,7 @@ REPL
 Regexes
 Rstudio
 Testthat
+analytics
 berkeley
 bioc
 camelCase
@@ -19,11 +20,14 @@ gh
 githubUsername
 indexable
 mutator
+newNames
 packageName
+pkgdown
 qile
 regexes
 testthat
 unioned
+vdiffr
 vectorized
 xmax
 xmin

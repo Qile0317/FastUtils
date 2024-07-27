@@ -19,6 +19,6 @@ starting with an uppercase letter followed by any combination of upper and lower
 \examples{
 isPascalCase("PascalCase") # returns TRUE
 isPascalCase("pascalCase") # returns FALSE
-isPascalCase("Pascalcase") # returns FALSE
+isPascalCase("Pascalcase") # returns TRUE
 }
 \keyword{spelling}

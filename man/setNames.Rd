@@ -23,7 +23,11 @@ the length of the object.
 \examples{
 # Set new names for a vector
 x <- c(1, 2, 3)
-setNames(x, c("A", "B", "C"))
+x <- setNames(x, c("A", "B", "C"))
+
+# some syntactic sugar can be achieved with a special mutator
+`\%setNames\%` <- createMutator(setNames)
+x \%setNames\% c("D", "E", "F")
 
 }
 \keyword{wrangling}

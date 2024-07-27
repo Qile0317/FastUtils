@@ -19,11 +19,11 @@
 #' @examples
 #' \donttest{
 #' try({
-#' 
+#'
 #' initTestthat()
 #' initTestthat(rDir = "src", testDir = "tests")
 #' initTestthat(ignore = c("^foo", "-bar.R$"))
-#' 
+#'
 #' }, silent = TRUE)
 #' }
 #'
@@ -59,7 +59,7 @@ initTestthat <- function(
 #'
 #' @param desc A description of the test.
 #' @param code The code to be tested.
-#' 
+#'
 #' @return No return value, called for side effects.
 #' @export
 #' @keywords testing

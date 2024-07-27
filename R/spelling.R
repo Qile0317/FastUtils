@@ -144,7 +144,7 @@ isCamelCase <- function(x) {
 #' @examples
 #' isPascalCase("PascalCase") # returns TRUE
 #' isPascalCase("pascalCase") # returns FALSE
-#' isPascalCase("Pascalcase") # returns FALSE
+#' isPascalCase("Pascalcase") # returns TRUE
 isPascalCase <- function(x) {
     assertthat::assert_that(is.character(x))
     grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
@@ -169,14 +169,15 @@ isPascalCase <- function(x) {
 #' isSnakeCase("Snake_Case")        # returns FALSE
 #' isSnakeCase("snake_case", FALSE) # returns TRUE
 #' isSnakeCase("Snake_Case", FALSE) # returns TRUE
-#' 
+#'
 isSnakeCase <- function(x, strict = TRUE) {
 
     assertthat::assert_that(is.character(x))
+    assertthat::assert_that(assertthat::is.flag(strict))
 
     grepl(
         ifelse(
-            isTRUE(strict),
+            strict,
             "^[a-z]+(_[a-z]+)*$",
             "^[A-Za-z]+(_[A-Za-z]+)*$"
         ),
@@ -189,7 +190,7 @@ isSnakeCase <- function(x, strict = TRUE) {
 #' This function checks if a character is a vowel.
 #'
 #' @param x A character.
-#' 
+#'
 #' @return TRUE if the character is a vowel, FALSE otherwise.
 #' @export
 #' @keywords spelling
@@ -208,7 +209,7 @@ isVowel <- function(x) {
 #' This function checks if a string starts with a vowel.
 #'
 #' @param x A character string.
-#' 
+#'
 #' @return TRUE if the string starts with a vowel, FALSE otherwise.
 #' @export
 #' @keywords spelling
@@ -227,7 +228,7 @@ startsWithVowel <- function(x) {
 #' This function prepends an indefinite article ("a" or "an") to a string based on whether it starts with a vowel or not.
 #'
 #' @param x A character string.
-#' 
+#'
 #' @return The string with an indefinite article prepended.
 #' @export
 #' @keywords spelling
@@ -241,12 +242,16 @@ prependIndefArticle <- function(x) {
     paste("a", ifelse(startsWithVowel(x), "n", ""), " ", x, sep = "")
 }
 
+#' @rdname prependIndefArticle
+#' @export
+pia <- prependIndefArticle
+
 #' Remove Spaces from a String
 #'
 #' This function removes spaces from a character string.
 #'
 #' @param x A character string.
-#' 
+#'
 #' @return The string with spaces removed.
 #' @export
 #' @keywords spelling

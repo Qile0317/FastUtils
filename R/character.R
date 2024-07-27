@@ -9,7 +9,7 @@
 #' @return A substring of the input character string.
 #' @export
 #' @keywords character
-#' 
+#'
 #' @seealso [substr()]
 #'
 #' @examples
@@ -40,8 +40,8 @@ substrEnd <- function(x, start, endDiff) {
 #' enclose("text", "[", "]") # returns "[text]"
 enclose <- function(x, left, right) {
     assertthat::assert_that(is.character(x))
-    assertthat::assert_that(is.character(left) && length(left) == 1)
-    assertthat::assert_that(is.character(right) && length(right) == 1)
+    assertthat::assert_that(is.character(left))
+    assertthat::assert_that(is.character(right))
     paste0(left, x, right)
 }
 

@@ -58,7 +58,7 @@ rmByName <- function(x, pattern, silent = FALSE) {
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
-#' 
+#'
 #' The `greplDir` function searches for a specified pattern in all files within
 #' a given directory. It allows for optional exclusion of files matching a
 #' specified regular expression. Note that all files are assumed to be a single

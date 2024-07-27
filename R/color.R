@@ -16,7 +16,7 @@
 #' @examples
 #' getAvgHex("#000000", "#FF00FF")
 #' getAvgHex(c("#008040", "#000000", "#FF00FF"))
-#' 
+#'
 #' # very nonstandard but possible way to input hexes. Essentially,
 #' # any combination of vectors will work.
 #' getAvgHex(list("#008040", "#000000"), "#FF00FF", c("#FF00FF"))
@@ -50,11 +50,11 @@ scaleHex <- function(hex, scaleFactor) {
 
     if (all(scaleFactor == 1)) return(hex)
 
-    hsv_color <- hex %>%
+    hsvColor <- hex %>%
         grDevices::col2rgb() %>%
         grDevices::rgb2hsv()
 
-    hsv_color["v", ] <- bound(hsv_color["v", ] * scaleFactor, 0, 1)
+    hsvColor["v", ] <- bound(hsvColor["v", ] * scaleFactor, 0, 1)
 
-    grDevices::hsv(hsv_color["h", ], hsv_color["s", ], hsv_color["v", ])
+    grDevices::hsv(hsvColor["h", ], hsvColor["s", ], hsvColor["v", ])
 }

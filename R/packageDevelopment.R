@@ -27,6 +27,14 @@
 #'
 getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 
+    assertthat::assert_that(assertthat::is.string(pkg))
+    assertthat::assert_that(assertthat::is.flag(asDistribution))
+
+    if (!dir.exists(pkg)) {
+        warning("the package path does not exist")
+        return(character(0))
+    }
+
     manDir <- file.path(pkg, "man")
     if (!dir.exists(manDir)) {
         warning(
@@ -141,7 +149,7 @@ removeVdiffrNewSnapShots <- function(
 
     assertthat::assert_that(assertthat::is.string(pkg))
     assertthat::assert_that(assertthat::is.string(snapDir))
-    assertthat::assert_that(is.logical(verbose))
+    assertthat::assert_that(assertthat::is.flag(verbose))
 
     if (!dir.exists(snapDir)) return(invisible())
 

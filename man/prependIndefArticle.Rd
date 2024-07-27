@@ -2,9 +2,12 @@
 % Please edit documentation in R/spelling.R
 \name{prependIndefArticle}
 \alias{prependIndefArticle}
+\alias{pia}
 \title{Prepend an Indefinite Article to a String}
 \usage{
 prependIndefArticle(x)
+
+pia(x)
 }
 \arguments{
 \item{x}{A character string.}

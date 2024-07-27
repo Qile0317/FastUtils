@@ -48,11 +48,11 @@ isBound <- function(num, lowerbound, upperbound) {
 #'
 #' @param x An object.
 #' @param y An object.
-#' 
+#'
 #' @return The result of adding the two objects.
 #' @export
 #' @keywords math
-#' 
+#'
 #' @examples
 #' # Add two numeric vectors
 #' add(c(1, 2, 3), c(4, 5, 6))
@@ -106,7 +106,7 @@ multiply <- function(x, y) x * y
 #'
 #' @param x A numeric vector.
 #' @param y A numeric vector.
-#' 
+#'
 #' @return A numeric vector representing the quotient of the input vectors.
 #' @export
 #' @keywords math
@@ -120,7 +120,7 @@ divide <- function(x, y) x / y
 #' This function checks if a number is even.
 #'
 #' @param x A numeric vector.
-#' 
+#'
 #' @return A logical vector indicating whether each element is even.
 #' @export
 #' @keywords math
@@ -134,7 +134,7 @@ isEven <- function(x) x %% 2 == 0
 #' This function checks if a number is odd.
 #'
 #' @param x A numeric vector.
-#' 
+#'
 #' @return A logical vector indicating whether each element is odd.
 #' @export
 #' @keywords math
