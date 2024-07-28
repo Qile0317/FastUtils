@@ -1,6 +1,8 @@
 #' Bound a Number within a Range
 #'
-#' This function bounds a number within a specified range.
+#' This function bounds a number within a specified range. This function
+#' is vectorized in a way such that either or both lowerbound and upperbound
+#' can be length 1 or the same length as the input vector.
 #'
 #' @param num A numeric vector to be bounded.
 #' @param lowerbound The lower bound of the range.
@@ -15,12 +17,15 @@
 #' bound(1:10, -1, 5)
 #'
 bound <- function(num, lowerbound, upperbound) {
-    sapply(num, function(x) min(max(x, lowerbound), upperbound))
+    .assertNumAndBoundsAreValid(num, lowerbound, upperbound)
+    pmin(pmax(num, lowerbound), upperbound)
 }
 
 #' Check if a Number is within a Range
 #'
-#' This function checks if a number is within a specified range.
+#' This function checks if a number is within a specified range. This function
+#' is vectorized in a way such that either or both lowerbound and upperbound
+#' can be length 1 or the same length as the input vector.
 #'
 #' @param num A numeric vector to be checked.
 #' @param lowerbound The lower bound of the range.
@@ -36,7 +41,20 @@ bound <- function(num, lowerbound, upperbound) {
 #' isBound(1:10, -1, 5)
 #'
 isBound <- function(num, lowerbound, upperbound) {
+    .assertNumAndBoundsAreValid(num, lowerbound, upperbound)
     (num >= lowerbound) & (num <= upperbound)
+}
+
+.assertNumAndBoundsAreValid <- function(num, lowerbound, upperbound) {
+    assertthat::assert_that(is.numeric(num))
+    assertthat::assert_that(is.numeric(lowerbound))
+    assertthat::assert_that(
+        length(lowerbound) == 1 || length(lowerbound) == length(num)
+    )
+    assertthat::assert_that(is.numeric(upperbound))
+    assertthat::assert_that(
+        length(upperbound) == 1 || length(upperbound) == length(num)
+    )
 }
 
 #' Add Two Objects

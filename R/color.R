@@ -23,10 +23,10 @@
 #'
 getAvgHex <- function(...) {
 
-    hex_vector <- unlist(list(...))
+    hexVector <- unlist(list(...))
 
-    Reduce(add, lapply(hex_vector, grDevices::col2rgb)) %>%
-        divide(length(hex_vector)) %>%
+    Reduce(add, lapply(hexVector, grDevices::col2rgb)) %>%
+        divide(length(hexVector)) %>%
         round() %>%
         t() %>%
         grDevices::rgb(maxColorValue = 256)
