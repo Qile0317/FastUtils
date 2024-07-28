@@ -7,35 +7,41 @@
 trySplitWords(..., conseq = TRUE, strictSnake = FALSE, uncase = TRUE)
 }
 \arguments{
-\item{...}{character(s) to be split, treated as a single vector after unlisting}
+\item{...}{character(s) to be split, treated as a single vector after
+unlisting.}
 
-\item{conseq}{A logical indicating whether the \code{conseq} argument in \code{\link[=splitCamel]{splitCamel()}}/
-\code{\link[=splitPascal]{splitPascal()}} should be \code{TRUE} or \code{FALSE}.}
+\item{conseq}{A logical indicating whether the \code{conseq} argument in
+\code{\link[=splitCamel]{splitCamel()}}/\code{\link[=splitPascal]{splitPascal()}} should be \code{TRUE} or \code{FALSE}.}
 
-\item{strictSnake}{A logical indicating the \code{strict} argument in \code{\link[=isSnakeCase]{isSnakeCase()}}.}
+\item{strictSnake}{A logical indicating the \code{strict} argument in
+\code{\link[=isSnakeCase]{isSnakeCase()}}.}
 
-\item{uncase}{A logical indicating whether to remove all casing in the output to
-lowercase.}
+\item{uncase}{A logical indicating whether to remove all casing in the
+output to lowercase.}
 }
 \value{
 A list of character vectors, each containing the parts of the string
 split into individual words.
 }
 \description{
-This function attempts to split characters into its component words (and by default,
-all in lowercase) based on  camelCase, PascalCase, or snake_case conventions. If
-the string does not match any of these conventions, it returns all groups of letters.
+This function attempts to split characters into its component words (and by
+default, all in lowercase) based on camelCase, PascalCase, or snake_case
+conventions. If the string doesn't match any of these conventions, it returns
+all groups of letters.
 }
 \examples{
 trySplitWords("camelCaseExample")
 trySplitWords("PascalCaseExample")
-trySplitWords("snake_case_example", c("more_snake_cases"), "third_snake_case")
+trySplitWords(
+    "snake_case_example", c("more_snake_cases"), "third_snake_case"
+)
 trySplitWords("some|random|case")
 trySplitWords("Space Words", "UPPER_CASE", uncase = TRUE)
 
 }
 \seealso{
-\code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
-\code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
+\code{\link{splitCamel}}, \code{\link{splitPascal}},
+\code{\link{splitSnake}}, \code{\link{isCamelCase}},
+\code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
 }
 \keyword{spelling}

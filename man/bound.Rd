@@ -17,7 +17,9 @@ bound(num, lowerbound, upperbound)
 A numeric vector with elements bounded within the specified range.
 }
 \description{
-This function bounds a number within a specified range.
+This function bounds a number within a specified range. This function
+is vectorized in a way such that either or both lowerbound and upperbound
+can be length 1 or the same length as the input vector.
 }
 \examples{
 bound(1, 0, 2)

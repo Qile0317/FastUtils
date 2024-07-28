@@ -18,7 +18,9 @@ A logical vector indicating whether each element is within the
 specified range.
 }
 \description{
-This function checks if a number is within a specified range.
+This function checks if a number is within a specified range. This function
+is vectorized in a way such that either or both lowerbound and upperbound
+can be length 1 or the same length as the input vector.
 }
 \examples{
 isBound(1, 0, 2)

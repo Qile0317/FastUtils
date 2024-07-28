@@ -13,8 +13,9 @@ isPascalCase(x)
 TRUE if the string is PascalCase, FALSE otherwise.
 }
 \description{
-This function checks if a given string adheres to PascalCase naming conventions,
-starting with an uppercase letter followed by any combination of upper and lower case letters.
+This function checks if a given string adheres to PascalCase naming
+conventions, starting with an uppercase letter followed by any
+combination of upper and lower case letters.
 }
 \examples{
 isPascalCase("PascalCase") # returns TRUE

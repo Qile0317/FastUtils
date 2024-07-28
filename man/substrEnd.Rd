@@ -11,13 +11,15 @@ substrEnd(x, start, endDiff)
 
 \item{start}{The starting position for the substring extraction.}
 
-\item{endDiff}{The difference to subtract from the string length to determine the end position.}
+\item{endDiff}{The difference to subtract from the string length to
+determine the end position.}
 }
 \value{
 A substring of the input character string.
 }
 \description{
-This function extracts a substring from a given start position to the position determined by subtracting \code{endDiff} from the string length.
+Extract a substring from a given start position to the position
+determined by subtracting \code{endDiff} from the string length.
 }
 \examples{
 substrEnd("12345", 1, 1)

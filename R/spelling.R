@@ -1,30 +1,37 @@
 #' Try to Split Words Based on Naming Convention
 #'
-#' This function attempts to split characters into its component words (and by default,
-#' all in lowercase) based on  camelCase, PascalCase, or snake_case conventions. If
-#' the string does not match any of these conventions, it returns all groups of letters.
+#' This function attempts to split characters into its component words (and by
+#' default, all in lowercase) based on camelCase, PascalCase, or snake_case
+#' conventions. If the string doesn't match any of these conventions, it returns
+#' all groups of letters.
 #'
-#' @param ... character(s) to be split, treated as a single vector after unlisting
-#' @param conseq A logical indicating whether the `conseq` argument in [splitCamel()]/
-#' [splitPascal()] should be `TRUE` or `FALSE`.
-#' @param strictSnake A logical indicating the `strict` argument in [isSnakeCase()].
-#' @param uncase A logical indicating whether to remove all casing in the output to
-#' lowercase.
+#' @param ... character(s) to be split, treated as a single vector after
+#'        unlisting.
+#' @param conseq A logical indicating whether the `conseq` argument in
+#'        [splitCamel()]/[splitPascal()] should be `TRUE` or `FALSE`.
+#' @param strictSnake A logical indicating the `strict` argument in
+#'        [isSnakeCase()].
+#' @param uncase A logical indicating whether to remove all casing in the
+#'        output to lowercase.
 #' 
 #' @return A list of character vectors, each containing the parts of the string
 #'         split into individual words.
 #' @export
 #' @keywords spelling
-#' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}}, \code{\link{splitSnake}},
-#'          \code{\link{isCamelCase}}, \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
+#' @seealso \code{\link{splitCamel}}, \code{\link{splitPascal}},
+#'          \code{\link{splitSnake}}, \code{\link{isCamelCase}},
+#'          \code{\link{isPascalCase}}, \code{\link{isSnakeCase}}
 #'
 #' @examples
 #' trySplitWords("camelCaseExample")
 #' trySplitWords("PascalCaseExample")
-#' trySplitWords("snake_case_example", c("more_snake_cases"), "third_snake_case")
+#' trySplitWords(
+#'     "snake_case_example", c("more_snake_cases"), "third_snake_case"
+#' )
 #' trySplitWords("some|random|case")
 #' trySplitWords("Space Words", "UPPER_CASE", uncase = TRUE)
 #'
+
 trySplitWords <- function(
     ..., conseq = TRUE, strictSnake = FALSE, uncase = TRUE
 ) {
@@ -32,6 +39,7 @@ trySplitWords <- function(
     x <- unlist(list(...), use.names = FALSE)
     assertthat::assert_that(is.character(x))
 
+    # could allow vectorize for all these...
     assertthat::assert_that(assertthat::is.flag(conseq))
     assertthat::assert_that(assertthat::is.flag(strictSnake))
     assertthat::assert_that(assertthat::is.flag(uncase))
@@ -51,19 +59,22 @@ trySplitWords <- function(
 
 #' Split CamelCase or PascalCase Strings
 #'
-#' This function splits strings formatted in camelCase or PascalCase into their component
-#' words. It can handle words where uppercase letters transition to lowercase letters, and it 
-#' is capable of handling strings with sequences of uppercase letters followed by lowercase letters,
-#' effectively separating acronyms from camelCase beginnings.
+#' This function splits strings formatted in camelCase or PascalCase into their
+#' component words. It can handle words where uppercase letters transition to
+#' lowercase letters, and it is capable of handling strings with sequences of
+#' uppercase letters followed by lowercase letters, effectively separating
+#' acronyms from camelCase beginnings.
 #'
-#' @param x A character vector containing CamelCase or PascalCase strings to be split.
-#' @param conseq Logical indicating whether consecutive uppercase letters should be
-#'        treated as part of the previous word (TRUE) or as separate words (FALSE).
-#'        Default is TRUE.
+#' @param x A character vector containing CamelCase or PascalCase strings to
+#'        be split.
+#' @param conseq Logical indicating whether consecutive uppercase letters should
+#'        be treated as part of the previous word (TRUE) or as separate words
+#'        (FALSE). Default is TRUE.
 #'
-#' @return A list of character vectors, each containing the parts of the corresponding
-#'         CamelCase or PascalCase string split at the appropriate transitions.
-#'         If `conseq` is FALSE, acronyms followed by words are separated.
+#' @return A list of character vectors, each containing the parts of the
+#'         corresponding CamelCase or PascalCase string split at the appropriate
+#'         transitions. If `conseq` is FALSE, acronyms followed by words are
+#'         separated.
 #'
 #' @examples
 #' splitCamel("splitCamelCaseIntoWords")
@@ -71,11 +82,13 @@ trySplitWords <- function(
 #'
 #' @export
 #' @keywords spelling
-#' @source \url{https://stackoverflow.com/questions/8406974/splitting-camelcase-in-r}
+#' @source <stackoverflow.com/questions/8406974/splitting-camelcase-in-r>
+
 splitCamel <- function(x, conseq = TRUE) {
 
     assertthat::assert_that(is.character(x))
-    
+
+    # could vectorize conseq
     if (isTRUE(conseq)) {
         return(strsplit(
             x,
@@ -93,13 +106,14 @@ splitPascal <- splitCamel
 
 #' Split Snake Case String
 #'
-#' This function splits a string formatted in snake_case into its component words,
-#' using underscores as delimiters. It is useful for parsing identifiers or variable
-#' names that follow snake_case naming conventions.
+#' This function splits a string formatted in snake_case into its component
+#' words, using underscores as delimiters. It is useful for parsing identifiers
+#' or variable names that follow snake_case naming conventions.
 #'
 #' @param x A character string in snake_case to be split.
 #'
-#' @return A list of character vectors, each containing the parts of the string split at underscores.
+#' @return A list of character vectors, each containing the parts of the string
+#' split at underscores.
 #' @export
 #' @keywords spelling
 #' @examples
@@ -113,8 +127,9 @@ splitSnake <- function(x) {
 
 #' Check if String is camelCase
 #'
-#' This function checks if a given string adheres to camelCase naming conventions,
-#' starting with a lowercase letter followed by any combination of upper and lower case letters.
+#' This function checks if a given string adheres to camelCase naming
+#' conventions, starting with a lowercase letter followed by any
+#' combination of upper and lower case letters.
 #'
 #' @param x A character string to check.
 #'
@@ -133,8 +148,9 @@ isCamelCase <- function(x) {
 
 #' Check if String is PascalCase
 #'
-#' This function checks if a given string adheres to PascalCase naming conventions,
-#' starting with an uppercase letter followed by any combination of upper and lower case letters.
+#' This function checks if a given string adheres to PascalCase naming
+#' conventions, starting with an uppercase letter followed by any
+#' combination of upper and lower case letters.
 #'
 #' @param x A character string to check.
 #'
@@ -152,16 +168,18 @@ isPascalCase <- function(x) {
 
 #' Check if String is snake_case
 #'
-#' This function checks if a given string adheres to snake_case naming conventions.
-#' By default (strict = TRUE), it only allows lowercase letters separated by underscores.
-#' If strict is FALSE, uppercase letters are also permitted.
+#' This function checks if a given string adheres to snake_case naming
+#' conventions. By default (strict = TRUE), it only allows lowercase letters
+#' separated by underscores. If strict is FALSE, uppercase letters are also 
+#' ermitted.
 #'
 #' @param x A character string to check.
 #' @param strict Logical indicating whether the string should strictly contain
-#'        only lowercase letters (TRUE) or can include uppercase letters (FALSE).
+#'        only lowercase letters (TRUE) or can include uppercase ones (FALSE).
 #'        Default is TRUE.
 #'
-#' @return TRUE if the string is snake_case according to the specified strictness, FALSE otherwise.
+#' @return TRUE if the string is snake_case according to the specified
+#' strictness, FALSE otherwise.
 #' @keywords spelling
 #' @export
 #' @examples
@@ -225,7 +243,8 @@ startsWithVowel <- function(x) {
 
 #' Prepend an Indefinite Article to a String
 #'
-#' This function prepends an indefinite article ("a" or "an") to a string based on whether it starts with a vowel or not.
+#' This function prepends an indefinite article ("a" or "an") to a string
+#' based on whether it starts with a vowel or not.
 #'
 #' @param x A character string.
 #'
@@ -283,23 +302,26 @@ closestWord <- function(s, strset, distFunc = utils::adist) {
 
     assertthat::assert_that(is.character(s))
     assertthat::assert_that(is.character(strset))
-    assertthat::assert_that(is.function(distFunc) && (length(formals(distFunc)) >= 2))
+    assertthat::assert_that(
+        is.function(distFunc) && (length(formals(distFunc)) >= 2)
+    )
 
-    strset <- unique(strset)
-    if (length(strset) == 1) return(strset)
+    strSet <- unique(strset)
+    if (length(strSet) == 1) return(strSet)
 
-    strset_lowercase <- tolower(strset)
+    strSetLowercase <- tolower(strSet)
     s <- tolower(s)
 
-    closest_w <- strset_lowercase[1]
-    closest_dist <- distFunc(s, closest_w)
+    closestW <- strSetLowercase[1]
+    closestDist <- distFunc(s, closestW)
 
-    for(i in 2:length(strset_lowercase)) {
-        curr_dist <- distFunc(s, strset_lowercase[i])
-        if (curr_dist < closest_dist) {
-            closest_w <- strset[i]
-            closest_dist <- curr_dist
+    for (i in 2:length(strSetLowercase)) {
+        currDist <- distFunc(s, strSetLowercase[i])
+        if (currDist < closestDist) {
+            closestW <- strSet[i]
+            closestDist <- currDist
         }
     }
-    closest_w
+    closestW
+
 }

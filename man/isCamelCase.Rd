@@ -13,8 +13,9 @@ isCamelCase(x)
 TRUE if the string is camelCase, FALSE otherwise.
 }
 \description{
-This function checks if a given string adheres to camelCase naming conventions,
-starting with a lowercase letter followed by any combination of upper and lower case letters.
+This function checks if a given string adheres to camelCase naming
+conventions, starting with a lowercase letter followed by any
+combination of upper and lower case letters.
 }
 \examples{
 isCamelCase("camelCase")   # returns TRUE

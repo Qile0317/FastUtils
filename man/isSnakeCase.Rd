@@ -10,16 +10,18 @@ isSnakeCase(x, strict = TRUE)
 \item{x}{A character string to check.}
 
 \item{strict}{Logical indicating whether the string should strictly contain
-only lowercase letters (TRUE) or can include uppercase letters (FALSE).
+only lowercase letters (TRUE) or can include uppercase ones (FALSE).
 Default is TRUE.}
 }
 \value{
-TRUE if the string is snake_case according to the specified strictness, FALSE otherwise.
+TRUE if the string is snake_case according to the specified
+strictness, FALSE otherwise.
 }
 \description{
-This function checks if a given string adheres to snake_case naming conventions.
-By default (strict = TRUE), it only allows lowercase letters separated by underscores.
-If strict is FALSE, uppercase letters are also permitted.
+This function checks if a given string adheres to snake_case naming
+conventions. By default (strict = TRUE), it only allows lowercase letters
+separated by underscores. If strict is FALSE, uppercase letters are also
+ermitted.
 }
 \examples{
 isSnakeCase("snake_case")        # returns TRUE

@@ -44,7 +44,7 @@
 #' # )
 #'
 createPkgLoader <- function(lib = .libPaths()[1]) {
-    # TODO rehaul everything here
+    # TODO redo everything here
     function(cran = NULL, bioc = NULL, gh = NULL, verbose = FALSE) {
 
         if (is.null(cran) && is.null(bioc) && is.null(gh)) {

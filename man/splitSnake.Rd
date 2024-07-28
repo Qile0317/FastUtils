@@ -10,12 +10,13 @@ splitSnake(x)
 \item{x}{A character string in snake_case to be split.}
 }
 \value{
-A list of character vectors, each containing the parts of the string split at underscores.
+A list of character vectors, each containing the parts of the string
+split at underscores.
 }
 \description{
-This function splits a string formatted in snake_case into its component words,
-using underscores as delimiters. It is useful for parsing identifiers or variable
-names that follow snake_case naming conventions.
+This function splits a string formatted in snake_case into its component
+words, using underscores as delimiters. It is useful for parsing identifiers
+or variable names that follow snake_case naming conventions.
 }
 \examples{
 splitSnake("this_is_snake_case")
