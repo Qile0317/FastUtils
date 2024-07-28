@@ -1,14 +1,19 @@
 #' Convert a Column to Row Names
 #'
-#' This function converts a specified column of a data frame to row names, ensuring uniqueness if necessary.
+#' This function converts a specified column of a data frame to row names,
+#' ensuring uniqueness if necessary.
 #'
 #' @param df A data frame.
-#' @param col A character string specifying the name of the column to convert to row names.
-#' @param .remove A logical indicating whether to remove the selected column after converting to row names. Default is TRUE.
-#' @param .uniqueSep A character string to separate duplicate row names when ensuring uniqueness
+#' @param col A character string specifying the name of the column to convert
+#' to row names.
+#' @param .remove A logical indicating whether to remove the selected column
+#' after converting to row names. Default is TRUE.
+#' @param .uniqueSep A character string to separate duplicate row names when
+#' ensuring uniqueness
 #' with [make.unique()]. Default is ".".
 #'
-#' @return A data frame with the specified column as row names. If `.remove` is TRUE, the original column is removed.
+#' @return A data frame with the specified column as row names. If `.remove`
+#' is TRUE, the original column is removed.
 #' @export
 #' @keywords wrangling
 #' @seealso [mutateToRownames()]
@@ -31,12 +36,16 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' This function sets new row names for a data frame based on a tidy evaluation expression.
+#' This function sets new row names for a data frame based on a tidy
+#' evaluation expression.
 #'
 #' @param .data A data frame.
-#' @param expr A tidy evaluation expression specifying the columns to use for the new row names.
-#' @param .remove A logical indicating whether to remove the selected columns. Default is FALSE.
-#' @param .uniqueSep A character string to separate duplicate row names when ensuring uniqueness
+#' @param expr A tidy evaluation expression specifying the columns to use for
+#' the new row names.
+#' @param .remove A logical indicating whether to remove the selected columns.
+#' Default is FALSE.
+#' @param .uniqueSep A character string to separate duplicate row names when
+#' ensuring uniqueness
 #' with [make.unique()]. Default is ".".
 #'
 #' @return A data frame with updated row names.
@@ -87,7 +96,7 @@ rownamesToCol <- function(df, colname = "rownames") {
 #'
 #' @param object A data frame or matrix.
 #' @param newColnames A character vector specifying the new column names.
-#' 
+#'
 #' @return The data frame or matrix with updated column names.
 #' @export
 #' @keywords wrangling
