@@ -32,7 +32,13 @@
 #'
 #' # Validate an object that fails a check
 #' obj <- NULL
-#' try(validateObject(obj, list(checkNotNull, checkIsNumeric), errorHandler = stop), silent = TRUE)
+#' try(
+#'     validateObject(
+#'         obj,
+#'         list(checkNotNull, checkIsNumeric), errorHandler = stop)
+#'     ),
+#'     silent = TRUE
+#' )
 validateObject <- function(
     obj, checks, errorHandler = warningp, defaultReturn = NULL
 ) {
@@ -49,9 +55,10 @@ validateObject <- function(
 
 #' Custom Stop Function Without Call
 #'
-#' This function provides a wrapper around the base \code{\link[base]{stop}} function,
-#' but it automatically sets \code{call.} to FALSE, which means the function call itself
-#' is not included in the resulting error message. This makes error messages cleaner.
+#' This function provides a wrapper around the base [stop()] function,
+#' but it automatically sets \code{call.} to FALSE, which means the function
+#' call itself is not included in the resulting error message. This makes error
+#' messages cleaner.
 #' The \code{domain} argument can be used to specify a translation domain.
 #'
 #' @param ... Arguments passed on to \code{stop}.
@@ -72,10 +79,10 @@ stopp <- function(..., domain = NULL) {
 
 #' Custom Warning Function Without Call
 #'
-#' This function provides a wrapper around the base \code{\link[base]{warning}} function,
-#' adding flexibility to warnings by setting \code{call.} to FALSE automatically. This 
-#' modification means that the function call is not included in the warning message,
-#' streamlining the output for users.
+#' This function provides a wrapper around the base \code{\link[base]{warning}}
+#' function, adding flexibility to warnings by setting \code{call.} to FALSE
+#' automatically. This modification means that the function call is not included
+#' in the warning message, streamlining the output for users.
 #'
 #' @param ... Arguments passed on to \code{warning}.
 #' @return No return value, this function issues a warning.
@@ -84,7 +91,9 @@ stopp <- function(..., domain = NULL) {
 #' @seealso \code{\link[base]{warning}}
 #' @examples
 #' \donttest{
-#' try(warningp("This is a custom warning message without the call."), silent = TRUE)
+#' try(warningp(
+#'     "This is a custom warning message without the call."
+#' ), silent = TRUE)
 #' }
 warningp <- function(...) {
     do.call(base::warning, args = append(list(call. = FALSE), list(...)))

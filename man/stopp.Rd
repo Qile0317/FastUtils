@@ -15,9 +15,10 @@ stopp(..., domain = NULL)
 No return value, this function stops execution of the program.
 }
 \description{
-This function provides a wrapper around the base \code{\link[base]{stop}} function,
-but it automatically sets \code{call.} to FALSE, which means the function call itself
-is not included in the resulting error message. This makes error messages cleaner.
+This function provides a wrapper around the base \code{\link[=stop]{stop()}} function,
+but it automatically sets \code{call.} to FALSE, which means the function
+call itself is not included in the resulting error message. This makes error
+messages cleaner.
 The \code{domain} argument can be used to specify a translation domain.
 }
 \examples{

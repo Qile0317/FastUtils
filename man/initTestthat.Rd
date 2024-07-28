@@ -14,9 +14,11 @@ initTestthat(
 \arguments{
 \item{rDir}{The directory containing R source files. Default is "R".}
 
-\item{testDir}{The directory where \code{testthat} files should be created. Default is "tests/testthat".}
+\item{testDir}{The directory where \code{testthat} files should be created.
+Default is "tests/testthat".}
 
-\item{.ignore}{A character vector specifying regex patterns of files to ignore. Defaults
+\item{.ignore}{A character vector specifying regex patterns of files to
+ignore. Defaults
 to common patterns \code{c("-package.R$", "-class.R$", "^data.R$", "^zzz.R$", "^RcppExports.R$")}}
 
 \item{ignore}{A character vector of extra regex patterns of R files to ignore}

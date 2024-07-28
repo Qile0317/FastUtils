@@ -43,6 +43,12 @@ validateObject(obj, list(checkNotNull, checkIsNumeric))
 
 # Validate an object that fails a check
 obj <- NULL
-try(validateObject(obj, list(checkNotNull, checkIsNumeric), errorHandler = stop), silent = TRUE)
+try(
+    validateObject(
+        obj,
+        list(checkNotNull, checkIsNumeric), errorHandler = stop)
+    ),
+    silent = TRUE
+)
 }
 \keyword{validation}

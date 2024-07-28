@@ -15,8 +15,8 @@ test_quietly_that(desc, code)
 No return value, called for side effects.
 }
 \description{
-This function runs a \code{test_that} block quietly, suppressing messages and output from
-any verbose functions.
+This function runs a \code{test_that} block quietly, suppressing messages and
+output from any verbose functions.
 }
 \examples{
 # Run a test quietly

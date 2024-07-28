@@ -13,14 +13,16 @@ warningp(...)
 No return value, this function issues a warning.
 }
 \description{
-This function provides a wrapper around the base \code{\link[base]{warning}} function,
-adding flexibility to warnings by setting \code{call.} to FALSE automatically. This
-modification means that the function call is not included in the warning message,
-streamlining the output for users.
+This function provides a wrapper around the base \code{\link[base]{warning}}
+function, adding flexibility to warnings by setting \code{call.} to FALSE
+automatically. This modification means that the function call is not included
+in the warning message, streamlining the output for users.
 }
 \examples{
 \donttest{
-try(warningp("This is a custom warning message without the call."), silent = TRUE)
+try(warningp(
+    "This is a custom warning message without the call."
+), silent = TRUE)
 }
 }
 \seealso{
