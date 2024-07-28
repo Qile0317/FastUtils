@@ -21,7 +21,7 @@ strictness, FALSE otherwise.
 This function checks if a given string adheres to snake_case naming
 conventions. By default (strict = TRUE), it only allows lowercase letters
 separated by underscores. If strict is FALSE, uppercase letters are also
-ermitted.
+permitted.
 }
 \examples{
 isSnakeCase("snake_case")        # returns TRUE

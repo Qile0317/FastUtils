@@ -13,7 +13,7 @@
 #'        [isSnakeCase()].
 #' @param uncase A logical indicating whether to remove all casing in the
 #'        output to lowercase.
-#' 
+#'
 #' @return A list of character vectors, each containing the parts of the string
 #'         split into individual words.
 #' @export
@@ -31,7 +31,6 @@
 #' trySplitWords("some|random|case")
 #' trySplitWords("Space Words", "UPPER_CASE", uncase = TRUE)
 #'
-
 trySplitWords <- function(
     ..., conseq = TRUE, strictSnake = FALSE, uncase = TRUE
 ) {
@@ -170,8 +169,8 @@ isPascalCase <- function(x) {
 #'
 #' This function checks if a given string adheres to snake_case naming
 #' conventions. By default (strict = TRUE), it only allows lowercase letters
-#' separated by underscores. If strict is FALSE, uppercase letters are also 
-#' ermitted.
+#' separated by underscores. If strict is FALSE, uppercase letters are also
+#' permitted.
 #'
 #' @param x A character string to check.
 #' @param strict Logical indicating whether the string should strictly contain
@@ -258,7 +257,7 @@ startsWithVowel <- function(x) {
 #' prependIndefArticle("banana")
 prependIndefArticle <- function(x) {
     assertthat::assert_that(is.character(x))
-    paste("a", ifelse(startsWithVowel(x), "n", ""), " ", x, sep = "")
+    paste0("a", ifelse(startsWithVowel(x), "n", ""), " ", x)
 }
 
 #' @rdname prependIndefArticle
