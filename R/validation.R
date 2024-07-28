@@ -106,7 +106,7 @@ warningp <- function(...) {
 #' @export
 #' @keywords validation
 #' @examples
-#' tryCatch(stop("Example error"), error = function(e) getFailMsg(e))
+#' tryCatch(stop("Example error"), error = function(e) getFailStr(e))
 getFailStr <- function(cond) {
     callStr <- .getCallStr(cond)
     paste0( # TODO error / warning before in

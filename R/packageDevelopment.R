@@ -43,7 +43,7 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
         return(character(0))
     }
 
-    rdFiles <- list.files(manDir, pattern = "\\.Rd$", full.names = TRUE)
+    rdFiles <- listFiles(manDir, pattern = "\\.Rd$")
     if (length(rdFiles) == 0) {
         warning("no `.Rd` files were found in the `/man` directory")
         return(character(0))
@@ -81,7 +81,7 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 #'
 #' @param sectionName A character vector of the Rd sections to look for.
 #' @param pkg The path to the package directory, defaulting to the current
-#' directory ".".
+#' directory.
 #' @param ignore Additional Regexes of *function names* to be ignored in the
 #' output.
 #' @param .ignore More regexes of functions to ignore set by default. Will be
@@ -101,7 +101,10 @@ getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 #' )
 #'
 findMissingRdSections <- function(
-    sectionName, pkg = ".", ignore = NULL, .ignore = "-package$" # are these used?
+    sectionName,
+    pkg = ".",
+    ignore = NULL,
+    .ignore = "-package$" # are these used?
 ) {
 
     assertthat::assert_that(is.character(sectionName))
@@ -137,12 +140,12 @@ fmrs <- findMissingRdSections
 #' @keywords testing
 #'
 #' @examples
-#' /donttest{
+#' \donttest{
 #' removeVdiffrNewSnapShots()
 #' }
 #'
 removeVdiffrNewSnapShots <- function(
-    pkg = ".",
+    pkg = getwd(),
     snapDir = file.path("tests", "testthat", "_snaps"),
     verbose = TRUE
 ) {

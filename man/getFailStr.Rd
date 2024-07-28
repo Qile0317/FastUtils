@@ -21,6 +21,6 @@ The message includes the context of the call and the specific condition
 message.
 }
 \examples{
-tryCatch(stop("Example error"), error = function(e) getFailMsg(e))
+tryCatch(stop("Example error"), error = function(e) getFailStr(e))
 }
 \keyword{validation}

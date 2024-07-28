@@ -6,13 +6,13 @@
 \title{Remove New Snapshots from vdiffr Tests}
 \usage{
 removeVdiffrNewSnapShots(
-  pkg = ".",
+  pkg = getwd(),
   snapDir = file.path("tests", "testthat", "_snaps"),
   verbose = TRUE
 )
 
 rmns(
-  pkg = ".",
+  pkg = getwd(),
   snapDir = file.path("tests", "testthat", "_snaps"),
   verbose = TRUE
 )
@@ -36,7 +36,7 @@ when you want to remove new snapshots that were created during testing and
 are no longer needed.
 }
 \examples{
-/donttest{
+\donttest{
 removeVdiffrNewSnapShots()
 }
 

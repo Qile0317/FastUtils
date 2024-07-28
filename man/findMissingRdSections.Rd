@@ -18,7 +18,7 @@ fmrs(sectionName, pkg = ".", ignore = NULL, .ignore = "-package$")
 \item{sectionName}{A character vector of the Rd sections to look for.}
 
 \item{pkg}{The path to the package directory, defaulting to the current
-directory ".".}
+directory.}
 
 \item{ignore}{Additional Regexes of \emph{function names} to be ignored in the
 output.}
