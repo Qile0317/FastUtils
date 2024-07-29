@@ -9,11 +9,14 @@ mutateToRownames(.data, expr, .remove = FALSE, .uniqueSep = ".")
 \arguments{
 \item{.data}{A data frame.}
 
-\item{expr}{A tidy evaluation expression specifying the columns to use for the new row names.}
+\item{expr}{A tidy evaluation expression specifying the columns to use for
+the new row names.}
 
-\item{.remove}{A logical indicating whether to remove the selected columns. Default is FALSE.}
+\item{.remove}{A logical indicating whether to remove the selected columns.
+Default is FALSE.}
 
-\item{.uniqueSep}{A character string to separate duplicate row names when ensuring uniqueness
+\item{.uniqueSep}{A character string to separate duplicate row names when
+ensuring uniqueness
 with \code{\link[=make.unique]{make.unique()}}. Default is ".".}
 }
 \value{
@@ -22,7 +25,8 @@ A data frame with updated row names.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-This function sets new row names for a data frame based on a tidy evaluation expression.
+This function sets new row names for a data frame based on a tidy
+evaluation expression.
 }
 \examples{
 library(dplyr)

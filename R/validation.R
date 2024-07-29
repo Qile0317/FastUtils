@@ -35,7 +35,7 @@
 #' try(
 #'     validateObject(
 #'         obj,
-#'         list(checkNotNull, checkIsNumeric), errorHandler = stop)
+#'         list(checkNotNull, checkIsNumeric, errorHandler = stop)
 #'     ),
 #'     silent = TRUE
 #' )
