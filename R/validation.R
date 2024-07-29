@@ -65,7 +65,7 @@ validateObject <- function(
 #' @param domain The translation domain, NULL by default.
 #'
 #' @return No return value, this function stops execution of the program.
-#' @export 
+#' @export
 #' @keywords validation
 #' @seealso [stop()]
 #' @examples

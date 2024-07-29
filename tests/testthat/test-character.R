@@ -11,8 +11,7 @@ test_that("Extract substring from start to end difference works", {
 
     # Vectorized input case
     inputs <- c("abcdefgh", "ijklmnop", "qrstuvwxyz")
-    expected_output <- c("abcdef", "ijklmn", "qrstuvwx")
-    expect_equal(substrEnd(inputs, 1, 2), expected_output)
+    expect_equal(substrEnd(inputs, 1, 2), c("abcdef", "ijklmn", "qrstuvwx"))
 })
 
 test_that("enclose works correctly", {

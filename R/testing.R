@@ -47,7 +47,7 @@ initTestthat <- function(
 
     for (sourceFile in list.files(rDir)) {
 
-        if (grepl(ignorRegex, sourceFile)) next
+        if (grepl(ignoreRegex, sourceFile)) next
         fileTitle <- substrEnd(basename(sourceFile), 1, 2)
         testFilePath <- file.path(testDir, paste0("test-", fileTitle, ".R"))
         if (!file.exists(testFilePath)) {

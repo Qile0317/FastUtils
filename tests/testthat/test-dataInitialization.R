@@ -10,8 +10,10 @@ test_that("initList works", {
     expect_identical(initList(2), list(NULL, NULL))
     expect_identical(initList(c("a", "b")), list(a = NULL, b = NULL))
     expect_identical(initList(2, 1), list(1, 1))
-    expect_identical(initList(letters, 1), structure(as.list(rep(1, length(letters))),
-        names = letters))
+    expect_identical(
+        initList(letters, 1),
+        structure(as.list(rep(1, length(letters))), names = letters)
+    )
 })
 
 test_that("initDataFrameWithColnames works as expected", {
@@ -59,9 +61,9 @@ test_that("Convert a Table to Numeric works", {
 })
 
 test_that("Convert Named Numeric Vector to Table", {
-    input_vector <- c(a = 1, b = 2, c = 3)
-    expected_output <- table(rep(letters[1:3], times = 1:3))
-    expect_equal(namedNumericToTable(input_vector), expected_output)
+    input <- c(a = 1, b = 2, c = 3)
+    expected <- table(rep(letters[1:3], times = 1:3))
+    expect_equal(namedNumericToTable(input), expected)
 })
 
 test_that("createHash works", {
