@@ -37,6 +37,8 @@ reference:
 - contents: has_keyword("iteration")
 - title: Math
 - contents: has_keyword("math")
+- title: Meta Programming
+- contents: has_keyword("metaProgramming")
 - title: Package Development
 - contents: has_keyword("packageDevelopment")
 - title: Package Loading

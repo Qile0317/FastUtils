@@ -6,6 +6,7 @@
 - Add `setNames()` as an improved version of `stats::setNames()`
 - Add `getFailStr()` that gets the full failure message from a condition object as a string
 - Add `pia()` as a short alias to `prependIndefArticle()`
+- Add `evalText()` to evaluate a characters as an R expression
 - the package is now internally linted with `lintr`
 - the pkgdown site is now tracked with google analytics
 
