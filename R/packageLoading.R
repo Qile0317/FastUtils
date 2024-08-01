@@ -67,7 +67,7 @@ createPkgLoader <- function(lib = .libPaths()[1]) {
             if (is.null(packagepath)) return()
 
             if (source == "GitHub") {
-                package <- strsplit(packagepath, "/")[[1]][2]
+                package <- strsplit(packagepath, "/|@")[[1]][2]
 
             } else {
                 package <- packagepath

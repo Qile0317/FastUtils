@@ -1,4 +1,4 @@
-# FastUtils (development version)
+# FastUtils 0.2.0
 
 ## Additions
 
