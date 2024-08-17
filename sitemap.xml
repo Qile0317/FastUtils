@@ -20,10 +20,12 @@
 <url><loc>https://qile0317.github.io/FastUtils/reference/enclose.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/encloseBr.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/enumerateit.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/reference/evalText.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/findMissingRdSections.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/fixColnames.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/getAvgHex.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/getChar.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/reference/getFailStr.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/getPkgKeywords.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/getPlotDims.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/getUniquePairsUpTo.html</loc></url>
@@ -51,10 +53,12 @@
 <url><loc>https://qile0317.github.io/FastUtils/reference/namedNumericToTable.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/prependIndefArticle.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/quietly.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/reference/removeVdiffrNewSnapShots.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/rmByName.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/rownamesToCol.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/scaleHex.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/setColnames.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/reference/setNames.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/setRownames.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/splitCamel.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/reference/splitSnake.html</loc></url>
