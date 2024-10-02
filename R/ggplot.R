@@ -17,7 +17,7 @@
 #' getPlotDims(ggplot(mtcars) + geom_point(aes(mpg, cyl)))
 #'
 getPlotDims <- function(plt) {
-    assertthat::assert_that(ggplot2::is.ggplot(plt))
+    assert_that(ggplot2::is.ggplot(plt))
     builtPlotLayout <- ggplot2::ggplot_build(plt)$layout
     list(
         xr = builtPlotLayout$panel_scales_x[[1]]$range$range,

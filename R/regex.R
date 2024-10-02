@@ -41,7 +41,7 @@ joinRegex <- function(...) {
 #'
 rmByName <- function(x, pattern, silent = FALSE) {
 
-    assertthat::assert_that(is.character(pattern))
+    assert_that(is.character(pattern))
 
     if (length(x) == 0) return(x)
 

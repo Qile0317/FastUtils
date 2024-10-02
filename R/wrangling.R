@@ -151,7 +151,7 @@ setRownames <- function(object, newRownames) {
 #' x %setNames% c("D", "E", "F")
 #'
 setNames <- function(object, newNames) {
-    assertthat::assert_that(
+    assert_that(
         length(newNames) == 1 || length(newNames) == length(object)
     )
     names(object) <- if (length(newNames) == length(object)) {
@@ -212,8 +212,8 @@ fixColnames <- function(
     unique = FALSE
 ) {
 
-    assertthat::assert_that(assertthat::is.string(invalidRegex))
-    assertthat::assert_that(assertthat::is.string(spacing))
+    assert_that(is.string(invalidRegex))
+    assert_that(is.string(spacing))
 
     subMap <- append(subMap, .subMap)
 

@@ -132,7 +132,7 @@ tableToNumeric <- function(x) {
 #' vec <- c(a = 1, b = 2, c = 3)
 #' namedNumericToTable(vec)
 namedNumericToTable <- function(x) {
-    assertthat::assert_that(is.numeric(x) && !is.null(names(x)))
+    assert_that(is.numeric(x) && !is.null(names(x)))
     output <- as.integer(x)
     names(output) <- names(x)
     output <- as.table(output)
@@ -159,8 +159,8 @@ namedNumericToTable <- function(x) {
 createHash <- function(keys, initVals = NULL) {
 
     if (missing(keys)) return(hash::hash())
-    assertthat::assert_that(is.character(keys))
-    assertthat::assert_that(is.null(initVals) || length(initVals) == 1)
+    assert_that(is.character(keys))
+    assert_that(is.null(initVals) || length(initVals) == 1)
 
     keys <- unique(keys)
     numkeys <- length(keys)

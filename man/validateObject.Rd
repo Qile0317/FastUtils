@@ -28,7 +28,7 @@ fails, an error handler is called and a default value is returned. This
 function is intended to slightly simplify cases where a long list of
 complex and convoluted predetermined checks are needed. For simpler cases
 like type checking, it is recommended to use \code{\link[=stopifnot]{stopifnot()}} or
-\code{\link[assertthat:assert_that]{assertthat::assert_that()}}.
+\code{\link[=assert_that]{assert_that()}}.
 }
 \examples{
 # Define some checks

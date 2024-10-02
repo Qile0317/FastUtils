@@ -21,7 +21,7 @@
 #'
 createMutator <- function(binaryOperator) {
 
-    assertthat::assert_that(
+    assert_that(
         is.function(binaryOperator) && length(formals(binaryOperator)) >= 2
     )
 

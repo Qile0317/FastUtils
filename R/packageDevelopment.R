@@ -27,8 +27,8 @@
 #'
 getPkgKeywords <- function(pkg = ".", asDistribution = FALSE) {
 
-    assertthat::assert_that(assertthat::is.string(pkg))
-    assertthat::assert_that(assertthat::is.flag(asDistribution))
+    assert_that(is.string(pkg))
+    assert_that(is.flag(asDistribution))
 
     if (!dir.exists(pkg)) {
         warning("the package path does not exist")
@@ -107,9 +107,9 @@ findMissingRdSections <- function(
     .ignore = "-package$" # are these used?
 ) {
 
-    assertthat::assert_that(is.character(sectionName))
-    assertthat::assert_that(assertthat::is.string(pkg))
-    assertthat::assert_that(is.null(ignore) || is.character(ignore))
+    assert_that(is.character(sectionName))
+    assert_that(is.string(pkg))
+    assert_that(is.null(ignore) || is.character(ignore))
 
     paste("\\", sectionName, "{", sep = "") %>%
         greplDir(file.path(pkg, "man")) %>%
@@ -150,9 +150,9 @@ removeVdiffrNewSnapShots <- function(
     verbose = TRUE
 ) {
 
-    assertthat::assert_that(assertthat::is.string(pkg))
-    assertthat::assert_that(assertthat::is.string(snapDir))
-    assertthat::assert_that(assertthat::is.flag(verbose))
+    assert_that(is.string(pkg))
+    assert_that(is.string(snapDir))
+    assert_that(is.flag(verbose))
 
     if (!dir.exists(snapDir)) return(invisible())
 

@@ -36,12 +36,12 @@ trySplitWords <- function(
 ) {
 
     x <- unlist(list(...), use.names = FALSE)
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
 
     # could allow vectorize for all these...
-    assertthat::assert_that(assertthat::is.flag(conseq))
-    assertthat::assert_that(assertthat::is.flag(strictSnake))
-    assertthat::assert_that(assertthat::is.flag(uncase))
+    assert_that(is.flag(conseq))
+    assert_that(is.flag(strictSnake))
+    assert_that(is.flag(uncase))
 
     lapply(x, function(y) {
         if (isCamelCase(y) || isPascalCase(y)) {
@@ -85,7 +85,7 @@ trySplitWords <- function(
 
 splitCamel <- function(x, conseq = TRUE) {
 
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
 
     # could vectorize conseq
     if (isTRUE(conseq)) {
@@ -120,7 +120,7 @@ splitPascal <- splitCamel
 #' splitSnake("another_example_here")
 #'
 splitSnake <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     strsplit(x, "_", fixed = TRUE)
 }
 
@@ -141,7 +141,7 @@ splitSnake <- function(x) {
 #' isCamelCase("camelcase")   # returns TRUE
 #'
 isCamelCase <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     grepl("^[a-z]+[A-Z]?([A-Za-z]*?)$", x)
 }
 
@@ -161,7 +161,7 @@ isCamelCase <- function(x) {
 #' isPascalCase("pascalCase") # returns FALSE
 #' isPascalCase("Pascalcase") # returns TRUE
 isPascalCase <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     grepl("^[A-Z]+[a-z]?([A-Za-z]*?)$", x)
 }
 
@@ -189,8 +189,8 @@ isPascalCase <- function(x) {
 #'
 isSnakeCase <- function(x, strict = TRUE) {
 
-    assertthat::assert_that(is.character(x))
-    assertthat::assert_that(assertthat::is.flag(strict))
+    assert_that(is.character(x))
+    assert_that(is.flag(strict))
 
     grepl(
         ifelse(
@@ -217,7 +217,7 @@ isSnakeCase <- function(x, strict = TRUE) {
 #' # Check if 'b' is a vowel
 #' isVowel("b")
 isVowel <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     tolower(x) %in% c("a", "e", "i", "o", "u")
 }
 
@@ -236,7 +236,7 @@ isVowel <- function(x) {
 #' # Check if "banana" starts with a vowel
 #' startsWithVowel("banana")
 startsWithVowel <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     isVowel(getChar(x, 1))
 }
 
@@ -256,7 +256,7 @@ startsWithVowel <- function(x) {
 #' # Prepend an indefinite article to "banana"
 #' prependIndefArticle("banana")
 prependIndefArticle <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     paste0("a", ifelse(startsWithVowel(x), "n", ""), " ", x)
 }
 
@@ -277,7 +277,7 @@ pia <- prependIndefArticle
 #' # Remove spaces from "hello world"
 #' stripSpaces("hello world")
 stripSpaces <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     gsub(" ", "", x)
 }
 
@@ -299,9 +299,9 @@ stripSpaces <- function(x) {
 #' closestWord("hello", c("hallo", "hullo", "hey"))
 closestWord <- function(s, strset, distFunc = utils::adist) {
 
-    assertthat::assert_that(is.character(s))
-    assertthat::assert_that(is.character(strset))
-    assertthat::assert_that(
+    assert_that(is.character(s))
+    assert_that(is.character(strset))
+    assert_that(
         is.function(distFunc) && (length(formals(distFunc)) >= 2)
     )
 

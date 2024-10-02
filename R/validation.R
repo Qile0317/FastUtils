@@ -5,7 +5,7 @@
 #' function is intended to slightly simplify cases where a long list of
 #' complex and convoluted predetermined checks are needed. For simpler cases
 #' like type checking, it is recommended to use [stopifnot()] or
-#' [assertthat::assert_that()].
+#' [assert_that()].
 #'
 #' @param obj The object to validate.
 #' @param checks A single function or list of functions, each taking the object

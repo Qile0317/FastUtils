@@ -39,8 +39,8 @@ initTestthat <- function(
     ignore = NULL
 ) {
 
-    assertthat::assert_that(is.character(rDir) && is.character(testDir))
-    assertthat::assert_that(is.null(ignore) || is.character(ignore))
+    assert_that(is.character(rDir) && is.character(testDir))
+    assert_that(is.null(ignore) || is.character(ignore))
 
     if (!dir.exists(testDir)) usethis::use_testthat()
     ignoreRegex <- encloseBr(paste(append(.ignore, ignore), collapse = ")|("))

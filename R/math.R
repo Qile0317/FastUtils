@@ -46,13 +46,13 @@ isBound <- function(num, lowerbound, upperbound) {
 }
 
 .assertNumAndBoundsAreValid <- function(num, lowerbound, upperbound) {
-    assertthat::assert_that(is.numeric(num))
-    assertthat::assert_that(is.numeric(lowerbound))
-    assertthat::assert_that(
+    assert_that(is.numeric(num))
+    assert_that(is.numeric(lowerbound))
+    assert_that(
         length(lowerbound) == 1 || length(lowerbound) == length(num)
     )
-    assertthat::assert_that(is.numeric(upperbound))
-    assertthat::assert_that(
+    assert_that(is.numeric(upperbound))
+    assert_that(
         length(upperbound) == 1 || length(upperbound) == length(num)
     )
 }

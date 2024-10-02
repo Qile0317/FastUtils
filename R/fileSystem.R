@@ -22,7 +22,7 @@
 #'
 listFiles <- function(dirPath, ...) {
 
-    assertthat::assert_that(assertthat::is.string(dirPath))
+    assert_that(is.string(dirPath))
 
     filesAndDirs <- base::do.call(
         list.files,

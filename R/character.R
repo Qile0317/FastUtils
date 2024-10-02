@@ -20,9 +20,9 @@
 #' substrEnd("12345", 2, 3)
 #'
 substrEnd <- function(x, start, endDiff) {
-    assertthat::assert_that(is.character(x))
-    assertthat::assert_that(is.numeric(start))
-    assertthat::assert_that(is.numeric(endDiff))
+    assert_that(is.character(x))
+    assert_that(is.numeric(start))
+    assert_that(is.numeric(endDiff))
     substr(x, start, nchar(x) - endDiff)
 }
 
@@ -41,9 +41,9 @@ substrEnd <- function(x, start, endDiff) {
 #' @examples
 #' enclose("text", "[", "]") # returns "[text]"
 enclose <- function(x, left, right) {
-    assertthat::assert_that(is.character(x))
-    assertthat::assert_that(is.character(left))
-    assertthat::assert_that(is.character(right))
+    assert_that(is.character(x))
+    assert_that(is.character(left))
+    assert_that(is.character(right))
     paste0(left, x, right)
 }
 
@@ -59,7 +59,7 @@ enclose <- function(x, left, right) {
 #' @examples
 #' encloseBr("text") # returns "(text)"
 encloseBr <- function(x) {
-    assertthat::assert_that(is.character(x))
+    assert_that(is.character(x))
     enclose(x, "(", ")")
 }
 
@@ -81,8 +81,8 @@ encloseBr <- function(x) {
 #' getChar("hello", 2)
 getChar <- function(x, index) {
 
-    assertthat::assert_that(is.character(x))
-    assertthat::assert_that(
+    assert_that(is.character(x))
+    assert_that(
         is.numeric(index) && (length(index) == length(x) || length(index) == 1)
     )
 
