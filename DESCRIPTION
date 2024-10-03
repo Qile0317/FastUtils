@@ -23,7 +23,8 @@ Imports:
     Rcpp (>= 1.0.12),
     rlang,
     testthat,
-    usethis
+    usethis,
+    R.utils
 LinkingTo: Rcpp
 Suggests:
     covr,

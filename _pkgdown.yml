@@ -43,6 +43,8 @@ reference:
 - contents: has_keyword("packageDevelopment")
 - title: Package Loading
 - contents: has_keyword("packageLoading")
+- title: Research
+- contents: has_keyword("research")
 - title: Regex
 - contents: has_keyword("regex")
 - title: Spelling

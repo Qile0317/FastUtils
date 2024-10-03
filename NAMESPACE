@@ -3,6 +3,7 @@
 S3method(getfirst,default)
 S3method(getlast,default)
 export(add)
+export(archiveCleanedPackage)
 export(bound)
 export(closestWord)
 export(colToRownames)
