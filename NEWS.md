@@ -1,5 +1,9 @@
 # FastUtils (development version)
 
+## Additions
+
+- Add `setIndex()`, `setCol()`, `setRow()`, `setAt()` as chainable functional aliases to `[<-`
+
 # FastUtils 0.2.1
 
 ## Additions
