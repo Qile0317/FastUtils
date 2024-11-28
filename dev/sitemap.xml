@@ -9,7 +9,6 @@
 <url><loc>https://qile0317.github.io/FastUtils/dev/news/index.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/FastUtils-package.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/add.html</loc></url>
-<url><loc>https://qile0317.github.io/FastUtils/dev/reference/archiveCleanedPackage.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/bound.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/closestWord.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/colToRownames.html</loc></url>
@@ -57,8 +56,12 @@
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/rmByName.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/rownamesToCol.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/scaleHex.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/dev/reference/setAt.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/dev/reference/setCol.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/setColnames.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/dev/reference/setIndex.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/setNames.html</loc></url>
+<url><loc>https://qile0317.github.io/FastUtils/dev/reference/setRow.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/setRownames.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/splitCamel.html</loc></url>
 <url><loc>https://qile0317.github.io/FastUtils/dev/reference/splitSnake.html</loc></url>
