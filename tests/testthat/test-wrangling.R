@@ -87,3 +87,13 @@ test_that("rownamesToCol works with different column names", {
     expect_equal(result$NewID, c("X", "Y", "Z"))
     expect_equal(result$Value, c(10, 20, 30))
 })
+
+test_that("rowDiff works", {
+    expect_equal(
+        rowDiff(mtcars, mtcars), mtcars[0, ]
+    )
+
+    expect_equal(
+        rowDiff(mtcars, mtcars[1:10, ]), mtcars[11:nrow(mtcars), ]
+    )
+})

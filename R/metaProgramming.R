@@ -2,6 +2,8 @@
 #'
 #' This function evaluates a string as R code, and stops if an error occurs.
 #' This can be useful for evaluating code that is generated dynamically.
+#' However, usually the best and most secure practice is to use quasi-quotation
+#' instead.
 #'
 #' @param ... the R code to evaluate as characters. Will be joined when
 #' evaluating.
@@ -30,4 +32,5 @@ evalText <- function(..., envir = parent.frame()) {
             )
         }
     )
+
 }

@@ -184,6 +184,8 @@ setNames <- function(object, newNames) {
 #' `subMap`. Default is list("\\+" = "plus").
 #' @param unique A logical indicating whether to ensure unique column names by
 #' appending a suffix if necessary. Default is FALSE.
+#' @param verbose A logical indicating whether to show any messages in the
+#' terminal if any colnames were changed.
 #'
 #' @return The data frame or matrix with fixed column names.
 #' @export
@@ -209,15 +211,21 @@ fixColnames <- function(
         "&+" = "and",
         "@+" = "at"
     ),
-    unique = FALSE
+    unique = FALSE,
+    verbose = TRUE
 ) {
 
-    assert_that(is.string(invalidRegex))
-    assert_that(is.string(spacing))
+    assert_that(
+        is.string(invalidRegex),
+        is.string(spacing),
+        is.list(subMap),
+        is.list(.subMap),
+        is.flag(unique),
+        is.flag(verbose)
+    )
 
     subMap <- append(subMap, .subMap)
 
-    # Apply all substitutions from the substitution maps
     newColnames <- colnames(object)
     for (pattern in names(subMap)) {
         replacement <- subMap[[pattern]]
@@ -234,7 +242,43 @@ fixColnames <- function(
         gsubr("_+", "_") %>%
         (function(x) if (unique) make.unique(x, sep = spacing) else x)
 
-    # Assign the new column names to the object
+    if (verbose) waldo::compare(colnames(object), newColnames)
     colnames(object) <- newColnames
     object
+}
+
+#' Returns rows that are different between two data frames
+#'
+#' @description
+#' `r lifecycle::badge("experimental")`
+#'
+#' This function compares two data frames and returns the rows that are
+#' different between them. The function assumes that the data frames have
+#' the same column names and types and errors/has undefined behaviour
+#' otherwise.
+#'
+#' @param df1 A data frame.
+#' @param df2 A data frame.
+#'
+#' @return A data frame containing the rows that are different between
+#' the two data frames. Note that rownames are removed. If there
+#' are no differences, the function returns a
+#' row-less data frame with the same column names.
+#' @export
+#' @keywords wrangling
+#' @examples
+#' rowDiff(mtcars[1:10, ], mtcars[5:15, ])
+rowDiff <- function(df1, df2) {
+
+    assert_that(
+        is.data.frame(df1),
+        is.data.frame(df2),
+        identical(colnames(df1), colnames(df2))
+    )
+    
+    df1 %>%
+        dplyr::bind_rows(df2) %>%
+        dplyr::distinct() %>%
+        dplyr::anti_join(df1) %>%
+        dplyr::anti_join(df2)
 }

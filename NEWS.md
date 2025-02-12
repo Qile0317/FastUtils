@@ -2,7 +2,12 @@
 
 ## Additions
 
-- Add `setIndex()`, `setCol()`, `setRow()`, `setAt()` as chainable functional aliases to `[<-`
+- Add `setIndex()`, `setCol()`, `setRow()`, `setAt()` as chainable functional aliases to various argument permuatations of the generic `[<-`
+- Added `verbose` argument to `fixColnames`
+
+## Changes
+
+- import waldo for diff messages
 
 # FastUtils 0.2.1
 

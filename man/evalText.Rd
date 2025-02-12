@@ -19,6 +19,8 @@ the result of the evaluation
 \description{
 This function evaluates a string as R code, and stops if an error occurs.
 This can be useful for evaluating code that is generated dynamically.
+However, usually the best and most secure practice is to use quasi-quotation
+instead.
 }
 \examples{
 # Set names of a vector

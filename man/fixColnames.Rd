@@ -11,7 +11,8 @@ fixColnames(
   subMap = NULL,
   .subMap = list(`\%+` = "pct", `\\\\$+` = "dollars", `\\\\++` = "plus", `-+` = "minus",
     `\\\\*+` = "star", `#+` = "cnt", `&+` = "and", `@+` = "at"),
-  unique = FALSE
+  unique = FALSE,
+  verbose = TRUE
 )
 }
 \arguments{
@@ -33,6 +34,9 @@ values are the replacement strings. These substitutions are applied after
 
 \item{unique}{A logical indicating whether to ensure unique column names by
 appending a suffix if necessary. Default is FALSE.}
+
+\item{verbose}{A logical indicating whether to show any messages in the
+terminal if any colnames were changed.}
 }
 \value{
 The data frame or matrix with fixed column names.
