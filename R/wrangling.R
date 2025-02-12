@@ -29,7 +29,7 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
     rownames(df) <- make.unique(as.character(df[[col]]), .uniqueSep)
     if (isTRUE(.remove)) df[[col]] <- NULL
     df
-}
+} # perhaps this should be deprecated or rerouted in favor of mutateToRownames
 
 #' Mutate columns to Row Names
 #'
@@ -54,9 +54,19 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
 #' @examples
 #' library(dplyr)
 #'
+#' # if you just wish to make a column (`wt`) into a rowname:
+#' mtcars %>%
+#'     head() %>%
+#'     mutateToRownames(wt)
+#'
+#' # simple example of using tidy evaluation
 #' mtcars %>%
 #'     head() %>%
 #'     mutateToRownames(wt + 3*vs)
+#'
+#' # use .remove = TRUE to get rid of the column if unneeded
+#' mtcars %>%
+#'     mutateToRownames(qsec + (gear / carb) * wt, .remove = TRUE)
 #'
 mutateToRownames <- function(.data, expr, .remove = FALSE, .uniqueSep = ".") {
 

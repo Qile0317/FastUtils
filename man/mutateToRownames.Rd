@@ -31,9 +31,19 @@ evaluation expression.
 \examples{
 library(dplyr)
 
+# if you just wish to make a column (`wt`) into a rowname:
+mtcars \%>\%
+    head() \%>\%
+    mutateToRownames(wt)
+
+# simple example of using tidy evaluation
 mtcars \%>\%
     head() \%>\%
     mutateToRownames(wt + 3*vs)
+
+# use .remove = TRUE to get rid of the column if unneeded
+mtcars \%>\%
+    mutateToRownames(qsec + (gear / carb) * wt, .remove = TRUE)
 
 }
 \keyword{wrangling}
