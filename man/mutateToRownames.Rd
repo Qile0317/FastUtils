@@ -12,8 +12,8 @@ mutateToRownames(.data, expr, .remove = FALSE, .uniqueSep = ".")
 \item{expr}{A tidy evaluation expression specifying the columns to use for
 the new row names.}
 
-\item{.remove}{A logical indicating whether to remove the selected columns.
-Default is FALSE. Note that columns are detected with \code{\link[=all.vars]{all.vars()}}.}
+\item{.remove}{A logical indicating whether to remove the columns used in
+\code{expr}. Default is FALSE. Note that columns are detected with \code{\link[=all.vars]{all.vars()}}.}
 
 \item{.uniqueSep}{A character string to separate duplicate row names when
 ensuring uniqueness

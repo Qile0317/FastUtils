@@ -42,8 +42,8 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
 #' @param .data A data frame.
 #' @param expr A tidy evaluation expression specifying the columns to use for
 #' the new row names.
-#' @param .remove A logical indicating whether to remove the selected columns.
-#' Default is FALSE. Note that columns are detected with [all.vars()].
+#' @param .remove A logical indicating whether to remove the columns used in
+#' `expr`. Default is FALSE. Note that columns are detected with [all.vars()].
 #' @param .uniqueSep A character string to separate duplicate row names when
 #' ensuring uniqueness
 #' with [make.unique()]. Default is ".".
@@ -69,7 +69,7 @@ mutateToRownames <- function(.data, expr, .remove = FALSE, .uniqueSep = ".") {
         as.character() %>%
         make.unique(.uniqueSep)
     if (isFALSE(.remove)) return(.data)
-    .data %>% dplyr::select(-dplyr::one_of(all.vars(colExpr)))
+    .data %>% dplyr::select(-dplyr::all_of(all.vars(colExpr)))
 }
 
 #' Convert Row Names to a Column

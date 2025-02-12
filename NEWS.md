@@ -8,6 +8,7 @@
 ## Changes
 
 - import waldo for diff messages
+- potential bugfix for the behaviour of `mutateToRownames(.remove=TRUE)`
 
 # FastUtils 0.2.1
 
