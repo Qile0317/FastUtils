@@ -13,7 +13,7 @@ mutateToRownames(.data, expr, .remove = FALSE, .uniqueSep = ".")
 the new row names.}
 
 \item{.remove}{A logical indicating whether to remove the selected columns.
-Default is FALSE.}
+Default is FALSE. Note that columns are detected with \code{\link[=all.vars]{all.vars()}}.}
 
 \item{.uniqueSep}{A character string to separate duplicate row names when
 ensuring uniqueness

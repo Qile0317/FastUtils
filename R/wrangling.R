@@ -43,7 +43,7 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
 #' @param expr A tidy evaluation expression specifying the columns to use for
 #' the new row names.
 #' @param .remove A logical indicating whether to remove the selected columns.
-#' Default is FALSE.
+#' Default is FALSE. Note that columns are detected with [all.vars()].
 #' @param .uniqueSep A character string to separate duplicate row names when
 #' ensuring uniqueness
 #' with [make.unique()]. Default is ".".
@@ -59,6 +59,11 @@ colToRownames <- function(df, col, .remove = TRUE, .uniqueSep = ".") {
 #'     mutateToRownames(wt + 3*vs)
 #'
 mutateToRownames <- function(.data, expr, .remove = FALSE, .uniqueSep = ".") {
+
+    assert_that(
+        is.data.frame(.data), is.flag(.remove), is.character(.uniqueSep)
+    )
+
     colExpr <- rlang::enquo(expr)
     rownames(.data) <- dplyr::mutate(.data, .rowname = !!colExpr)$.rowname %>%
         as.character() %>%
