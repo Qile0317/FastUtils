@@ -246,39 +246,3 @@ fixColnames <- function(
     colnames(object) <- newColnames
     object
 }
-
-#' Returns rows that are different between two data frames
-#'
-#' @description
-#' `r lifecycle::badge("experimental")`
-#'
-#' This function compares two data frames and returns the rows that are
-#' different between them. The function assumes that the data frames have
-#' the same column names and types and errors/has undefined behaviour
-#' otherwise.
-#'
-#' @param df1 A data frame.
-#' @param df2 A data frame.
-#'
-#' @return A data frame containing the rows that are different between
-#' the two data frames. Note that rownames are removed. If there
-#' are no differences, the function returns a
-#' row-less data frame with the same column names.
-#' @export
-#' @keywords wrangling
-#' @examples
-#' rowDiff(mtcars[1:10, ], mtcars[5:15, ])
-rowDiff <- function(df1, df2) {
-
-    assert_that(
-        is.data.frame(df1),
-        is.data.frame(df2),
-        identical(colnames(df1), colnames(df2))
-    )
-    
-    df1 %>%
-        dplyr::bind_rows(df2) %>%
-        dplyr::distinct() %>%
-        dplyr::anti_join(df1) %>%
-        dplyr::anti_join(df2)
-}
