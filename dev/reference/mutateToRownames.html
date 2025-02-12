@@ -98,6 +98,19 @@ with <code><a href="https://rdrr.io/r/base/make.unique.html" class="external-lin
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># if you just wish to make a column (`wt`) into a rowname:</span></span></span>
+<span class="r-in"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>    <span class="fu">mutateToRownames</span><span class="op">(</span><span class="va">wt</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        mpg cyl disp  hp drat    wt  qsec vs am gear carb</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.62  21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.875 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2.32  22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3.215 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3.44  18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3.46  18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># simple example of using tidy evaluation</span></span></span>
 <span class="r-in"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>    <span class="fu">mutateToRownames</span><span class="op">(</span><span class="va">wt</span> <span class="op">+</span> <span class="fl">3</span><span class="op">*</span><span class="va">vs</span><span class="op">)</span></span></span>
@@ -108,6 +121,43 @@ with <code><a href="https://rdrr.io/r/base/make.unique.html" class="external-lin
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6.215 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3.44  18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6.46  18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># use .remove = TRUE to get rid of the column if unneeded</span></span></span>
+<span class="r-in"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>    <span class="fu">mutateToRownames</span><span class="op">(</span><span class="va">qsec</span> <span class="op">+</span> <span class="op">(</span><span class="va">gear</span> <span class="op">/</span> <span class="va">carb</span><span class="op">)</span> <span class="op">*</span> <span class="va">wt</span>, .remove <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   mpg cyl  disp  hp drat vs am</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19.08            21.0   6 160.0 110 3.90  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19.895           21.0   6 160.0 110 3.90  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27.89            22.8   4 108.0  93 3.85  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29.085           21.4   6 258.0 110 3.08  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.18            18.7   8 360.0 175 3.15  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30.6             18.1   6 225.0 105 2.76  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18.5175          14.3   8 360.0 245 3.21  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26.38            24.4   4 146.7  62 3.69  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29.2             22.8   4 140.8  95 3.92  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.74            19.2   6 167.6 123 3.92  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.34            17.8   6 167.6 123 3.92  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.47            16.4   8 275.8 180 3.07  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.33            17.3   8 275.8 180 3.07  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.78            15.2   8 275.8 180 3.07  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.9175          10.4   8 472.0 205 2.93  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.888           10.4   8 460.0 215 3.00  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.42875         14.7   8 440.0 230 3.23  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28.27            32.4   4  78.7  66 4.08  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21.75            30.4   4  75.7  52 4.93  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27.24            33.9   4  71.1  65 4.22  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27.405           21.5   4 120.1  97 3.70  1  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.15            15.5   8 318.0 150 2.76  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.4525          15.2   8 304.0 150 3.15  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18.29            13.3   8 350.0 245 3.73  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.8175          19.2   8 400.0 175 3.08  0  0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26.64            27.3   4  79.0  66 4.08  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22.05            26.0   4 120.3  91 4.43  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20.6825          30.4   4  95.1 113 3.77  1  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18.4625          15.8   8 351.0 264 4.22  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17.8083333333333 19.7   6 145.0 175 3.62  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16.83125         15.0   8 301.0 335 3.54  0  1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24.16            21.4   4 121.0 109 4.11  1  1</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
